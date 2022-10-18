@@ -81,8 +81,8 @@
     - 참고: [https://doublesprogramming.tistory.com/256](https://doublesprogramming.tistory.com/256)
     - [종류] 메시지 - #이슈번호
     - 예시
-        - [Feat] todo-list 회원 API 엔티티 구현 - #2
-        - [Fix] todo-list 회원 단건 조회 서비스 에러 수정 - #2
+        - [Feat] TodoList TableView 구현 - #2
+        - [Fix] TodoList Userdefault 키값 수정 - #3
     <br><br>
 - `PR 규칙`
     - PR 템플릿
