@@ -19,4 +19,9 @@ struct K {
         static let shareIcon = "square.and.arrow.up"
         static let settingsIcon = "gearshape"
     }
+    
+    // MARK: - Images
+    struct Image {
+        static let profilePlaceholder = "ProfilePlaceholder"
+    }
 }

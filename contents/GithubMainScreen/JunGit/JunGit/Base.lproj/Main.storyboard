@@ -89,7 +89,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-70-mSC" userLabel="Profile Header View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6y-Aq-hxl" userLabel="Profile Image View">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Q6y-Aq-hxl" userLabel="Profile Image View">
                                                                                 <rect key="frame" x="12" y="8" width="64" height="64"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="Q6y-Aq-hxl" secondAttribute="height" multiplier="1:1" id="LAz-7i-d99"/>
@@ -236,6 +236,7 @@
                     <view key="view" contentMode="scaleToFill" id="v1E-72-5Uc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="U29-Re-Aqa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -250,6 +251,7 @@
                     <view key="view" contentMode="scaleToFill" id="eL7-Rj-hap">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="yyP-qd-hm1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -259,6 +261,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ProfilePlaceholder" width="64" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
