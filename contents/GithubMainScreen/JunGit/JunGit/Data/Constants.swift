@@ -12,10 +12,16 @@ struct K {
     // MARK: - Commons
     static let userName: String = "StanSign"
     
+    // MARK: - File Names
+    struct FileName {
+        static let ProfileBioView = "ProfileBioView"
+    }
+    
     // MARK: - Identifiers
     
     // MARK: - Icons
     struct Icon {
+        static let undefined = "questionmark.square"
         static let shareIcon = "square.and.arrow.up"
         static let settingsIcon = "gearshape"
     }

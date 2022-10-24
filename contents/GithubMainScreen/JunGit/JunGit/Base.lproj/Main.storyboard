@@ -83,7 +83,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0R-On-WoP" userLabel="Profile View">
                                                         <rect key="frame" x="0.0" y="54" width="393" height="354.33333333333331"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-sX-Agi" userLabel="Profile Stack View">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-sX-Agi" userLabel="Profile Stack View">
                                                                 <rect key="frame" x="12" y="0.0" width="369" height="354.33333333333331"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-70-mSC" userLabel="Profile Header View">
@@ -124,7 +124,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-eg-Mv9" userLabel="Profile Message View">
-                                                                        <rect key="frame" x="0.0" y="127.33333333333334" width="369" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="117.33333333333334" width="369" height="50"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample text." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-Qj-Jzm" userLabel="Profile Message Label">
                                                                                 <rect key="frame" x="0.0" y="4" width="369" height="42"/>
@@ -144,28 +144,28 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c1B-Go-1jf" userLabel="Profile Bio Stack View">
-                                                                        <rect key="frame" x="0.0" y="224.33333333333331" width="369" height="130"/>
+                                                                        <rect key="frame" x="0.0" y="204.33333333333331" width="369" height="150"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile bio label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d8-74-vif" userLabel="Profile Bio Label">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="369" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="369" height="50"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="30" id="7Uy-dX-7V6"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="7Uy-dX-7V6"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-fG-ddU" userLabel="Bio Line 1">
-                                                                                <rect key="frame" x="0.0" y="30" width="369" height="25"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-fG-ddU" userLabel="Bio Line 1">
+                                                                                <rect key="frame" x="0.0" y="50" width="369" height="25"/>
                                                                                 <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-gc-xlF" userLabel="Workplace" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="25"/>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-gc-xlF" userLabel="Workplace" customClass="ProfileDetailsView" customModule="JunGit" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="25"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="25" id="MR3-JW-p0G"/>
                                                                                         </constraints>
                                                                                     </view>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-4v-eWC" userLabel="Location" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-4v-eWC" userLabel="Location" customClass="ProfileDetailsView" customModule="JunGit" customModuleProvider="target">
                                                                                         <rect key="frame" x="184.66666666666663" y="0.0" width="184.33333333333337" height="25"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
@@ -177,23 +177,23 @@
                                                                                     <constraint firstAttribute="height" constant="25" id="Rca-Dh-PEr"/>
                                                                                 </constraints>
                                                                             </stackView>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-P8-bMX" userLabel="Link" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="55" width="369" height="25"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-P8-bMX" userLabel="Link" customClass="ProfileDetailsView" customModule="JunGit" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="75" width="369" height="25"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="25" id="RZ7-8S-caT"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syi-7w-Pq4" userLabel="Email" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="80" width="369" height="25"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syi-7w-Pq4" userLabel="Email" customClass="ProfileDetailsView" customModule="JunGit" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="100" width="369" height="25"/>
                                                                                 <viewLayoutGuide key="safeArea" id="i8A-E6-I6a"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="25" id="VVZ-hW-05b"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sob-g1-0Es" userLabel="Follows" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="105" width="369" height="25"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sob-g1-0Es" userLabel="Follows" customClass="ProfileDetailsView" customModule="JunGit" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="125" width="369" height="25"/>
                                                                                 <viewLayoutGuide key="safeArea" id="3m6-Qg-1X5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
@@ -208,7 +208,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="yPW-sX-Agi" firstAttribute="leading" secondItem="I0R-On-WoP" secondAttribute="leading" constant="12" id="9eM-Dw-ee2"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="C26-m2-JNk"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="C26-m2-JNk"/>
                                                             <constraint firstAttribute="bottom" secondItem="yPW-sX-Agi" secondAttribute="bottom" id="FsV-xp-6bJ"/>
                                                             <constraint firstAttribute="trailing" secondItem="yPW-sX-Agi" secondAttribute="trailing" constant="12" id="UY3-pG-tmH"/>
                                                             <constraint firstItem="yPW-sX-Agi" firstAttribute="top" secondItem="I0R-On-WoP" secondAttribute="top" id="pbX-Wd-TDn"/>
@@ -274,6 +274,11 @@
                         <outlet property="scrollView" destination="wdS-fW-sgy" id="pTE-Pz-rmv"/>
                         <outlet property="settingButton" destination="rJE-Dj-0mL" id="s0n-zq-9Bn"/>
                         <outlet property="shareButton" destination="Pbt-Ba-1Xx" id="gcW-T0-6UY"/>
+                        <outletCollection property="profileDetails" destination="7ns-gc-xlF" collectionClass="NSMutableArray" id="aNC-gw-Ncm"/>
+                        <outletCollection property="profileDetails" destination="SSu-4v-eWC" collectionClass="NSMutableArray" id="dzR-Xh-Oin"/>
+                        <outletCollection property="profileDetails" destination="AbO-P8-bMX" collectionClass="NSMutableArray" id="x7F-kH-WKN"/>
+                        <outletCollection property="profileDetails" destination="Syi-7w-Pq4" collectionClass="NSMutableArray" id="bih-S0-RXt"/>
+                        <outletCollection property="profileDetails" destination="sob-g1-0Es" collectionClass="NSMutableArray" id="lNF-p6-78j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

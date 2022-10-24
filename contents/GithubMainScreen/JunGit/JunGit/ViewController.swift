@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     // Profile Message
     @IBOutlet weak var profileMessageLabel: UILabel!
     
+    @IBOutlet var profileDetails: [ProfileDetailsView]!
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -51,5 +53,10 @@ private extension ViewController {
         self.shareButton.setImage(
             UIImage(systemName: K.Icon.shareIcon),
             for: .normal)
+        
+        for (index, view) in self.profileDetails.enumerated() {
+            view.iconImageView.image = UIImage(systemName: ProfileData.icons[index])
+            view.textLabel.text = ProfileData.datas[index]
+        }
     }
 }
