@@ -158,14 +158,14 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-fG-ddU" userLabel="Bio Line 1">
                                                                                 <rect key="frame" x="0.0" y="30" width="369" height="25"/>
                                                                                 <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-gc-xlF" userLabel="Workplace">
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-gc-xlF" userLabel="Workplace" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="25"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="25" id="MR3-JW-p0G"/>
                                                                                         </constraints>
                                                                                     </view>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-4v-eWC" userLabel="Location">
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-4v-eWC" userLabel="Location" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
                                                                                         <rect key="frame" x="184.66666666666663" y="0.0" width="184.33333333333337" height="25"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
@@ -177,14 +177,14 @@
                                                                                     <constraint firstAttribute="height" constant="25" id="Rca-Dh-PEr"/>
                                                                                 </constraints>
                                                                             </stackView>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-P8-bMX" userLabel="Link">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-P8-bMX" userLabel="Link" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="55" width="369" height="25"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="25" id="RZ7-8S-caT"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syi-7w-Pq4" userLabel="Email">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syi-7w-Pq4" userLabel="Email" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="80" width="369" height="25"/>
                                                                                 <viewLayoutGuide key="safeArea" id="i8A-E6-I6a"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +192,7 @@
                                                                                     <constraint firstAttribute="height" constant="25" id="VVZ-hW-05b"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sob-g1-0Es" userLabel="Follows">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sob-g1-0Es" userLabel="Follows" customClass="ProfileBioView" customModule="JunGit" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="105" width="369" height="25"/>
                                                                                 <viewLayoutGuide key="safeArea" id="3m6-Qg-1X5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
