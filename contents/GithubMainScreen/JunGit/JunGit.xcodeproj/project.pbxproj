@@ -63,7 +63,7 @@
 				2E0A7EC228FFEC37004C1E72 /* SceneDelegate.swift */,
 				2E0A7EC428FFEC37004C1E72 /* ViewController.swift */,
 				2E0A7EC628FFEC37004C1E72 /* Main.storyboard */,
-				2E0A7EC928FFEC37004C1E72 /* Assets.xcassets */,
+				2ED6478A2906591E00CB41C9 /* Resources */,
 				2E0A7ECB28FFEC37004C1E72 /* LaunchScreen.storyboard */,
 				2E0A7ECE28FFEC37004C1E72 /* Info.plist */,
 			);
@@ -76,6 +76,14 @@
 				2ED6478829063C1900CB41C9 /* Constants.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		2ED6478A2906591E00CB41C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2E0A7EC928FFEC37004C1E72 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
