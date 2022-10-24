@@ -13,11 +13,16 @@ class ViewController: UIViewController {
     
     // Scroll View
     @IBOutlet weak var scrollView: UIScrollView!
-    
     // Navigation Bar
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    // Profile Header
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var profileIdLabel: UILabel!
+    // Profile Message
+    @IBOutlet weak var profileMessageLabel: UILabel!
     
     // MARK: - Life Cycle
     
