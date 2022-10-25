@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-cJ-WWZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="879.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="615.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-wC-Dsj">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="879.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="615.66666666666663"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-dJ-xPB" userLabel="Navigation View">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -183,20 +183,8 @@
                                                             <constraint firstAttribute="trailing" secondItem="yPW-sX-Agi" secondAttribute="trailing" constant="20" id="UY3-pG-tmH"/>
                                                         </constraints>
                                                     </view>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIt-Yi-LNF">
-                                                        <rect key="frame" x="0.0" y="487.66666666666663" width="393" height="128"/>
-                                                        <connections>
-                                                            <segue destination="Kmo-FN-4q3" kind="embed" id="84R-HU-MdZ"/>
-                                                        </connections>
-                                                    </containerView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GA-Qa-eVK">
-                                                        <rect key="frame" x="0.0" y="619.66666666666663" width="393" height="128"/>
-                                                        <connections>
-                                                            <segue destination="IIe-1A-92w" kind="embed" id="CGo-Ov-da5"/>
-                                                        </connections>
-                                                    </containerView>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwB-iO-I7G" userLabel="ReadMe View">
-                                                        <rect key="frame" x="0.0" y="751.66666666666663" width="393" height="128"/>
+                                                        <rect key="frame" x="0.0" y="487.66666666666663" width="393" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -236,6 +224,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="icz-cY-ir2"/>
                     <connections>
+                        <outlet property="profileCollectionView" destination="Jad-4x-js2" id="xCs-yp-1KO"/>
                         <outlet property="profileIdLabel" destination="4Ah-ft-X4l" id="fKC-EQ-cOF"/>
                         <outlet property="profileImageView" destination="Q6y-Aq-hxl" id="J1s-Qf-dq3"/>
                         <outlet property="profileLabel" destination="n3p-JF-JdO" id="H3R-bY-NTM"/>
@@ -268,41 +257,10 @@
             </objects>
             <point key="canvasLocation" x="140" y="3.5545023696682461"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="dfe-yE-KD3">
-            <objects>
-                <viewController id="Kmo-FN-4q3" customClass="TableViewController" customModule="JunGit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v1E-72-5Uc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sHh-5Q-9H6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1891" y="-71"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="F3D-yc-ikK">
-            <objects>
-                <viewController id="IIe-1A-92w" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eL7-Rj-hap">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hAL-zy-eKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1891" y="78"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ProfilePlaceholder" width="64" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
