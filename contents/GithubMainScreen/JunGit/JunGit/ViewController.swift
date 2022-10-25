@@ -43,7 +43,12 @@ class ViewController: UIViewController {
 
 // MARK: - UI
 private extension ViewController {
+    
     func configureUI() {
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
         self.profileLabel.text = K.userName
         self.settingButton.setImage(
             UIImage(systemName: K.Icon.settingsIcon),
