@@ -1,19 +1,18 @@
-//
-//  ViewController.swift
-//  GithubMainScreen
-//
-//  Created by 김응철 on 2022/10/26.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
   }
-
-
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct ViewControllerPreView: PreviewProvider {
+  static var previews: some View {
+    ViewController().toPreview()
+  }
+}
+#endif
 
