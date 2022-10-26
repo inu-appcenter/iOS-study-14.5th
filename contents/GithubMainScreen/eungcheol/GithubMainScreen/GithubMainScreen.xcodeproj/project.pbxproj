@@ -12,6 +12,9 @@
 		E51298B82909689E00C3A764 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51298B72909689E00C3A764 /* ViewController.swift */; };
 		E51298BD2909689F00C3A764 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51298BC2909689F00C3A764 /* Assets.xcassets */; };
 		E51298C829096C6000C3A764 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51298C729096C6000C3A764 /* Preview.swift */; };
+		E51298CA2909715B00C3A764 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51298C92909715B00C3A764 /* Symbols.swift */; };
+		E5D7055A2909743200A23251 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E5D705592909743200A23251 /* Then */; };
+		E5D7055C2909F70C00A23251 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7055B2909F70C00A23251 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,8 @@
 		E51298BC2909689F00C3A764 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E51298C12909689F00C3A764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E51298C729096C6000C3A764 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		E51298C92909715B00C3A764 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		E5D7055B2909F70C00A23251 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D7055A2909743200A23251 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +60,24 @@
 		E51298B22909689E00C3A764 /* GithubMainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E56B473E290972E800872B1A /* Base */,
 				E51298B32909689E00C3A764 /* AppDelegate.swift */,
 				E51298B52909689E00C3A764 /* SceneDelegate.swift */,
 				E51298B72909689E00C3A764 /* ViewController.swift */,
-				E51298BC2909689F00C3A764 /* Assets.xcassets */,
 				E51298C12909689F00C3A764 /* Info.plist */,
-				E51298C729096C6000C3A764 /* Preview.swift */,
 			);
 			path = GithubMainScreen;
+			sourceTree = "<group>";
+		};
+		E56B473E290972E800872B1A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E51298C92909715B00C3A764 /* Symbols.swift */,
+				E51298C729096C6000C3A764 /* Preview.swift */,
+				E51298BC2909689F00C3A764 /* Assets.xcassets */,
+				E5D7055B2909F70C00A23251 /* Utilities.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +96,9 @@
 			dependencies = (
 			);
 			name = GithubMainScreen;
+			packageProductDependencies = (
+				E5D705592909743200A23251 /* Then */,
+			);
 			productName = GithubMainScreen;
 			productReference = E51298B02909689E00C3A764 /* GithubMainScreen.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +127,9 @@
 				Base,
 			);
 			mainGroup = E51298A72909689E00C3A764;
+			packageReferences = (
+				E5D705582909743200A23251 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = E51298B12909689E00C3A764 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D7055C2909F70C00A23251 /* Utilities.swift in Sources */,
 				E51298B82909689E00C3A764 /* ViewController.swift in Sources */,
 				E51298B42909689E00C3A764 /* AppDelegate.swift in Sources */,
+				E51298CA2909715B00C3A764 /* Symbols.swift in Sources */,
 				E51298C829096C6000C3A764 /* Preview.swift in Sources */,
 				E51298B62909689E00C3A764 /* SceneDelegate.swift in Sources */,
 			);
@@ -269,6 +293,8 @@
 				INFOPLIST_FILE = GithubMainScreen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -296,6 +322,8 @@
 				INFOPLIST_FILE = GithubMainScreen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -333,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5D705582909743200A23251 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5D705592909743200A23251 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5D705582909743200A23251 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E51298A82909689E00C3A764 /* Project object */;
 }
