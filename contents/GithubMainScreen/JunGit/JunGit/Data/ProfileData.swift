@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Profile {
+enum Profile: CaseIterable {
     case workplace
     case location
     case link
