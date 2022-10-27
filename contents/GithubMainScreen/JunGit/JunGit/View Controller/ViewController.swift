@@ -95,7 +95,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ProfileData.datas.count
+        return Profile.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,17 +104,17 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             for: indexPath) as? ProfileCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.profileLabel.text = ProfileData.datas[indexPath.item]
-        cell.profileIconImageView.image = UIImage(systemName: ProfileData.icons[indexPath.item])
+        cell.profileLabel.text = Profile.allCases[indexPath.item].data
+        cell.profileIconImageView.image = UIImage(systemName: Profile.allCases[indexPath.item].iconImage)
         return cell
     }
-
     
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let item = ProfileData.datas[indexPath.item]
+//        let item = ProfileData.datas[indexPath.item]
+        let item = Profile.allCases[indexPath.item].data
         let iconSize = CGSize(width: 16, height: 16)
         let padding: CGFloat = 8
         let labelSize = item.size(withAttributes: [
