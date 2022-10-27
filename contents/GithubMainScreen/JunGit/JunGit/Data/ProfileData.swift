@@ -8,6 +8,10 @@
 import Foundation
 
 enum Profile: CaseIterable {
+    static var allCases: [Profile] {
+        return [.workplace, .location, .link, .email, .follow(follower: 0, following: 0)]
+    }
+    
     case workplace
     case location
     case link
