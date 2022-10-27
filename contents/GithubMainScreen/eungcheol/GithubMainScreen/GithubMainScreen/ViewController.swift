@@ -51,12 +51,23 @@ final class ViewController: BaseViewController {
         let descriptionView = DescriptionView($0)
         descriptionViews.append(descriptionView)
     }
-    
     descriptionViews.forEach {
       stack.addArrangedSubview($0)
     }
     stack.axis = .vertical
     stack.spacing = 8
+  }
+  
+  private lazy var menuViewStack = UIStackView().then { stack in
+    var menuViews: [MenuView] = []
+    MenuSymbol.allCases.forEach {
+      let menuView = MenuView(symbol: $0)
+      menuViews.append(menuView)
+    }
+    menuViews.forEach {
+      stack.addArrangedSubview($0)
+    }
+    stack.axis = .vertical
   }
   
   // MARK: - LifeCycle
@@ -75,7 +86,7 @@ final class ViewController: BaseViewController {
   override func setupLayouts() {
     view.addSubview(scrollView)
     scrollView.addSubview(contentView)
-    [profileImageView, nameStack, descriptionLabel, descriptionViewStack]
+    [profileImageView, nameStack, descriptionLabel, descriptionViewStack, menuViewStack]
       .forEach { contentView.addSubview($0) }
   }
   
@@ -107,6 +118,11 @@ final class ViewController: BaseViewController {
     descriptionViewStack.snp.makeConstraints { make in
       make.leading.trailing.equalToSuperview()
       make.top.equalTo(descriptionLabel.snp.bottom).offset(16)
+    }
+    
+    menuViewStack.snp.makeConstraints { make in
+      make.top.equalTo(descriptionViewStack.snp.bottom).offset(24)
+      make.leading.trailing.equalToSuperview()
     }
   }
   
