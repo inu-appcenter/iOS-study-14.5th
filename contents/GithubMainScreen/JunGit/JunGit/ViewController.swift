@@ -50,6 +50,7 @@ private extension ViewController {
     
     func configureUI() {
         self.configureNavBar()
+        self.configureProfileStackView()
         self.configureBioCollectionView()
     }
     
@@ -61,6 +62,11 @@ private extension ViewController {
         self.shareButton.setImage(
             UIImage(systemName: K.Icon.shareIcon),
             for: .normal)
+    }
+    
+    func configureProfileStackView() {
+        self.profileStackView.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        self.profileStackView.isLayoutMarginsRelativeArrangement = true
     }
 }
 
