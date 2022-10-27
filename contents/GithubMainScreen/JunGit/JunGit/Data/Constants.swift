@@ -18,6 +18,9 @@ struct K {
     }
     
     // MARK: - Identifiers
+    struct Identifier {
+        static let profileCell: String = "ProfileCell"
+    }
     
     // MARK: - Icons
     struct Icon {

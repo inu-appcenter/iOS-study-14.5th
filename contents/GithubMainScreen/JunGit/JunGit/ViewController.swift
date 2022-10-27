@@ -10,22 +10,26 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - IBOutlets
-    
     // Scroll View
     @IBOutlet weak var scrollView: UIScrollView!
-    // Navigation Bar
+
+    // -- Navigation Bar --
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+
+    // -- Profile --
+    @IBOutlet weak var profileStackView: UIStackView!
     // Profile Header
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileIdLabel: UILabel!
     // Profile Message
     @IBOutlet weak var profileMessageLabel: UILabel!
+    // Profile Collection View
+    @IBOutlet weak var profileCollectionView: UICollectionView!
     
     // MARK: - Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +49,8 @@ class ViewController: UIViewController {
 private extension ViewController {
     
     func configureUI() {
-        configureNavBar()
+        self.configureNavBar()
+        self.configureBioCollectionView()
     }
     
     func configureNavBar() {
@@ -56,5 +61,51 @@ private extension ViewController {
         self.shareButton.setImage(
             UIImage(systemName: K.Icon.shareIcon),
             for: .normal)
+    }
+}
+
+// MARK: - Collection View
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func configureBioCollectionView() {
+        self.profileCollectionView.delegate = self
+        self.profileCollectionView.dataSource = self
+        self.registerNib()
+    }
+    
+    private func registerNib() {
+        let nib = UINib(nibName: "ProfileCollectionViewCell", bundle: nil)
+        self.profileCollectionView.register(nib, forCellWithReuseIdentifier: K.Identifier.profileCell)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return ProfileData.datas.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = self.profileCollectionView.dequeueReusableCell(
+            withReuseIdentifier: K.Identifier.profileCell,
+            for: indexPath) as? ProfileCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.profileLabel.text = ProfileData.datas[indexPath.item]
+        cell.profileIconImageView.image = UIImage(systemName: ProfileData.icons[indexPath.item])
+        return cell
+    }
+
+    
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // TODO: 양끝 정렬 해결
+        let item = ProfileData.datas[indexPath.item]
+        let iconSize = CGSize(width: 16, height: 16)
+        let padding: CGFloat = 12
+        let labelSize = item.size(withAttributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)
+        ])
+        let totalSize = CGSize(width: iconSize.width + padding + labelSize.width, height: 25)
+        return totalSize
     }
 }
