@@ -7,20 +7,40 @@
 
 import Foundation
 
-struct ProfileData {
-    static let icons: [String] = [
-        "building.2",
-        "mappin.and.ellipse",
-        "link",
-        "envelope",
-        "person"
-    ]
+enum Profile {
+    case workplace
+    case location
+    case link
+    case email
+    case follow(follower: Int, following: Int)
     
-    static let datas: [String] = [
-        "Incheon National University",
-        "경기도 부천시",
-        "stansign.github.io",
-        "nomatterjun@gmail.com",
-        "8 followers 15 following"
-    ]
+    var iconImage: String {
+        switch self {
+        case .workplace:
+            return "building.2"
+        case .location:
+            return "mappin.and.ellipse"
+        case .link:
+            return "link"
+        case .email:
+            return "envelope"
+        case .follow(follower: _, following: _):
+            return "person"
+        }
+    }
+    
+    var data: String {
+        switch self {
+        case .workplace:
+            return "Incheon National University"
+        case .location:
+            return "경기도 부천시"
+        case .link:
+            return "stansign.github.io"
+        case .email:
+            return "nomatterjun@gmail.com"
+        case .follow(follower: let follower, following: let following):
+            return "\(follower) followers · \(following) following"
+        }
+    }
 }
