@@ -25,8 +25,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgL-mU-uNb">
-                        <rect key="frame" x="28.000000000000004" y="4" width="35.333333333333343" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="24.000000000000004" y="3.6666666666666661" width="37.333333333333343" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,7 +35,7 @@
             <constraints>
                 <constraint firstItem="3Sm-NP-avA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="B0W-f1-nfL"/>
                 <constraint firstItem="PgL-mU-uNb" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="NSo-NZ-CjY"/>
-                <constraint firstItem="PgL-mU-uNb" firstAttribute="leading" secondItem="3Sm-NP-avA" secondAttribute="trailing" constant="12" id="l4Z-ny-Dsf"/>
+                <constraint firstItem="PgL-mU-uNb" firstAttribute="leading" secondItem="3Sm-NP-avA" secondAttribute="trailing" constant="8" id="l4Z-ny-Dsf"/>
                 <constraint firstItem="3Sm-NP-avA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lYE-M1-ZRR"/>
             </constraints>
             <connections>
