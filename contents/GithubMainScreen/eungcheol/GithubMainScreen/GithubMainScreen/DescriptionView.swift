@@ -30,6 +30,7 @@ final class DescriptionView: UIView {
   private func setupComponents() {
     let imageView = UIImageView()
     imageView.image = UIImage(systemName: symbol.imageName)?.withRenderingMode(.alwaysTemplate)
+    imageView.contentMode = .center
     imageView.tintColor = .darkGray
     self.imageView = imageView
     
@@ -75,6 +76,7 @@ final class DescriptionView: UIView {
     imageView.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
       make.leading.equalToSuperview().inset(16)
+      make.width.height.equalTo(16)
     }
     
     label.snp.makeConstraints { make in
