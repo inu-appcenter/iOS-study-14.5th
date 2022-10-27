@@ -18,6 +18,9 @@
 		E5D70561290A007B00A23251 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D70560290A007B00A23251 /* BaseViewController.swift */; };
 		E5D70563290A485000A23251 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D70562290A485000A23251 /* DescriptionView.swift */; };
 		E5D70566290A494000A23251 /* NavigationSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D70565290A494000A23251 /* NavigationSymbol.swift */; };
+		E5F3FD17290A7D0F00FBA0C4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3FD16290A7D0F00FBA0C4 /* MenuView.swift */; };
+		E5F3FD19290A7D3200FBA0C4 /* MenuSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3FD18290A7D3200FBA0C4 /* MenuSymbol.swift */; };
+		E5F3FD1C290A910F00FBA0C4 /* Extensions+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3FD1B290A910F00FBA0C4 /* Extensions+CALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		E5D70560290A007B00A23251 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E5D70562290A485000A23251 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		E5D70565290A494000A23251 /* NavigationSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSymbol.swift; sourceTree = "<group>"; };
+		E5F3FD16290A7D0F00FBA0C4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E5F3FD18290A7D3200FBA0C4 /* MenuSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSymbol.swift; sourceTree = "<group>"; };
+		E5F3FD1B290A910F00FBA0C4 /* Extensions+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+CALayer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +72,12 @@
 		E51298B22909689E00C3A764 /* GithubMainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E5F3FD1A290A90EC00FBA0C4 /* Extensions */,
 				E5D70564290A490100A23251 /* Symbols */,
 				E56B473E290972E800872B1A /* Base */,
 				E51298B72909689E00C3A764 /* ViewController.swift */,
 				E5D70562290A485000A23251 /* DescriptionView.swift */,
+				E5F3FD16290A7D0F00FBA0C4 /* MenuView.swift */,
 				E51298C12909689F00C3A764 /* Info.plist */,
 			);
 			path = GithubMainScreen;
@@ -92,8 +100,17 @@
 			children = (
 				E51298C92909715B00C3A764 /* DescriptionSymbol.swift */,
 				E5D70565290A494000A23251 /* NavigationSymbol.swift */,
+				E5F3FD18290A7D3200FBA0C4 /* MenuSymbol.swift */,
 			);
 			path = Symbols;
+			sourceTree = "<group>";
+		};
+		E5F3FD1A290A90EC00FBA0C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5F3FD1B290A910F00FBA0C4 /* Extensions+CALayer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +194,9 @@
 				E5D70563290A485000A23251 /* DescriptionView.swift in Sources */,
 				E51298B42909689E00C3A764 /* AppDelegate.swift in Sources */,
 				E5D70566290A494000A23251 /* NavigationSymbol.swift in Sources */,
+				E5F3FD19290A7D3200FBA0C4 /* MenuSymbol.swift in Sources */,
+				E5F3FD1C290A910F00FBA0C4 /* Extensions+CALayer.swift in Sources */,
+				E5F3FD17290A7D0F00FBA0C4 /* MenuView.swift in Sources */,
 				E51298CA2909715B00C3A764 /* DescriptionSymbol.swift in Sources */,
 				E51298C829096C6000C3A764 /* Preview.swift in Sources */,
 				E5D70561290A007B00A23251 /* BaseViewController.swift in Sources */,
