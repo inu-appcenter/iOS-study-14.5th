@@ -51,7 +51,7 @@ private extension ViewController {
     func configureUI() {
         self.configureNavBar()
         self.configureProfileStackView()
-        self.configureBioCollectionView()
+        self.configureProfileCollectionView()
     }
     
     func configureNavBar() {
@@ -73,7 +73,7 @@ private extension ViewController {
 // MARK: - Collection View
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func configureBioCollectionView() {
+    func configureProfileCollectionView() {
         self.profileCollectionView.delegate = self
         self.profileCollectionView.dataSource = self
         self.registerNib()
