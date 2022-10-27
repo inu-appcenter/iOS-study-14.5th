@@ -1,7 +1,7 @@
-enum Symbols {
+enum NavigationSymbol {
   case gear
   case share
-  
+
   var imageName: String {
     switch self {
     case .gear: return "gearshape"
