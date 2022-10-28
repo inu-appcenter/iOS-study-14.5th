@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-cJ-WWZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="494"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="504"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-wC-Dsj">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="494"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="504"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-dJ-xPB" userLabel="Navigation View">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -81,7 +81,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-sX-Agi" userLabel="Profile Stack View">
-                                                        <rect key="frame" x="0.0" y="54" width="393" height="308"/>
+                                                        <rect key="frame" x="0.0" y="54" width="393" height="318"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-70-mSC" userLabel="Profile Header View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
@@ -121,27 +121,43 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-eg-Mv9" userLabel="Profile Message View">
-                                                                <rect key="frame" x="0.0" y="80" width="393" height="50"/>
+                                                                <rect key="frame" x="0.0" y="80" width="393" height="60"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample text." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-Qj-Jzm" userLabel="Profile Message Label">
-                                                                        <rect key="frame" x="0.0" y="4" width="393" height="42"/>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample text." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-Qj-Jzm" userLabel="Profile Status Label" customClass="PaddingLabel" customModule="JunGit" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="10" width="393" height="40"/>
                                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="OEL-7c-KGf"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                                                <real key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="1jk-Hm-Og9"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="1jk-Hm-Og9"/>
                                                                     <constraint firstItem="MXb-Qj-Jzm" firstAttribute="leading" secondItem="HvP-eg-Mv9" secondAttribute="leading" id="Nd9-IB-UfI"/>
-                                                                    <constraint firstItem="MXb-Qj-Jzm" firstAttribute="top" secondItem="HvP-eg-Mv9" secondAttribute="top" constant="4" id="b3p-Ue-yoc"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="MXb-Qj-Jzm" secondAttribute="bottom" constant="4" id="e7r-Rw-53W"/>
+                                                                    <constraint firstItem="MXb-Qj-Jzm" firstAttribute="centerY" secondItem="HvP-eg-Mv9" secondAttribute="centerY" id="W8L-Qb-hoc"/>
                                                                     <constraint firstAttribute="trailing" secondItem="MXb-Qj-Jzm" secondAttribute="trailing" id="efS-Cg-BPU"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile bio label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d8-74-vif" userLabel="Profile Bio Label">
-                                                                <rect key="frame" x="0.0" y="130" width="393" height="50"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile bio label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d8-74-vif" userLabel="Profile Message Label">
+                                                                <rect key="frame" x="0.0" y="140" width="393" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="7Uy-dX-7V6"/>
                                                                 </constraints>
@@ -150,7 +166,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jad-4x-js2">
-                                                                <rect key="frame" x="0.0" y="180" width="393" height="128"/>
+                                                                <rect key="frame" x="0.0" y="190" width="393" height="128"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="h8y-PT-cfv"/>
@@ -162,7 +178,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwB-iO-I7G" userLabel="ReadMe View">
-                                                        <rect key="frame" x="0.0" y="366" width="393" height="128"/>
+                                                        <rect key="frame" x="0.0" y="376" width="393" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -206,9 +222,10 @@
                         <outlet property="profileIdLabel" destination="4Ah-ft-X4l" id="fKC-EQ-cOF"/>
                         <outlet property="profileImageView" destination="Q6y-Aq-hxl" id="J1s-Qf-dq3"/>
                         <outlet property="profileLabel" destination="n3p-JF-JdO" id="H3R-bY-NTM"/>
-                        <outlet property="profileMessageLabel" destination="MXb-Qj-Jzm" id="Hbg-6H-D8I"/>
+                        <outlet property="profileMessageLabel" destination="0d8-74-vif" id="RTC-KH-qg4"/>
                         <outlet property="profileNameLabel" destination="pSL-gf-gOg" id="jcZ-9p-yMO"/>
                         <outlet property="profileStackView" destination="yPW-sX-Agi" id="CPj-hN-Kql"/>
+                        <outlet property="profileStatusLabel" destination="MXb-Qj-Jzm" id="OyE-ek-iwA"/>
                         <outlet property="scrollView" destination="wdS-fW-sgy" id="pTE-Pz-rmv"/>
                         <outlet property="settingButton" destination="rJE-Dj-0mL" id="s0n-zq-9Bn"/>
                         <outlet property="shareButton" destination="Pbt-Ba-1Xx" id="gcW-T0-6UY"/>

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileIdLabel: UILabel!
     // Profile Message
+    @IBOutlet weak var profileStatusLabel: UILabel!
     @IBOutlet weak var profileMessageLabel: UILabel!
     // Profile Collection View
     @IBOutlet weak var profileCollectionView: UICollectionView!
@@ -70,6 +71,9 @@ private extension ViewController {
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width / 2
         self.profileNameLabel.text = K.Profile.userName
         self.profileIdLabel.text = K.Profile.userID
+        self.profileStatusLabel.text = K.Profile.userStatus
+        self.profileStatusLabel.layer.cornerRadius = self.profileStatusLabel.frame.height / 10
+        self.profileMessageLabel.text = K.Profile.userMessage
     }
     
     func configureProfileStackView() {

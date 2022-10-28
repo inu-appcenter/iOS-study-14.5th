@@ -14,6 +14,8 @@ struct K {
         static let userName: String = "이창준"
         static let userID: String = "StanSign"
         static let userImage: String = "ProfileImage"
+        static let userStatus: String = "📱"
+        static let userMessage: String = "2022 졸작 & iOS 부스트"
     }
     
     // MARK: - File Names
