@@ -106,7 +106,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: self.profileCollectionView.bounds.height)
+            constant: self.profileCollectionView.bounds.height + 20)
         NSLayoutConstraint.activate([heightConstraint])
     }
     
