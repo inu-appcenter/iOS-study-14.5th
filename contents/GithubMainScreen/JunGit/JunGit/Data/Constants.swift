@@ -20,8 +20,12 @@ struct K {
     
     // MARK: - File Names
     struct FileName {
+        static let mainStoryboard = "Main"
         static let ProfileBioView = "ProfileBioView"
+        static let menuTableViewController = "MenuTableViewController"
         static let menuTableViewCell = "MenuTableViewCell"
+        static let pinnedCollectionViewController = "PinnedCollectionViewController"
+        static let pinnedCollectionViewCell = "PinnedCollectionViewCell"
     }
     
     // MARK: - Identifiers
@@ -35,6 +39,7 @@ struct K {
         static let undefined = "questionmark.square"
         static let shareIcon = "square.and.arrow.up"
         static let settingsIcon = "gearshape"
+        static let dot = "circle.fill"
     }
     
     // MARK: - Images

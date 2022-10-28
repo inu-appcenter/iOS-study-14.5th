@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var profileMessageLabel: UILabel!
     // Profile Collection View
     @IBOutlet weak var profileCollectionView: UICollectionView!
+    // Menu Table View
+    @IBOutlet weak var tableContainerView: UIView!
+    // Pinned Collection View
+    @IBOutlet weak var pinnedContainerView: UIView!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -54,6 +58,7 @@ private extension ViewController {
         self.configureProfileHeader()
         self.configureProfileStackView()
         self.configureProfileCollectionView()
+        self.configurePinnedContainerView()
     }
     
     func configureNavBar() {
@@ -82,10 +87,24 @@ private extension ViewController {
     }
     
     func configureTableContainerView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as? MenuTableViewController {
-            addChild(vc)
-            view.addSubview(vc.view)
+        let storyboard = UIStoryboard(name: K.FileName.mainStoryboard, bundle: .main)
+        if let vc = storyboard.instantiateViewController(
+            withIdentifier: K.FileName.menuTableViewController) as? MenuTableViewController {
+            self.addChild(vc)
+            self.tableContainerView.addSubview(vc.view)
+            vc.view.frame = self.tableContainerView.bounds
+            vc.didMove(toParent: self)
+        }
+    }
+    
+    func configurePinnedContainerView() {
+        let storyboard = UIStoryboard(name: K.FileName.mainStoryboard, bundle: .main)
+        if let vc = storyboard.instantiateViewController(
+            withIdentifier: K.FileName.pinnedCollectionViewController) as? PinnedCollectionViewController {
+            self.addChild(vc)
+            self.pinnedContainerView.addSubview(vc.view)
+            vc.view.frame = self.pinnedContainerView.bounds
+            vc.collectionView.frame = self.pinnedContainerView.bounds
             vc.didMove(toParent: self)
         }
     }

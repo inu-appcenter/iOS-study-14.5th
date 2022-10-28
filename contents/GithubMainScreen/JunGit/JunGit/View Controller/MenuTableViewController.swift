@@ -16,7 +16,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     // MARK: - UI
-    func configureUI() {
+    private func configureUI() {
         self.configureTableView()
         self.registerNib()
     }
