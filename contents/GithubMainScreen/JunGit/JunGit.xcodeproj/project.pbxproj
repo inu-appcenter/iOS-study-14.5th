@@ -17,6 +17,7 @@
 		2E38620A2906B60E00343053 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3862092906B60E00343053 /* ProfileData.swift */; };
 		2ED56099290AE1E1006F7521 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED56098290AE1E1006F7521 /* ProfileCollectionViewCell.xib */; };
 		2ED5609D290B9F3A006F7521 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5609C290B9F3A006F7521 /* PaddingLabel.swift */; };
+		2ED5609F290BDA1A006F7521 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5609E290BDA1A006F7521 /* String.swift */; };
 		2ED635E929083CF700C50499 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED635E729083CF700C50499 /* ProfileCollectionViewCell.swift */; };
 		2ED6360E290ADCDF00C50499 /* LeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6360D290ADCDF00C50499 /* LeftAlignFlowLayout.swift */; };
 		2ED6478929063C1900CB41C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6478829063C1900CB41C9 /* Constants.swift */; };
@@ -35,6 +36,7 @@
 		2E3862092906B60E00343053 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		2ED56098290AE1E1006F7521 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		2ED5609C290B9F3A006F7521 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		2ED5609E290BDA1A006F7521 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2ED635E729083CF700C50499 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ED6360D290ADCDF00C50499 /* LeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		2ED6478829063C1900CB41C9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				2E3862072906B26E00343053 /* UIView.swift */,
 				2ED5609C290B9F3A006F7521 /* PaddingLabel.swift */,
+				2ED5609E290BDA1A006F7521 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				2ED635E929083CF700C50499 /* ProfileCollectionViewCell.swift in Sources */,
 				2E0A7EC528FFEC37004C1E72 /* ViewController.swift in Sources */,
+				2ED5609F290BDA1A006F7521 /* String.swift in Sources */,
 				2E38620A2906B60E00343053 /* ProfileData.swift in Sources */,
 				2E0A7EC128FFEC37004C1E72 /* AppDelegate.swift in Sources */,
 				2ED6360E290ADCDF00C50499 /* LeftAlignFlowLayout.swift in Sources */,

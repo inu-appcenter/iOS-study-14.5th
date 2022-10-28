@@ -116,7 +116,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             for: indexPath) as? ProfileCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.profileLabel.text = Profile.allCases[indexPath.item].data
+        if Profile.allCases[indexPath.item].data.contains("followers") {
+            cell.profileLabel.attributedText = Profile.allCases[indexPath.item].data.boldDecimals(size: 15)
+        } else {
+            cell.profileLabel.text = Profile.allCases[indexPath.item].data
+            cell.profileLabel.font = Profile.allCases[indexPath.item].font
+        }
         cell.profileIconImageView.image = UIImage(systemName: Profile.allCases[indexPath.item].iconImage)
         return cell
     }
@@ -125,14 +130,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let item = ProfileData.datas[indexPath.item]
-        let item = Profile.allCases[indexPath.item].data
+        let item = Profile.allCases[indexPath.item]
         let iconSize = CGSize(width: 16, height: 16)
         let padding: CGFloat = 8
-        let labelSize = item.size(withAttributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
+        let labelSize: CGSize = item.data.size(withAttributes: [
+            NSAttributedString.Key.font: Profile.allCases[indexPath.item].font
         ])
-        let totalSize = CGSize(width: iconSize.width + padding + labelSize.width + 20, height: 25)
+        let totalSize = CGSize(width: iconSize.width + padding + labelSize.width + 30, height: 25)
         return totalSize
     }
 }
