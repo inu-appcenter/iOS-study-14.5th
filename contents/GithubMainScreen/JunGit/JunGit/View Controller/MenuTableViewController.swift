@@ -17,6 +17,7 @@ class MenuTableViewController: UITableViewController {
     
     // MARK: - UI
     func configureUI() {
+        self.configureTableView()
         self.registerNib()
     }
 
@@ -42,6 +43,10 @@ class MenuTableViewController: UITableViewController {
 
 // MARK: - Private Functions
 private extension MenuTableViewController {
+    func configureTableView() {
+        self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 55, bottom: 0, right: 0)
+    }
+    
     func registerNib() {
         let nib = UINib(nibName: K.FileName.menuTableViewCell, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: MenuTableViewCell.identifier)
