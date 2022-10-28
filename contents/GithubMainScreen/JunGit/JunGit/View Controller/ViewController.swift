@@ -133,12 +133,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let item = Profile.allCases[indexPath.item]
-        let iconSize = CGSize(width: 16, height: 16)
-        let padding: CGFloat = 8
+        let iconSize = ProfileCollectionViewCell.iconSize
+        let padding: CGFloat = ProfileCollectionViewCell.padding
         let labelSize: CGSize = item.data.size(withAttributes: [
             NSAttributedString.Key.font: Profile.allCases[indexPath.item].font
         ])
-        let totalSize = CGSize(width: iconSize.width + padding + labelSize.width + 30, height: 25)
+        let totalSize = CGSize(
+            width: iconSize.width + padding + labelSize.width + ProfileCollectionViewCell.widthPadding,
+            height: ProfileCollectionViewCell.height)
         return totalSize
     }
 }
