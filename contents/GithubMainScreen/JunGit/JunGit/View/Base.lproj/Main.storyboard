@@ -87,13 +87,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Q6y-Aq-hxl" userLabel="Profile Image View">
-                                                                        <rect key="frame" x="0.0" y="12" width="56" height="56"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="64" height="64"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Q6y-Aq-hxl" secondAttribute="height" multiplier="1:1" id="LAz-7i-d99"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zrq-ce-rBm" userLabel="Profile Header Stack View">
-                                                                        <rect key="frame" x="68" y="21.333333333333346" width="88.333333333333314" height="37.333333333333343"/>
+                                                                        <rect key="frame" x="82" y="21.333333333333346" width="88.333333333333314" height="37.333333333333343"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-gf-gOg" userLabel="Profile Name Label">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="20.333333333333332"/>
@@ -113,11 +113,11 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="zrq-ce-rBm" firstAttribute="centerY" secondItem="k9H-70-mSC" secondAttribute="centerY" id="9vV-QG-hgW"/>
-                                                                    <constraint firstItem="Q6y-Aq-hxl" firstAttribute="top" secondItem="k9H-70-mSC" secondAttribute="top" constant="12" id="Im3-el-Kfr"/>
+                                                                    <constraint firstItem="Q6y-Aq-hxl" firstAttribute="top" secondItem="k9H-70-mSC" secondAttribute="top" constant="8" id="Im3-el-Kfr"/>
                                                                     <constraint firstItem="Q6y-Aq-hxl" firstAttribute="leading" secondItem="k9H-70-mSC" secondAttribute="leading" id="LN7-cY-GJy"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="Q6y-Aq-hxl" secondAttribute="bottom" constant="12" id="gCo-fP-Rdf"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Q6y-Aq-hxl" secondAttribute="bottom" constant="8" id="gCo-fP-Rdf"/>
                                                                     <constraint firstAttribute="height" constant="80" id="omV-ei-d7A"/>
-                                                                    <constraint firstItem="zrq-ce-rBm" firstAttribute="leading" secondItem="Q6y-Aq-hxl" secondAttribute="trailing" constant="12" id="qCr-1u-j4c"/>
+                                                                    <constraint firstItem="zrq-ce-rBm" firstAttribute="leading" secondItem="Q6y-Aq-hxl" secondAttribute="trailing" constant="18" id="qCr-1u-j4c"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-eg-Mv9" userLabel="Profile Message View">

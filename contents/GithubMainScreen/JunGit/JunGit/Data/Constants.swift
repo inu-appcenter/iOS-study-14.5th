@@ -10,7 +10,11 @@ import Foundation
 struct K {
     
     // MARK: - Commons
-    static let userName: String = "StanSign"
+    struct Profile {
+        static let userName: String = "이창준"
+        static let userID: String = "StanSign"
+        static let userImage: String = "ProfileImage"
+    }
     
     // MARK: - File Names
     struct FileName {

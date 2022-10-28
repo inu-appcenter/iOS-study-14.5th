@@ -50,18 +50,26 @@ private extension ViewController {
     
     func configureUI() {
         self.configureNavBar()
+        self.configureProfileHeader()
         self.configureProfileStackView()
         self.configureProfileCollectionView()
     }
     
     func configureNavBar() {
-        self.profileLabel.text = K.userName
+        self.profileLabel.text = K.Profile.userID
         self.settingButton.setImage(
             UIImage(systemName: K.Icon.settingsIcon),
             for: .normal)
         self.shareButton.setImage(
             UIImage(systemName: K.Icon.shareIcon),
             for: .normal)
+    }
+    
+    func configureProfileHeader() {
+        self.profileImageView.image = UIImage(named: K.Profile.userImage)
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width / 2
+        self.profileNameLabel.text = K.Profile.userName
+        self.profileIdLabel.text = K.Profile.userID
     }
     
     func configureProfileStackView() {
