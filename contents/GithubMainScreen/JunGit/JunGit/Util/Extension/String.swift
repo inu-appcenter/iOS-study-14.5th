@@ -29,15 +29,16 @@ extension String {
         return indices
     }
     
-    func boldDecimals(size: CGFloat) -> NSAttributedString {
+    func boldDecimals(size: CGFloat, font: UIFont) -> NSAttributedString {
         let indicesOfNumbers = self.indicesOfNumbers
+        let regularAttrs = [NSAttributedString.Key.font: font]
         let boldAttrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size)]
         let attributedString = NSMutableAttributedString()
         for (index, char) in self.enumerated() {
             if indicesOfNumbers.contains(index) {
                 attributedString.append(NSMutableAttributedString(string: String(char), attributes: boldAttrs))
             } else {
-                attributedString.append(NSMutableAttributedString(string: String(char)))
+                attributedString.append(NSMutableAttributedString(string: String(char), attributes: regularAttrs))
             }
         }
         return attributedString

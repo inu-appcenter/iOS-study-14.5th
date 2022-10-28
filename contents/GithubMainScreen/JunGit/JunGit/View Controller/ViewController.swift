@@ -117,7 +117,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         if Profile.allCases[indexPath.item].data.contains("followers") {
-            cell.profileLabel.attributedText = Profile.allCases[indexPath.item].data.boldDecimals(size: 15)
+            cell.profileLabel.attributedText = Profile.allCases[indexPath.item].data.boldDecimals(
+                size: 13,
+                font: Profile.allCases[indexPath.item].font)
         } else {
             cell.profileLabel.text = Profile.allCases[indexPath.item].data
             cell.profileLabel.font = Profile.allCases[indexPath.item].font
