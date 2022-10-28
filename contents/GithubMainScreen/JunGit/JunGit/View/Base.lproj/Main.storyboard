@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-cJ-WWZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1063"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1327"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-wC-Dsj">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1063"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1327"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-dJ-xPB" userLabel="Navigation View">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -186,7 +186,7 @@
                                                             <segue destination="z0A-st-QNf" kind="embed" id="dV8-UG-KXS"/>
                                                         </connections>
                                                     </containerView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npb-me-Muz">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npb-me-Muz" userLabel="Pinned Header">
                                                         <rect key="frame" x="0.0" y="545" width="393" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-op-vVV">
@@ -214,7 +214,7 @@
                                                         </constraints>
                                                     </view>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GN-EU-7uN" userLabel="Pinned Container View">
-                                                        <rect key="frame" x="0.0" y="559" width="393" height="150"/>
+                                                        <rect key="frame" x="0.0" y="609" width="393" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="tUg-25-6W7"/>
                                                         </constraints>
@@ -222,13 +222,40 @@
                                                             <segue destination="OcB-uO-92u" kind="embed" id="ET3-yD-tTf"/>
                                                         </connections>
                                                     </containerView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwB-iO-I7G" userLabel="ReadMe View">
-                                                        <rect key="frame" x="0.0" y="763" width="393" height="300"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-2U-Q10" userLabel="ReadMe Header">
+                                                        <rect key="frame" x="0.0" y="763" width="393" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StanSign/README.md" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr2-mb-EgE">
+                                                                <rect key="frame" x="40" y="31" width="152.33333333333334" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="llQ-4S-xun">
+                                                                <rect key="frame" x="12" y="33" width="16" height="14.666666666666671"/>
+                                                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="16" id="4Yc-bz-TuZ"/>
+                                                                    <constraint firstAttribute="width" secondItem="llQ-4S-xun" secondAttribute="height" multiplier="1:1" id="iDb-fb-nIb"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="Tb8-29-mIS"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="300" id="NF4-ZU-C0O"/>
+                                                            <constraint firstItem="llQ-4S-xun" firstAttribute="leading" secondItem="aJJ-2U-Q10" secondAttribute="leading" constant="12" id="K0Q-RK-jzS"/>
+                                                            <constraint firstItem="pr2-mb-EgE" firstAttribute="centerY" secondItem="llQ-4S-xun" secondAttribute="centerY" id="KR5-VF-qd8"/>
+                                                            <constraint firstItem="pr2-mb-EgE" firstAttribute="leading" secondItem="llQ-4S-xun" secondAttribute="trailing" constant="12" id="nvH-il-nli"/>
+                                                            <constraint firstAttribute="bottom" secondItem="llQ-4S-xun" secondAttribute="bottom" constant="12" id="qKG-KK-UH1"/>
+                                                            <constraint firstAttribute="height" constant="60" id="xeY-Va-CnO"/>
                                                         </constraints>
                                                     </view>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReadMe" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-in-zVW">
+                                                        <rect key="frame" x="0.0" y="827" width="393" height="500"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="500" id="sKi-dw-2V9"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
@@ -323,7 +350,7 @@
             <objects>
                 <viewController storyboardIdentifier="PinnedCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OcB-uO-92u" customClass="PinnedCollectionViewController" customModule="JunGit" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" id="IrT-aa-HRh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F11-Az-sqZ">
@@ -342,6 +369,8 @@
     </scenes>
     <resources>
         <image name="ProfilePlaceholder" width="64" height="64"/>
+        <image name="ReadMe" width="562.5" height="772.5"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="pin" catalog="system" width="116" height="128"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
