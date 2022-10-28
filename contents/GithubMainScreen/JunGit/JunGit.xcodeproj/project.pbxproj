@@ -18,6 +18,10 @@
 		2ED56099290AE1E1006F7521 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED56098290AE1E1006F7521 /* ProfileCollectionViewCell.xib */; };
 		2ED5609D290B9F3A006F7521 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5609C290B9F3A006F7521 /* PaddingLabel.swift */; };
 		2ED5609F290BDA1A006F7521 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5609E290BDA1A006F7521 /* String.swift */; };
+		2ED560A1290BF5C5006F7521 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED560A0290BF5C5006F7521 /* MenuTableViewController.swift */; };
+		2ED560A3290BF8A3006F7521 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED560A2290BF8A3006F7521 /* MenuData.swift */; };
+		2ED560A6290BFAA7006F7521 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED560A4290BFAA7006F7521 /* MenuTableViewCell.swift */; };
+		2ED560A7290BFAA7006F7521 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED560A5290BFAA7006F7521 /* MenuTableViewCell.xib */; };
 		2ED635E929083CF700C50499 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED635E729083CF700C50499 /* ProfileCollectionViewCell.swift */; };
 		2ED6360E290ADCDF00C50499 /* LeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6360D290ADCDF00C50499 /* LeftAlignFlowLayout.swift */; };
 		2ED6478929063C1900CB41C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6478829063C1900CB41C9 /* Constants.swift */; };
@@ -37,6 +41,10 @@
 		2ED56098290AE1E1006F7521 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		2ED5609C290B9F3A006F7521 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		2ED5609E290BDA1A006F7521 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2ED560A0290BF5C5006F7521 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		2ED560A2290BF8A3006F7521 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		2ED560A4290BFAA7006F7521 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		2ED560A5290BFAA7006F7521 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		2ED635E729083CF700C50499 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ED6360D290ADCDF00C50499 /* LeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		2ED6478829063C1900CB41C9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -89,6 +97,8 @@
 				2E0A7EC628FFEC37004C1E72 /* Main.storyboard */,
 				2ED56098290AE1E1006F7521 /* ProfileCollectionViewCell.xib */,
 				2ED635E729083CF700C50499 /* ProfileCollectionViewCell.swift */,
+				2ED560A5290BFAA7006F7521 /* MenuTableViewCell.xib */,
+				2ED560A4290BFAA7006F7521 /* MenuTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				2E0A7EC428FFEC37004C1E72 /* ViewController.swift */,
+				2ED560A0290BF5C5006F7521 /* MenuTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED6478829063C1900CB41C9 /* Constants.swift */,
+				2ED560A2290BF8A3006F7521 /* MenuData.swift */,
 				2E3862092906B60E00343053 /* ProfileData.swift */,
 			);
 			path = Data;
@@ -216,6 +228,7 @@
 				2E0A7ECD28FFEC37004C1E72 /* LaunchScreen.storyboard in Resources */,
 				2E0A7ECA28FFEC37004C1E72 /* Assets.xcassets in Resources */,
 				2ED56099290AE1E1006F7521 /* ProfileCollectionViewCell.xib in Resources */,
+				2ED560A7290BFAA7006F7521 /* MenuTableViewCell.xib in Resources */,
 				2E0A7EC828FFEC37004C1E72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,11 +242,14 @@
 			files = (
 				2ED635E929083CF700C50499 /* ProfileCollectionViewCell.swift in Sources */,
 				2E0A7EC528FFEC37004C1E72 /* ViewController.swift in Sources */,
+				2ED560A1290BF5C5006F7521 /* MenuTableViewController.swift in Sources */,
 				2ED5609F290BDA1A006F7521 /* String.swift in Sources */,
+				2ED560A3290BF8A3006F7521 /* MenuData.swift in Sources */,
 				2E38620A2906B60E00343053 /* ProfileData.swift in Sources */,
 				2E0A7EC128FFEC37004C1E72 /* AppDelegate.swift in Sources */,
 				2ED6360E290ADCDF00C50499 /* LeftAlignFlowLayout.swift in Sources */,
 				2E0A7EC328FFEC37004C1E72 /* SceneDelegate.swift in Sources */,
+				2ED560A6290BFAA7006F7521 /* MenuTableViewCell.swift in Sources */,
 				2ED5609D290B9F3A006F7521 /* PaddingLabel.swift in Sources */,
 				2E3862082906B26E00343053 /* UIView.swift in Sources */,
 				2ED6478929063C1900CB41C9 /* Constants.swift in Sources */,

@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-cJ-WWZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="688"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-wC-Dsj">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="504"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="688"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-dJ-xPB" userLabel="Navigation View">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -177,8 +177,17 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </stackView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9v-Sa-YMk" userLabel="Table Container View">
+                                                        <rect key="frame" x="0.0" y="428" width="393" height="180"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="180" id="p91-Sf-dki"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <segue destination="z0A-st-QNf" kind="embed" id="dV8-UG-KXS"/>
+                                                        </connections>
+                                                    </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwB-iO-I7G" userLabel="ReadMe View">
-                                                        <rect key="frame" x="0.0" y="376" width="393" height="128"/>
+                                                        <rect key="frame" x="0.0" y="560" width="393" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -253,10 +262,28 @@
             </objects>
             <point key="canvasLocation" x="140" y="3.5545023696682461"/>
         </scene>
+        <!--Menu Table View Controller-->
+        <scene sceneID="qbb-BS-oaw">
+            <objects>
+                <viewController storyboardIdentifier="MenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="z0A-st-QNf" customClass="MenuTableViewController" customModule="JunGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MO8-ZV-4Uh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections/>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCD-rR-YRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="3"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ProfilePlaceholder" width="64" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

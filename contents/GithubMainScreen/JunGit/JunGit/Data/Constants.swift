@@ -21,11 +21,13 @@ struct K {
     // MARK: - File Names
     struct FileName {
         static let ProfileBioView = "ProfileBioView"
+        static let menuTableViewCell = "MenuTableViewCell"
     }
     
     // MARK: - Identifiers
     struct Identifier {
         static let profileCell: String = "ProfileCell"
+        static let menuCell: String = "MenuTableViewCell"
     }
     
     // MARK: - Icons

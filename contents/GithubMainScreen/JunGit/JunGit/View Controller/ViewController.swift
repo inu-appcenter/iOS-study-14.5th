@@ -80,6 +80,15 @@ private extension ViewController {
         self.profileStackView.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         self.profileStackView.isLayoutMarginsRelativeArrangement = true
     }
+    
+    func configureTableContainerView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as? MenuTableViewController {
+            addChild(vc)
+            view.addSubview(vc.view)
+            vc.didMove(toParent: self)
+        }
+    }
 }
 
 // MARK: - Collection View
