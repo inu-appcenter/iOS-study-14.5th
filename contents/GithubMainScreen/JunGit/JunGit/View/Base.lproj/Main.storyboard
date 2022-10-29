@@ -3,13 +3,12 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JunGit" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,70 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdS-fW-sgy">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-cJ-WWZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1327"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1273"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-wC-Dsj">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1327"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1273"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-dJ-xPB" userLabel="Navigation View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-JF-JdO">
-                                                                <rect key="frame" x="174.66666666666666" y="16.666666666666671" width="44" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hnq-ef-MoL" userLabel="Button Stack View">
-                                                                <rect key="frame" x="309" y="9" width="72" height="32"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJE-Dj-0mL" userLabel="Setting Button">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="rJE-Dj-0mL" secondAttribute="height" multiplier="1:1" id="Nv5-X3-6n4"/>
-                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="Ti7-1M-wdc"/>
-                                                                        </constraints>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="">
-                                                                            <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="default"/>
-                                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="16"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="settingButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etW-Zx-V1r"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbt-Ba-1Xx" userLabel="Share Button">
-                                                                        <rect key="frame" x="40" y="0.0" width="32" height="32"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="Pbt-Ba-1Xx" secondAttribute="height" multiplier="1:1" id="XvM-FS-uOp"/>
-                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="e0i-0N-lkB"/>
-                                                                        </constraints>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="">
-                                                                            <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="default"/>
-                                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="16"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVZ-40-UOO"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="n3p-JF-JdO" firstAttribute="centerX" secondItem="OSa-dJ-xPB" secondAttribute="centerX" id="0wJ-vv-DYo"/>
-                                                            <constraint firstAttribute="height" constant="50" id="1GJ-RS-sCA"/>
-                                                            <constraint firstItem="n3p-JF-JdO" firstAttribute="centerY" secondItem="OSa-dJ-xPB" secondAttribute="centerY" id="DVf-Lz-Ud4"/>
-                                                            <constraint firstAttribute="trailing" secondItem="hnq-ef-MoL" secondAttribute="trailing" constant="12" id="TBO-yC-3rO"/>
-                                                            <constraint firstItem="hnq-ef-MoL" firstAttribute="centerY" secondItem="OSa-dJ-xPB" secondAttribute="centerY" id="q3C-zu-58x"/>
-                                                        </constraints>
-                                                    </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-sX-Agi" userLabel="Profile Stack View">
-                                                        <rect key="frame" x="0.0" y="54" width="393" height="318"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="318"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-70-mSC" userLabel="Profile Header View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
@@ -93,7 +38,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zrq-ce-rBm" userLabel="Profile Header Stack View">
-                                                                        <rect key="frame" x="82" y="21.333333333333346" width="88.333333333333314" height="37.333333333333343"/>
+                                                                        <rect key="frame" x="82" y="21.333333333333332" width="88.333333333333314" height="37.333333333333343"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-gf-gOg" userLabel="Profile Name Label">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="20.333333333333332"/>
@@ -102,7 +47,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-ft-X4l" userLabel="Profile ID Label">
-                                                                                <rect key="frame" x="0.0" y="20.333333333333314" width="88.333333333333329" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="20.333333333333329" width="88.333333333333329" height="17"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -178,7 +123,7 @@
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     </stackView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9v-Sa-YMk" userLabel="Table Container View">
-                                                        <rect key="frame" x="0.0" y="376" width="393" height="165"/>
+                                                        <rect key="frame" x="0.0" y="322" width="393" height="165"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="165" id="p91-Sf-dki"/>
                                                         </constraints>
@@ -187,7 +132,7 @@
                                                         </connections>
                                                     </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npb-me-Muz" userLabel="Pinned Header">
-                                                        <rect key="frame" x="0.0" y="545" width="393" height="60"/>
+                                                        <rect key="frame" x="0.0" y="491" width="393" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-op-vVV">
                                                                 <rect key="frame" x="40" y="31" width="47.333333333333343" height="18"/>
@@ -214,7 +159,7 @@
                                                         </constraints>
                                                     </view>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GN-EU-7uN" userLabel="Pinned Container View">
-                                                        <rect key="frame" x="0.0" y="609" width="393" height="150"/>
+                                                        <rect key="frame" x="0.0" y="555" width="393" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="tUg-25-6W7"/>
                                                         </constraints>
@@ -223,7 +168,7 @@
                                                         </connections>
                                                     </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-2U-Q10" userLabel="ReadMe Header">
-                                                        <rect key="frame" x="0.0" y="763" width="393" height="60"/>
+                                                        <rect key="frame" x="0.0" y="709" width="393" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StanSign/README.md" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr2-mb-EgE">
                                                                 <rect key="frame" x="40" y="31" width="152.33333333333334" height="18"/>
@@ -251,7 +196,7 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReadMe" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-in-zVW">
-                                                        <rect key="frame" x="0.0" y="827" width="393" height="500"/>
+                                                        <rect key="frame" x="0.0" y="773" width="393" height="500"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="500" id="sKi-dw-2V9"/>
                                                         </constraints>
@@ -291,26 +236,23 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wdS-fW-sgy" secondAttribute="trailing" id="y2Y-F4-ntg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="icz-cY-ir2"/>
+                    <navigationItem key="navigationItem" title="Title" id="hfc-LG-Kjh"/>
                     <connections>
                         <outlet property="pinnedContainerView" destination="3GN-EU-7uN" id="lMe-gs-9sX"/>
                         <outlet property="profileCollectionView" destination="Jad-4x-js2" id="xCs-yp-1KO"/>
                         <outlet property="profileIdLabel" destination="4Ah-ft-X4l" id="fKC-EQ-cOF"/>
                         <outlet property="profileImageView" destination="Q6y-Aq-hxl" id="J1s-Qf-dq3"/>
-                        <outlet property="profileLabel" destination="n3p-JF-JdO" id="H3R-bY-NTM"/>
                         <outlet property="profileMessageLabel" destination="0d8-74-vif" id="RTC-KH-qg4"/>
                         <outlet property="profileNameLabel" destination="pSL-gf-gOg" id="jcZ-9p-yMO"/>
                         <outlet property="profileStackView" destination="yPW-sX-Agi" id="CPj-hN-Kql"/>
                         <outlet property="profileStatusLabel" destination="MXb-Qj-Jzm" id="OyE-ek-iwA"/>
                         <outlet property="scrollView" destination="wdS-fW-sgy" id="pTE-Pz-rmv"/>
-                        <outlet property="settingButton" destination="rJE-Dj-0mL" id="s0n-zq-9Bn"/>
-                        <outlet property="shareButton" destination="Pbt-Ba-1Xx" id="gcW-T0-6UY"/>
                         <outlet property="tableContainerView" destination="k9v-Sa-YMk" id="sqy-Oh-toq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067.9389312977098" y="3.1690140845070425"/>
+            <point key="canvasLocation" x="1994.6564885496182" y="2.8169014084507045"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TZd-sU-xyd">
@@ -323,7 +265,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eMF-Ar-A1z"/>
+                        <segue destination="kgi-oj-nGe" kind="relationship" relationship="viewControllers" id="eMF-Ar-A1z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWP-Mp-dG0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCD-rR-YRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="3"/>
+            <point key="canvasLocation" x="2956.4885496183206" y="2.4647887323943665"/>
         </scene>
         <!--Pinned Collection View Controller-->
         <scene sceneID="uXm-va-tnJ">
@@ -364,7 +306,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Flm-dX-Dhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2030" y="205"/>
+            <point key="canvasLocation" x="2956.4885496183206" y="204.92957746478874"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="9Lf-Mw-H96">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kgi-oj-nGe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="icz-cY-ir2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JEo-FJ-MGA">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DzP-da-ifR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Gf-0Z-ZTW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067.9389312977098" y="2.8169014084507045"/>
         </scene>
     </scenes>
     <resources>
@@ -372,7 +334,6 @@
         <image name="ReadMe" width="562.5" height="772.5"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="pin" catalog="system" width="116" height="128"/>
-        <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

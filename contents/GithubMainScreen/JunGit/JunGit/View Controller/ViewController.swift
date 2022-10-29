@@ -13,11 +13,6 @@ class ViewController: UIViewController {
     // Scroll View
     @IBOutlet weak var scrollView: UIScrollView!
 
-    // -- Navigation Bar --
-    @IBOutlet weak var profileLabel: UILabel!
-    @IBOutlet weak var settingButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
-
     // -- Profile --
     @IBOutlet weak var profileStackView: UIStackView!
     // Profile Header
@@ -40,20 +35,12 @@ class ViewController: UIViewController {
         
         self.configureUI()
     }
-
-    // MARK: - IBActions
-    @IBAction func settingButtonTapped(_ sender: UIButton) {
-        print("Setting Button Tapped")
-    }
-    @IBAction func shareButtonTapped(_ sender: UIButton) {
-        print("Share Button Tapped")
-    }
 }
 
 // MARK: - UI
 private extension ViewController {
-    
     func configureUI() {
+        self.scrollView.delegate = self
         self.configureNavBar()
         self.configureProfileHeader()
         self.configureProfileStackView()
@@ -62,13 +49,33 @@ private extension ViewController {
     }
     
     func configureNavBar() {
-        self.profileLabel.text = K.Profile.userID
-        self.settingButton.setImage(
-            UIImage(systemName: K.Icon.settingsIcon),
-            for: .normal)
-        self.shareButton.setImage(
-            UIImage(systemName: K.Icon.shareIcon),
-            for: .normal)
+        self.navigationItem.title = K.Profile.userID
+        
+        let settingButton: UIButton = {
+            let button = UIButton()
+            button.setImage(UIImage(systemName: K.Icon.settingsIcon), for: .normal)
+            button.setPreferredSymbolConfiguration(
+                UIImage.SymbolConfiguration(pointSize: 20),
+                forImageIn: .normal)
+            return button
+        }()
+        let shareButton: UIButton = {
+            let button = UIButton()
+            button.setImage(UIImage(systemName: K.Icon.shareIcon), for: .normal)
+            button.setPreferredSymbolConfiguration(
+                UIImage.SymbolConfiguration(pointSize: 20),
+                forImageIn: .normal)
+            return button
+        }()
+        let stackView: UIStackView = {
+            let stackView = UIStackView()
+            stackView.addArrangedSubview(settingButton)
+            stackView.addArrangedSubview(shareButton)
+            stackView.axis = .horizontal
+            stackView.spacing = 16
+            return stackView
+        }()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: stackView)
     }
     
     func configureProfileHeader() {
@@ -112,7 +119,6 @@ private extension ViewController {
 
 // MARK: - Collection View
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     func configureProfileCollectionView() {
         self.profileCollectionView.delegate = self
         self.profileCollectionView.dataSource = self
