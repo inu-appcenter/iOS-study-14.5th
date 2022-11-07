@@ -19,7 +19,6 @@ class PinnedCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return 2
     }
 
@@ -35,8 +34,8 @@ class PinnedCollectionViewController: UICollectionViewController {
         cell.programLangLabel.text = Pinned.allCases[indexPath.item].language.rawValue
         cell.programLangDot.image = UIImage(
             systemName: K.Icon.dot)?
-            .withTintColor(Pinned.allCases[indexPath.item].dotColor
-                           , renderingMode: .alwaysOriginal)
+            .withTintColor(Pinned.allCases[indexPath.item].dotColor,
+                           renderingMode: .alwaysOriginal)
         return cell
     }
     

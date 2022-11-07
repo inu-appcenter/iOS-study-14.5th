@@ -111,7 +111,10 @@ private extension ViewController {
             self.addChild(vc)
             self.pinnedContainerView.addSubview(vc.view)
             vc.view.frame = self.pinnedContainerView.bounds
-            vc.collectionView.frame = self.pinnedContainerView.bounds
+            let size = CGSize(
+                width: self.pinnedContainerView.bounds.width - 12,
+                height: self.pinnedContainerView.bounds.height)
+            vc.collectionView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
             vc.didMove(toParent: self)
         }
     }
