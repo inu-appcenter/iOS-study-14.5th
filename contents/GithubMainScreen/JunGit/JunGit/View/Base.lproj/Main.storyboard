@@ -141,7 +141,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-tp-HAH">
-                                                                <rect key="frame" x="12" y="31.666666666666661" width="16" height="17.333333333333339"/>
+                                                                <rect key="frame" x="12" y="31.666666666666657" width="16" height="17.333333333333343"/>
                                                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Tmn-tp-HAH" secondAttribute="height" multiplier="1:1" id="ICD-0c-Umv"/>
