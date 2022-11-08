@@ -66,8 +66,8 @@
 				2E6332E62919633E009498B7 /* Application */,
 				2E6332E8291963C7009498B7 /* Controller */,
 				2E6332EA2919D1EA009498B7 /* Model */,
+				2E6332EC291A476D009498B7 /* Presentation */,
 				2E6332EB291A3C3B009498B7 /* Service */,
-				2E6332E7291963B5009498B7 /* View */,
 				2E6332E92919D1D3009498B7 /* ViewModel */,
 				2E6332DB29195613009498B7 /* Assets.xcassets */,
 				2E6332DD29195613009498B7 /* LaunchScreen.storyboard */,
@@ -83,14 +83,6 @@
 				2E6332D429195611009498B7 /* SceneDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		2E6332E7291963B5009498B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2E6332D829195611009498B7 /* Main.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2E6332E8291963C7009498B7 /* Controller */ = {
@@ -120,6 +112,38 @@
 			children = (
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2E6332EC291A476D009498B7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2E6332ED291A47AA009498B7 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2E6332ED291A47AA009498B7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2E6332EF291A47EE009498B7 /* View */,
+				2E6332F0291A47FA009498B7 /* ViewController */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2E6332EF291A47EE009498B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E6332D829195611009498B7 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E6332F0291A47FA009498B7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		4F74A391301E0EA2A5C90E1D /* Pods */ = {
