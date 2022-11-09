@@ -17,6 +17,10 @@ class HomeViewController: UIViewController {
         $0.layer.cornerRadius = 22
     }
     
+    lazy var summaryView = SummaryView().then {
+        $0.backgroundColor = .clear
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,9 @@ private extension HomeViewController {
     }
     
     func configureLayout() {
-        self.view.addSubview(profileView)
+        [profileView, summaryView].forEach {
+            self.view.addSubview($0)
+        }
     }
     
     func configureConstraints() {
@@ -46,6 +52,11 @@ private extension HomeViewController {
             make.centerX.equalToSuperview()
             make.height.equalTo(44)
             make.width.equalTo(250)
+        }
+        self.summaryView.snp.makeConstraints { make in
+            make.top.equalTo(self.profileView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(120)
         }
     }
     
