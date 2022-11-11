@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TODO_List
-//
-//  Created by 김응철 on 2022/11/09.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,7 +6,6 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
-
 
 }
 
