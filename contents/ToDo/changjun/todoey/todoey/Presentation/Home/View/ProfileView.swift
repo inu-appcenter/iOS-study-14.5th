@@ -23,11 +23,11 @@ final class ProfileView: UIView {
     lazy var welcomeLabelStackView = UIStackView().then {
         let welcomeLabel = UILabel().then {
             $0.font = .systemFont(ofSize: 12, weight: .regular)
-            $0.text = self.viewModel.welcomeText
+            $0.text = self.viewModel.welcomeString
         }
         let profileNameLabel = UILabel().then {
             $0.font = .systemFont(ofSize: 12, weight: .semibold)
-            $0.text = "이창준"
+            $0.text = self.viewModel.nameString
         }
         let tailLabel = UILabel().then {
             $0.font = .systemFont(ofSize: 12, weight: .regular)
@@ -41,7 +41,7 @@ final class ProfileView: UIView {
     }
     
     lazy var commentLabel = UILabel().then {
-        $0.text = "오늘도 힘차게 출발해볼까요? 🔥"
+        $0.text = viewModel.motivateString
         $0.font = .systemFont(ofSize: 13, weight: .semibold)
     }
     
