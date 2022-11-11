@@ -19,7 +19,7 @@
 		2EF9AEB9291B99BB004DF14F /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEB8291B99BB004DF14F /* SummaryView.swift */; };
 		2EF9AEBD291E192B004DF14F /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBC291E192B004DF14F /* SummaryViewModel.swift */; };
 		2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */; };
-		2EF9AEC1291E2D7A004DF14F /* DateSelectorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEC0291E2D7A004DF14F /* DateSelectorCollectionViewCell.swift */; };
+		2EF9AEC1291E2D7A004DF14F /* DateSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */; };
 		2EF9AEC3291E2DB8004DF14F /* DateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEC2291E2DB8004DF14F /* DateSelectorViewModel.swift */; };
 		8DBC3B670DFFFA7EAAABC48A /* Pods_todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E8B4CC6CC3F14EF1A26E48 /* Pods_todoey.framework */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		2EF9AEB8291B99BB004DF14F /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		2EF9AEBC291E192B004DF14F /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
 		2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
-		2EF9AEC0291E2D7A004DF14F /* DateSelectorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorCollectionViewCell.swift; sourceTree = "<group>"; };
+		2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorCell.swift; sourceTree = "<group>"; };
 		2EF9AEC2291E2DB8004DF14F /* DateSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewModel.swift; sourceTree = "<group>"; };
 		4FF8B56A486380D2CF72E3BA /* Pods-todoey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoey.release.xcconfig"; path = "Target Support Files/Pods-todoey/Pods-todoey.release.xcconfig"; sourceTree = "<group>"; };
 		92E8B4CC6CC3F14EF1A26E48 /* Pods_todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */,
-				2EF9AEC0291E2D7A004DF14F /* DateSelectorCollectionViewCell.swift */,
+				2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */,
 				2E6332FE291AA9F3009498B7 /* ProfileView.swift */,
 				2EF9AEB8291B99BB004DF14F /* SummaryView.swift */,
 			);
@@ -341,7 +341,7 @@
 				2EF9AEC3291E2DB8004DF14F /* DateSelectorViewModel.swift in Sources */,
 				2E6332FF291AA9F3009498B7 /* ProfileView.swift in Sources */,
 				2EF9AEB9291B99BB004DF14F /* SummaryView.swift in Sources */,
-				2EF9AEC1291E2D7A004DF14F /* DateSelectorCollectionViewCell.swift in Sources */,
+				2EF9AEC1291E2D7A004DF14F /* DateSelectorCell.swift in Sources */,
 				2E6332FD291A5F68009498B7 /* Namings.swift in Sources */,
 				2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */,
 				2E633301291AB68A009498B7 /* ProfileViewModel.swift in Sources */,

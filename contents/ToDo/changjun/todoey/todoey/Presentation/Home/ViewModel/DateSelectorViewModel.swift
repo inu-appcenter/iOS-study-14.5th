@@ -8,5 +8,11 @@
 import Foundation
 
 struct DateSelectorViewModel {
+    var dayString: String {
+        return "12"
+    }
     
+    var dayOfWeekString: String {
+        return "Wed"
+    }
 }
