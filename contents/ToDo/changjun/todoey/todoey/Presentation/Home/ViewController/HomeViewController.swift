@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
+    lazy var dateSelectorView = DateSelectorView().then {
+        $0.backgroundColor = .systemPink
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +45,7 @@ private extension HomeViewController {
     }
     
     func configureLayout() {
-        [profileView, summaryView].forEach {
+        [profileView, summaryView, dateSelectorView].forEach {
             self.view.addSubview($0)
         }
     }
@@ -57,6 +61,11 @@ private extension HomeViewController {
             make.top.equalTo(self.profileView.snp.bottom)
             make.leading.equalTo(self.profileView.snp.leading)
             make.trailing.equalTo(self.profileView.snp.trailing)
+            make.height.equalTo(100)
+        }
+        self.dateSelectorView.snp.makeConstraints { make in
+            make.top.equalTo(self.summaryView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(120)
         }
     }
