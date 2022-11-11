@@ -55,7 +55,8 @@ private extension HomeViewController {
         }
         self.summaryView.snp.makeConstraints { make in
             make.top.equalTo(self.profileView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalTo(self.profileView.snp.leading)
+            make.trailing.equalTo(self.profileView.snp.trailing)
             make.height.equalTo(120)
         }
     }
