@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
         $0.backgroundColor = .systemPink
     }
     
+    private let toDoView = ToDoView()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ private extension HomeViewController {
     }
     
     func configureLayout() {
-        [profileView, summaryView, dateSelectorView].forEach {
+        [profileView, summaryView, dateSelectorView, toDoView].forEach {
             self.view.addSubview($0)
         }
     }
@@ -67,6 +69,10 @@ private extension HomeViewController {
             make.top.equalTo(self.summaryView.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(120)
+        }
+        self.toDoView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(self.dateSelectorView.snp.bottom)
         }
     }
     
