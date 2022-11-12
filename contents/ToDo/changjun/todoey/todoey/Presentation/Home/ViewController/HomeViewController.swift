@@ -70,7 +70,7 @@ private extension HomeViewController {
         }
         self.toDoView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(self.dateSelectorView.snp.bottom).offset(24)
+            make.top.equalTo(self.dateSelectorView.snp.bottom).offset(12)
         }
     }
     
