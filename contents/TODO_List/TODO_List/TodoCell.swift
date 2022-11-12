@@ -9,7 +9,7 @@ final class TodoCell: UITableViewCell {
   
   static let identifier = "TodoCell"
   
-  private let titleLabel = UIFactory.label("", textColor: .black).then {
+  private let titleLabel = UIFactory.label("", textColor: .black, font: .systemFont(ofSize: 18, weight: .regular)).then {
     $0.numberOfLines = 0
   }
     
@@ -36,7 +36,8 @@ final class TodoCell: UITableViewCell {
   
   private func setupConstraints() {
     titleLabel.snp.makeConstraints { make in
-      make.edges.equalToSuperview().inset(16)
+      make.top.bottom.equalToSuperview().inset(16)
+      make.leading.trailing.equalToSuperview().inset(24)
     }
   }
 }
