@@ -8,7 +8,7 @@
 import Foundation
 
 enum ToDoManagerError: Error {
-    case decodeError
+    case emptyList, decodeError
 }
 
 final class ToDoManager {
@@ -83,10 +83,10 @@ final class ToDoManager {
 
 extension ToDoManager {
     func getToDos() throws -> [ToDo] {
-        guard
-            let data = userDefaults.data(forKey: self.key),
-            let decodedToDo = try? JSONDecoder().decode([ToDo].self, from: data)
-        else {
+        guard let data = userDefaults.data(forKey: self.key) else {
+            throw ToDoManagerError.emptyList
+        }
+        guard let decodedToDo = try? JSONDecoder().decode([ToDo].self, from: data) else {
             throw ToDoManagerError.decodeError
         }
         return decodedToDo
