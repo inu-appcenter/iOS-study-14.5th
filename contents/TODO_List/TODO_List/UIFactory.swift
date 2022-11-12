@@ -12,7 +12,7 @@ final class UIFactory {
     return UIButton(configuration: config)
   }
   
-  static func label(_ text: String, textColor: UIColor, font: UIFont? = .systemFont(ofSize: 16, weight: .bold)) -> UILabel {
+  static func label(_ text: String, textColor: UIColor, font: UIFont? = .systemFont(ofSize: 24, weight: .bold)) -> UILabel {
     let label = UILabel()
     label.text = text
     label.textColor = textColor
@@ -42,8 +42,39 @@ final class UIFactory {
           return newAttr
         }
         button.configuration = config
-      default: break
+      default:
+        break
       }
+    }
+    let button = UIButton(configuration: config)
+    button.configurationUpdateHandler = handler
+    return button
+  }
+  
+  static func filledButton(_ text: String) -> UIButton {
+    var config = UIButton.Configuration.filled()
+    config.baseBackgroundColor = .white
+    config.background.strokeWidth = 1
+    config.background.strokeColor = .lightGray
+    config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 24, bottom: 12, trailing: 24)
+    var attText = AttributedString(text)
+    attText.foregroundColor = .black
+    config.attributedTitle = attText
+    
+    let handler: UIButton.ConfigurationUpdateHandler = { button in
+      var config = button.configuration
+      switch button.state {
+      case .selected:
+        config?.baseBackgroundColor = .black
+        config?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attr in
+          var newAttr = attr
+          newAttr.foregroundColor = .white
+          return newAttr
+        }
+      default:
+        config?.baseBackgroundColor = .white
+      }
+      button.configuration = config
     }
     let button = UIButton(configuration: config)
     button.configurationUpdateHandler = handler

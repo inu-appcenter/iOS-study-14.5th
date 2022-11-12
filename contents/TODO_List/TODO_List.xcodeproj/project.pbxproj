@@ -11,6 +11,7 @@
 		E58D8B36291BE6A600240263 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D8B35291BE6A600240263 /* SceneDelegate.swift */; };
 		E58D8B38291BE6A600240263 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D8B37291BE6A600240263 /* MainVC.swift */; };
 		E58D8B3D291BE6A700240263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58D8B3C291BE6A700240263 /* Assets.xcassets */; };
+		E5B0CF00291F12BA0034DDA1 /* CreateTodoVCType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0CEFF291F12BA0034DDA1 /* CreateTodoVCType.swift */; };
 		E5D0F302291E78F400CF737B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0F301291E78F400CF737B /* Storage.swift */; };
 		E5D0F305291E79CF00CF737B /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0F304291E79CF00CF737B /* Key.swift */; };
 		E5D0F307291E7B1300CF737B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0F306291E7B1300CF737B /* Todo.swift */; };
@@ -28,6 +29,7 @@
 		E58D8B37291BE6A600240263 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E58D8B3C291BE6A700240263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E58D8B41291BE6A700240263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B0CEFF291F12BA0034DDA1 /* CreateTodoVCType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoVCType.swift; sourceTree = "<group>"; };
 		E5D0F301291E78F400CF737B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E5D0F304291E79CF00CF737B /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		E5D0F306291E7B1300CF737B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E5D0F306291E7B1300CF737B /* Todo.swift */,
 				E5D0F308291E7B6200CF737B /* State.swift */,
 				E5D0F304291E79CF00CF737B /* Key.swift */,
+				E5B0CEFF291F12BA0034DDA1 /* CreateTodoVCType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				E5D0F307291E7B1300CF737B /* Todo.swift in Sources */,
 				E5D0F305291E79CF00CF737B /* Key.swift in Sources */,
 				E5D0F314291E82B600CF737B /* TodoCell.swift in Sources */,
+				E5B0CF00291F12BA0034DDA1 /* CreateTodoVCType.swift in Sources */,
 				E5D0F302291E78F400CF737B /* Storage.swift in Sources */,
 				E58D8B34291BE6A600240263 /* AppDelegate.swift in Sources */,
 				E5D0F309291E7B6200CF737B /* State.swift in Sources */,
