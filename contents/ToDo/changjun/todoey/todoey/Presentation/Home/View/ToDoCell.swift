@@ -12,10 +12,42 @@ class ToDoCell: UICollectionViewCell {
     static let identifier = "ToDoCell"
     
     // MARK: - UI Components
+    lazy var checkButton = UIButton().then {
+        $0.tintColor = Color.lightGray
+        $0.setImage(SF.CheckBox.unchecked.iconImage, for: .normal)
+    }
+    
     lazy var todoLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 17, weight: .semibold)
         $0.textColor = .white
-        $0.text = "초롬이 간식 사기"
+        $0.text = "할 일"
+    }
+    
+    lazy var statusView = StatusView().then {
+        $0.backgroundColor = .clear
+    }
+    
+    lazy var dueDateLabel = UILabel().then {
+        $0.textColor = Color.subGray
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.text = "0000.00.00"
+    }
+    
+    lazy var hStackView = UIStackView().then {
+        $0.distribution = .fill
+        $0.spacing = 4
+        $0.alignment = .center
+        $0.axis = .horizontal
+        $0.addArrangedSubview(self.statusView)
+        $0.addArrangedSubview(self.dueDateLabel)
+    }
+    
+    lazy var vStackView = UIStackView().then {
+        $0.spacing = 4
+        $0.distribution = .equalSpacing
+        $0.axis = .vertical
+        $0.addArrangedSubview(self.todoLabel)
+        $0.addArrangedSubview(self.hStackView)
     }
     
     // MARK: - Initializers
@@ -38,15 +70,22 @@ private extension ToDoCell {
     }
     
     func configureLayout() {
-        [todoLabel].forEach {
+        [checkButton, vStackView].forEach {
             self.addSubview($0)
         }
     }
     
     func configureConstraints() {
-        self.todoLabel.snp.makeConstraints { make in
+        self.checkButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(50)
+            make.leading.equalToSuperview().inset(24)
+        }
+        self.vStackView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(self.checkButton).offset(36)
+        }
+        self.hStackView.snp.makeConstraints { make in
+            make.height.equalTo(12)
         }
     }
     

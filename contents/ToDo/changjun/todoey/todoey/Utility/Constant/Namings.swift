@@ -21,4 +21,18 @@ struct SF {
             }
         }
     }
+    
+    enum CheckBox {
+        case checked
+        case unchecked
+        
+        var iconImage: UIImage? {
+            switch self {
+            case .checked:
+                return UIImage(systemName: "checkmark.circle.fill")
+            case .unchecked:
+                return UIImage(systemName: "circle")
+            }
+        }
+    }
 }
