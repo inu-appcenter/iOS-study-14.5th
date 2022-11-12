@@ -14,3 +14,20 @@ struct Color {
     static let lightGray = UIColor(hex: "#F5F5F5")
     static let subGray = UIColor(hex: "ACACAC")
 }
+
+enum BrandColor: CaseIterable {
+    case brandBlue
+    case brandPink
+    case brandPurple
+    
+    var value: UIColor {
+        switch self {
+        case .brandBlue:
+            return UIColor(hex: "#7064B3")
+        case .brandPink:
+            return UIColor(hex: "#A25FA7")
+        case .brandPurple:
+            return UIColor(hex: "#D15C9C")
+        }
+    }
+}
