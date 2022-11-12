@@ -8,7 +8,7 @@ final class Storage {
   
   func create(_ todo: Todo) {
     var todos = read()
-    todos.append(todo)
+    todos.insert(todo, at: 0)
     guard let data = try? PropertyListEncoder().encode(todos) else {
       fatalError("Encording Error!")
     }
@@ -52,8 +52,14 @@ final class Storage {
   }
   
   func delete(_ todo: Todo) {
-    var todos = read()
-    var newTodos = todos.filter { $0.id != todo.id }
+    let todos = read()
+    let newTodos = todos.filter { $0.id != todo.id }
     save(newTodos)
+  }
+}
+
+extension Storage {
+  var todos: [Todo] {
+    return read()
   }
 }
