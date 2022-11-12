@@ -38,8 +38,6 @@ class HomeViewController: UIViewController {
 // MARK: - Configure
 private extension HomeViewController {
     func configureUI() {
-        self.view.backgroundColor = .systemBackground
-        
         self.configureNavigationBar()
         self.configureLayout()
         self.configureConstraints()
@@ -72,11 +70,12 @@ private extension HomeViewController {
         }
         self.toDoView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(self.dateSelectorView.snp.bottom)
+            make.top.equalTo(self.dateSelectorView.snp.bottom).offset(24)
         }
     }
     
     func configureStyles() {
+        self.view.backgroundColor = .systemBackground
         self.profileView.clipsToBounds = true
     }
     

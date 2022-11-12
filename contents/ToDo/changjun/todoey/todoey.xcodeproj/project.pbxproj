@@ -182,8 +182,8 @@
 			children = (
 				2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */,
 				2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */,
-				2E6332FE291AA9F3009498B7 /* ProfileView.swift */,
 				2EF9AEB8291B99BB004DF14F /* SummaryView.swift */,
+				2E6332FE291AA9F3009498B7 /* ProfileView.swift */,
 				2E0BAF5C291E4FF400896103 /* ToDoCell.swift */,
 				2E0BAF57291E453400896103 /* ToDoView.swift */,
 			);

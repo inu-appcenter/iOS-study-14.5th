@@ -62,7 +62,7 @@ private extension DateSelectorView {
     }
     
     func configureStyles() {
-        
+        self.backgroundColor = .clear
     }
 }
 
