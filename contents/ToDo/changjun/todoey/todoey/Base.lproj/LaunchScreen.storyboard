@@ -17,18 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rys-hO-hyT">
-                                <rect key="frame" x="144.33333333333334" y="399.66666666666669" width="104.33333333333334" height="52.666666666666686"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-a1-y6Y">
+                                <rect key="frame" x="0.0" y="317.66666666666669" width="393" height="216.66666666666669"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rys-hO-hyT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nof-rX-JNr"/>
-                            <constraint firstItem="rys-hO-hyT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pIl-do-QsK"/>
+                            <constraint firstItem="HoU-a1-y6Y" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8tA-4T-3nx"/>
+                            <constraint firstItem="HoU-a1-y6Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="epJ-9s-DPW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HoU-a1-y6Y" secondAttribute="trailing" id="jNf-7p-SSx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +36,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppIconTransparent" width="288.5" height="216.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
