@@ -63,7 +63,7 @@ private extension DateSelectorCell {
     
     func configureStyles() {
         self.layer.cornerRadius = 30
-        self.backgroundColor = .systemGray6
+        self.backgroundColor = Color.lightGray
     }
 }
 

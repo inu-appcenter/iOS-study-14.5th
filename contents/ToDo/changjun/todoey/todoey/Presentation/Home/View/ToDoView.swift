@@ -14,7 +14,7 @@ class ToDoView: UIView {
     
     // MARK: - UI Components
     lazy var contentView = UIView().then {
-        $0.backgroundColor = .systemGray
+        $0.backgroundColor = Color.deepGray
     }
     
     private let headerView = UIView()
@@ -100,7 +100,7 @@ private extension ToDoView {
     
     func configureStyles() {
         self.clipsToBounds = true
-        self.backgroundColor = .systemGray
+        self.backgroundColor = Color.deepGray
         self.layer.cornerRadius = 32
     }
 }
