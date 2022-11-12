@@ -1,7 +1,7 @@
 import Foundation
 
-struct Todo: Codable {
-  let title: String
-  let date: Date
-  let state: State
+struct Todo: Codable, Identifiable {
+  var id = UUID()
+  var title: String
+  var state: State
 }
