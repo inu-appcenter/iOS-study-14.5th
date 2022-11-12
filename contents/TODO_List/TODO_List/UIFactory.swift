@@ -41,10 +41,14 @@ final class UIFactory {
           newAttr.foregroundColor = .lightGray
           return newAttr
         }
-        button.configuration = config
       default:
-        break
+        config?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attr in
+          var newAttr = attr
+          newAttr.foregroundColor = textColor
+          return newAttr
+        }
       }
+      button.configuration = config
     }
     let button = UIButton(configuration: config)
     button.configurationUpdateHandler = handler
@@ -52,7 +56,7 @@ final class UIFactory {
   }
   
   static func filledButton(_ text: String) -> UIButton {
-    var config = UIButton.Configuration.filled()
+    var config = UIButton.Configuration.tinted()
     config.baseBackgroundColor = .white
     config.background.strokeWidth = 1
     config.background.strokeColor = .lightGray
@@ -73,6 +77,11 @@ final class UIFactory {
         }
       default:
         config?.baseBackgroundColor = .white
+        config?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attr in
+          var newAttr = attr
+          newAttr.foregroundColor = .black
+          return newAttr
+        }
       }
       button.configuration = config
     }
