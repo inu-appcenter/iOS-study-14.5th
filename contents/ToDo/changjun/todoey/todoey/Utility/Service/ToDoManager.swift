@@ -18,7 +18,7 @@ final class ToDoManager {
     private let key = "todo"
     
     // MARK: - Initializer
-    init() {
+    private init() {
         do {
             self.todos = try self.getToDos()
         } catch {
