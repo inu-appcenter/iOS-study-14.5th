@@ -11,6 +11,7 @@ final class CreateTodoViewController: UIViewController {
   
   private let closeButton = UIFactory.plainButton("닫기", textColor: .black)
   private let saveButton = UIFactory.plainButton("저장", textColor: .black)
+  private let deleteButton = UIFactory.plainButton("삭제", textColor: .red)
   
   private let progressButton = UIFactory.filledButton("진행")
   private let cancelButton = UIFactory.filledButton("취소")
@@ -21,6 +22,7 @@ final class CreateTodoViewController: UIViewController {
   
   private var titleTextView: UITextView!
   private let vcType: CreateTodoVCType
+  private let storage = Storage.shared
   
   // MARK: - LifeCycle
   
@@ -36,10 +38,11 @@ final class CreateTodoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTextView()
+    setupButton()
     setupStyles()
     setupLayout()
     setupConstraints()
-    setupButton()
+    updateUI()
   }
   
   // MARK: - Setup
@@ -47,11 +50,15 @@ final class CreateTodoViewController: UIViewController {
   private func setupButton() {
     closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
     saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
-    saveButton.isEnabled = false
+    progressButton.addTarget(self, action: #selector(didTapProgressButton), for: .touchUpInside)
+    cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
+    completedButton.addTarget(self, action: #selector(didTapCompletedButton), for: .touchUpInside)
+    deleteButton.addTarget(self, action: #selector(didTapDeleteButton), for: .touchUpInside)
     
     switch vcType {
     case .new:
       toggleStateButton(.progress)
+      deleteButton.isHidden = true
     case .existed(let todo):
       toggleStateButton(todo.state)
     }
@@ -68,6 +75,7 @@ final class CreateTodoViewController: UIViewController {
     textView.backgroundColor = .white
     textView.textColor = .black
     textView.font = .systemFont(ofSize: 18, weight: .regular)
+    textView.delegate = self
     self.titleTextView = textView
   }
   
@@ -78,7 +86,7 @@ final class CreateTodoViewController: UIViewController {
   }
   
   private func setupLayout() {
-    [todoLabel, titleTextView, textViewLine, stateLabel, stateButtonStack]
+    [todoLabel, titleTextView, textViewLine, stateLabel, stateButtonStack, deleteButton]
       .forEach { view.addSubview($0) }
   }
   
@@ -107,22 +115,68 @@ final class CreateTodoViewController: UIViewController {
       make.leading.equalToSuperview().inset(24)
       make.top.equalTo(stateLabel.snp.bottom).offset(16)
     }
+    
+    deleteButton.snp.makeConstraints { make in
+      make.leading.equalToSuperview().inset(24)
+      make.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
+    }
   }
   
   // MARK: - Selectors
+  
+  @objc private func didTapProgressButton() {
+    toggleStateButton(.progress)
+  }
+  
+  @objc private func didTapCancelButton() {
+    toggleStateButton(.cancel)
+  }
+  
+  @objc private func didTapCompletedButton() {
+    toggleStateButton(.completed)
+  }
   
   @objc private func didTapCloseButton() {
     navigationController?.popViewController(animated: true)
   }
   
   @objc private func didTapSaveButton() {
+    let title = titleTextView.text!
+    var state: State
     
+    if progressButton.isSelected {
+      state = .progress
+    } else if cancelButton.isSelected {
+      state = .cancel
+    } else {
+      state = .completed
+    }
+    
+    switch vcType {
+    case .new:
+      let todo = Todo(title: title, state: state)
+      storage.create(todo)
+    case .existed(var todo):
+      todo.state = state
+      todo.title = title
+      storage.update(todo)
+    }
+    
+    navigationController?.popViewController(animated: true)
   }
-}
-
-// MARK: - Toggle Button
-
-extension CreateTodoViewController {
+  
+  @objc private func didTapDeleteButton() {
+    switch vcType {
+    case .new:
+      break
+    case .existed(let todo):
+      storage.delete(todo)
+    }
+    navigationController?.popViewController(animated: true)
+  }
+  
+  // MARK: - Helpers
+  
   private func toggleStateButton(_ state: State) {
     switch state {
     case .progress:
@@ -137,6 +191,28 @@ extension CreateTodoViewController {
       progressButton.isSelected = false
       cancelButton.isSelected = false
       completedButton.isSelected = true
+    }
+  }
+  
+  private func updateUI() {
+    switch vcType {
+    case .new:
+      saveButton.isEnabled = false
+    case .existed(let todo):
+      titleTextView.text = todo.title
+      toggleStateButton(todo.state)
+    }
+  }
+}
+
+// MARK: - TextView Delegate
+
+extension CreateTodoViewController: UITextViewDelegate {
+  func textViewDidChange(_ textView: UITextView) {
+    if textView.text.count == 0 {
+      saveButton.isEnabled = false
+    } else {
+      saveButton.isEnabled = true
     }
   }
 }
