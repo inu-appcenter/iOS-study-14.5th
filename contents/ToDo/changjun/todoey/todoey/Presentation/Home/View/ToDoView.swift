@@ -28,7 +28,7 @@ class ToDoView: UIView {
     lazy var doneLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.textColor = Color.subGray
-        $0.text = "7 / 10"
+        $0.text = "0 / 0"
     }
     
     lazy var headerStackView = UIStackView().then {
