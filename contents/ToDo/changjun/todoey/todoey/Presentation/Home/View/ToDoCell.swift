@@ -59,6 +59,11 @@ class ToDoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Functions
+    func bind(_ todo: ToDo) {
+        self.todoLabel.text = todo.title
+    }
 }
 
 // MARK: - UI Configuration

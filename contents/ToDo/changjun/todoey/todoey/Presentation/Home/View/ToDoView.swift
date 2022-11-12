@@ -12,6 +12,9 @@ import Then
 
 class ToDoView: UIView {
     
+    private let todo = ToDoManager.shared
+    private var viewModel = ToDoViewModel()
+    
     // MARK: - UI Components
     lazy var contentView = UIView().then {
         $0.backgroundColor = Color.deepGray
@@ -108,7 +111,7 @@ private extension ToDoView {
 // MARK: - Collection View
 extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return self.viewModel.todoData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -116,6 +119,8 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
             withReuseIdentifier: ToDoCell.identifier, for: indexPath) as? ToDoCell else {
             return UICollectionViewCell()
         }
+        let todoData = todo.todos[indexPath.item]
+        cell.bind(todoData)
         return cell
     }
 }
