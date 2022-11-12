@@ -9,15 +9,12 @@ import UIKit
 
 struct SF {
     enum Navigation {
-        case preference
-        case add
+        case menu
         
         var iconImage: UIImage? {
             switch self {
-            case .preference:
-                return UIImage(systemName: "gearshape.fill")
-            case .add:
-                return UIImage(systemName: "plus")
+            case .menu:
+                return UIImage(systemName: "line.3.horizontal")
             }
         }
     }

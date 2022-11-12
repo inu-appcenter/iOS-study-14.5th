@@ -87,16 +87,11 @@ private extension HomeViewController {
                 left: 0, bottom: 0, right: 0)
         }
         
-        let preferenceButton = UIButton().then {
-            $0.setImage(SF.Navigation.preference.iconImage, for: .normal)
+        let menuButton = UIButton().then {
+            $0.setImage(SF.Navigation.menu.iconImage, for: .normal)
             $0.tintColor = .black
         }
-        let addButton = UIButton().then {
-            $0.setImage(SF.Navigation.add.iconImage, for: .normal)
-            $0.tintColor = .black
-        }
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: preferenceButton)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
     }
 }
 
