@@ -10,10 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
+protocol EditDelegate: AnyObject {
+    func showEditView(from view: ToDoView)
+}
+
 class ToDoView: UIView {
     
     private let todo = ToDoManager.shared
     private var viewModel = HomeViewModel()
+    weak var delegate: EditDelegate?
     
     // MARK: - UI Components
     lazy var contentView = UIView().then {
@@ -45,6 +50,7 @@ class ToDoView: UIView {
     
     @objc func handleTap() {
         viewModel.handleAddButtonTap()
+        self.delegate?.showEditView(from: self)
     }
     
     lazy var headerStackView = UIStackView().then {

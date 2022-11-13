@@ -7,7 +7,12 @@
 
 import UIKit
 
+import Then
+import SnapKit
+
 class EditViewController: UIViewController {
+    
+    // MARK: - UI Components
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -35,7 +40,7 @@ private extension EditViewController {
     }
     
     func configureStyles() {
-        
+        self.view.backgroundColor = .magenta
     }
 }
 

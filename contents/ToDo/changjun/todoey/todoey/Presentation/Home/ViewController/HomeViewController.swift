@@ -25,7 +25,9 @@ class HomeViewController: UIViewController {
         $0.backgroundColor = .systemPink
     }
     
-    private let toDoView = ToDoView()
+    lazy var toDoView = ToDoView().then {
+        $0.delegate = self
+    }
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -92,6 +94,14 @@ private extension HomeViewController {
             $0.tintColor = .black
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+    }
+}
+
+// MARK: - Description
+extension HomeViewController: EditDelegate {
+    func showEditView(from view: ToDoView) {
+        let vc = EditViewController()
+        self.navigationController?.present(vc, animated: true)
     }
 }
 
