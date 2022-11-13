@@ -38,7 +38,8 @@ class EditViewController: UIViewController {
     }
 
     @objc func doneButtonPressed() {
-        self.viewModel.handleData(self.textField.text)
+        self.viewModel.createToDo(self.textField.text)
+        // TODO ToDoView의 컬렉션뷰 리로드
         self.dismiss(animated: true)
     }
 }

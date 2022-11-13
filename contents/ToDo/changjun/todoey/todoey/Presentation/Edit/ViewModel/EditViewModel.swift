@@ -8,7 +8,10 @@
 import Foundation
 
 final class EditViewModel {
-    func handleData(_ text: String?) {
-        print(text ?? "")
+    func createToDo(_ text: String?) {
+        if let text = text {
+            let todo = ToDo(title: text, state: .notStarted, startDate: nil, dueDate: nil, created: Date.now)
+            ToDoManager.shared.create(todo)
+        }
     }
 }
