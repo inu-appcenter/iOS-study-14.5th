@@ -34,19 +34,13 @@ class ToDoView: UIView {
         $0.text = "0 / 0"
     }
     
-    lazy var plusIconImageView = UIImageView().then {
+    lazy var addButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "plus"), for: .normal)
         $0.tintColor = .white
-        $0.image = UIImage(systemName: "plus")
-    }
-    
-    lazy var addButton = UIView().then {
         $0.backgroundColor = .systemIndigo
         let tapGesture = UITapGestureRecognizer(
             target: self, action: #selector(handleTap))
         $0.addGestureRecognizer(tapGesture)
-        $0.isUserInteractionEnabled = true
-        
-        $0.addSubview(plusIconImageView)
     }
     
     @objc func handleTap() {
@@ -121,10 +115,6 @@ private extension ToDoView {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(32)
             make.width.height.equalTo(48)
-        }
-        self.plusIconImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(8)
-            make.center.equalToSuperview()
         }
         self.todoCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
