@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import SwipeCellKit
 
 protocol EditDelegate: AnyObject {
     func showEditView(from view: ToDoView)
@@ -147,6 +148,7 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
             withReuseIdentifier: ToDoCell.identifier, for: indexPath) as? ToDoCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = self
         let todoData = todo.todos[indexPath.item]
         cell.bind(todoData)
         return cell
@@ -161,6 +163,24 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
             self.viewModel.removeToDo(todo)
         }
         self.todoCollectionView.reloadData()
+    }
+}
+
+extension ToDoView: SwipeCollectionViewCellDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        editActionsForItemAt indexPath: IndexPath,
+        for orientation: SwipeCellKit.SwipeActionsOrientation
+    ) -> [SwipeCellKit.SwipeAction]? {
+        guard orientation == .right else { return nil }
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(systemName: "trash.fill")
+
+        return [deleteAction]
     }
 }
 

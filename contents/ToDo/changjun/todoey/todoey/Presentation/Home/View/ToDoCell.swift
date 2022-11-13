@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ToDoCell: UICollectionViewCell {
+import SwipeCellKit
+
+class ToDoCell: SwipeCollectionViewCell {
     
     var todo: ToDo?
     static let identifier = "ToDoCell"
