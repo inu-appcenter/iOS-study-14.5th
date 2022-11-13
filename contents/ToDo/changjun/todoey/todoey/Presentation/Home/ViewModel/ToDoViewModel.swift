@@ -10,7 +10,7 @@ import UIKit
 final class ToDoViewModel {
     var todoData: [ToDo]? = ToDoManager.shared.read()
     
-    @objc func handleTap() {
+    func handleTap() {
         let haptic = UIImpactFeedbackGenerator()
         haptic.impactOccurred()
         print("Tapped")
