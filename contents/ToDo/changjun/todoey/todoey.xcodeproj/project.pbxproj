@@ -23,6 +23,7 @@
 		2ED2F0A0291FCFCA00A0F940 /* ToDoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F09F291FCFCA00A0F940 /* ToDoManager.swift */; };
 		2ED2F0A82920E53A00A0F940 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A72920E53A00A0F940 /* EditViewController.swift */; };
 		2ED2F0AA2920F16B00A0F940 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A92920F16B00A0F940 /* HomeViewModel.swift */; };
+		2ED2F0AC2921356300A0F940 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0AB2921356300A0F940 /* UIViewController+Extension.swift */; };
 		2EF9AEB9291B99BB004DF14F /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEB8291B99BB004DF14F /* SummaryView.swift */; };
 		2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */; };
 		2EF9AEC1291E2D7A004DF14F /* DateSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */; };
@@ -48,6 +49,7 @@
 		2ED2F09F291FCFCA00A0F940 /* ToDoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoManager.swift; sourceTree = "<group>"; };
 		2ED2F0A72920E53A00A0F940 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2ED2F0A92920F16B00A0F940 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2ED2F0AB2921356300A0F940 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2EF9AEB8291B99BB004DF14F /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
 		2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorCell.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		2E0BAF59291E490300896103 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2ED2F0AB2921356300A0F940 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			files = (
 				2E0BAF58291E453400896103 /* ToDoView.swift in Sources */,
 				2ED2F09A291F559400A0F940 /* Colors.swift in Sources */,
+				2ED2F0AC2921356300A0F940 /* UIViewController+Extension.swift in Sources */,
 				2E6332D729195611009498B7 /* HomeViewController.swift in Sources */,
 				2E6332D329195611009498B7 /* AppDelegate.swift in Sources */,
 				2E6332F6291A562E009498B7 /* Preview.swift in Sources */,
