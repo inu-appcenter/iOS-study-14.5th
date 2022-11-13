@@ -12,7 +12,7 @@ import Then
 
 class DateSelectorView: UIView {
     
-    private var viewModel = DateSelectorViewModel()
+    private var viewModel = HomeViewModel()
     
     // MARK: - UI Components
     lazy var collectionView = UICollectionView(

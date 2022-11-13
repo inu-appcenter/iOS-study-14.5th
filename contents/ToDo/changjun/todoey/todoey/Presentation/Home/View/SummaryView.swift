@@ -11,7 +11,7 @@ import KDCircularProgress
 
 class SummaryView: UIView {
     
-    private var viewModel = SummaryViewModel()
+    private var viewModel = HomeViewModel()
     
     // MARK: - UI Components
     lazy var progressCircle = KDCircularProgress().then {

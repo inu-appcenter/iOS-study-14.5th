@@ -13,7 +13,7 @@ import Then
 class ToDoView: UIView {
     
     private let todo = ToDoManager.shared
-    private var viewModel = ToDoViewModel()
+    private var viewModel = HomeViewModel()
     
     // MARK: - UI Components
     lazy var contentView = UIView().then {

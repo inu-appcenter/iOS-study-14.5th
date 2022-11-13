@@ -12,7 +12,7 @@ import Then
 
 final class ProfileView: UIView {
     
-    private var viewModel = ProfileViewModel()
+    private var viewModel = HomeViewModel()
     
     // MARK: - UI Components
     lazy var profileImageView = UIImageView().then {
