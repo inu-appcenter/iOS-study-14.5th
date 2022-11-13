@@ -5,8 +5,16 @@
 //  Created by 이창준 on 2022/11/12.
 //
 
-import Foundation
+import UIKit
 
-struct ToDoViewModel {
+final class ToDoViewModel {
     var todoData: [ToDo]? = ToDoManager.shared.read()
+    
+    @objc func handleTap() {
+        let haptic = UIImpactFeedbackGenerator()
+        haptic.impactOccurred()
+        print("Tapped")
+        
+        
+    }
 }

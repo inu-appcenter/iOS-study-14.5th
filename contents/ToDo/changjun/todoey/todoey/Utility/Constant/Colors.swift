@@ -13,6 +13,12 @@ struct Color {
     static let deepGray = UIColor(hex: "#2D2D2D")
     static let lightGray = UIColor(hex: "#F5F5F5")
     static let subGray = UIColor(hex: "ACACAC")
+    
+    static let gradient = [
+        BrandColor.brandBlue.value,
+        BrandColor.brandPink.value,
+        BrandColor.brandPurple.value
+    ].gradient()
 }
 
 enum BrandColor: CaseIterable {

@@ -23,6 +23,7 @@
 		2ED2F09E291FCD1600A0F940 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F09D291FCD1600A0F940 /* ToDo.swift */; };
 		2ED2F0A0291FCFCA00A0F940 /* ToDoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F09F291FCFCA00A0F940 /* ToDoManager.swift */; };
 		2ED2F0A2291FDCF600A0F940 /* ToDoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A1291FDCF600A0F940 /* ToDoViewModel.swift */; };
+		2ED2F0A82920E53A00A0F940 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A72920E53A00A0F940 /* EditViewController.swift */; };
 		2EF9AEB9291B99BB004DF14F /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEB8291B99BB004DF14F /* SummaryView.swift */; };
 		2EF9AEBD291E192B004DF14F /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBC291E192B004DF14F /* SummaryViewModel.swift */; };
 		2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */; };
@@ -50,6 +51,7 @@
 		2ED2F09D291FCD1600A0F940 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		2ED2F09F291FCFCA00A0F940 /* ToDoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoManager.swift; sourceTree = "<group>"; };
 		2ED2F0A1291FDCF600A0F940 /* ToDoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewModel.swift; sourceTree = "<group>"; };
+		2ED2F0A72920E53A00A0F940 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2EF9AEB8291B99BB004DF14F /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		2EF9AEBC291E192B004DF14F /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
 		2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6332ED291A47AA009498B7 /* Common */,
+				2ED2F0A52920E51300A0F940 /* Edit */,
 				2E6332F7291A5671009498B7 /* Home */,
 			);
 			path = Presentation;
@@ -229,6 +232,22 @@
 				2E6332FC291A5F68009498B7 /* Namings.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		2ED2F0A52920E51300A0F940 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2F0A62920E52700A0F940 /* ViewController */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		2ED2F0A62920E52700A0F940 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2F0A72920E53A00A0F940 /* EditViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		4F74A391301E0EA2A5C90E1D /* Pods */ = {
@@ -381,6 +400,7 @@
 				2E6332FD291A5F68009498B7 /* Namings.swift in Sources */,
 				2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */,
 				2E633301291AB68A009498B7 /* ProfileViewModel.swift in Sources */,
+				2ED2F0A82920E53A00A0F940 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

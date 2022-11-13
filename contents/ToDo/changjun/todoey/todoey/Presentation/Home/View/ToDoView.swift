@@ -34,6 +34,25 @@ class ToDoView: UIView {
         $0.text = "0 / 0"
     }
     
+    lazy var plusIconImageView = UIImageView().then {
+        $0.tintColor = .white
+        $0.image = UIImage(systemName: "plus")
+    }
+    
+    lazy var addButton = UIView().then {
+        $0.backgroundColor = .systemIndigo
+        let tapGesture = UITapGestureRecognizer(
+            target: self, action: #selector(handleTap))
+        $0.addGestureRecognizer(tapGesture)
+        $0.isUserInteractionEnabled = true
+        
+        $0.addSubview(plusIconImageView)
+    }
+    
+    @objc func handleTap() {
+        viewModel.handleTap()
+    }
+    
     lazy var headerStackView = UIStackView().then {
         $0.addArrangedSubview(self.toDoLabel)
         $0.addArrangedSubview(self.doneLabel)
@@ -79,7 +98,9 @@ private extension ToDoView {
         [headerView, contentView].forEach {
             self.addSubview($0)
         }
-        self.headerView.addSubview(self.headerStackView)
+        [headerStackView, addButton].forEach {
+            self.headerView.addSubview($0)
+        }
         self.contentView.addSubview(self.todoCollectionView)
     }
     
@@ -96,6 +117,15 @@ private extension ToDoView {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(32)
         }
+        self.addButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(32)
+            make.width.height.equalTo(48)
+        }
+        self.plusIconImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(8)
+            make.center.equalToSuperview()
+        }
         self.todoCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -105,6 +135,8 @@ private extension ToDoView {
         self.clipsToBounds = true
         self.backgroundColor = Color.deepGray
         self.layer.cornerRadius = 32
+        
+        self.addButton.layer.cornerRadius = 24
     }
 }
 
