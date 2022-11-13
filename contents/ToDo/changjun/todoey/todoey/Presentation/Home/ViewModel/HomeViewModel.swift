@@ -50,7 +50,14 @@ final class HomeViewModel {
         let haptic = UIImpactFeedbackGenerator(style: .light)
         haptic.impactOccurred()
         print("Tapped")
-        
-        
+    }
+    
+    func removeToDo(_ removingToDo: ToDo) {
+        self.todoData?.enumerated().forEach { (index, todo) in
+            if todo == removingToDo {
+                self.todoData?.remove(at: index)
+            }
+        }
+        ToDoManager.shared.delete(removingToDo)
     }
 }

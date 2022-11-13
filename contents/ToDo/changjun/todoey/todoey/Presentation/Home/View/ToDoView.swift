@@ -151,6 +151,17 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.bind(todoData)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ToDoCell else {
+            return
+        }
+        if let todo = cell.todo {
+            print("Removing data named \(todo.title)")
+            self.viewModel.removeToDo(todo)
+        }
+        self.todoCollectionView.reloadData()
+    }
 }
 
 // MARK: - Preview

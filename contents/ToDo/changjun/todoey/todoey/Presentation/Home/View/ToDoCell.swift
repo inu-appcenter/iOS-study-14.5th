@@ -9,6 +9,7 @@ import UIKit
 
 class ToDoCell: UICollectionViewCell {
     
+    var todo: ToDo?
     static let identifier = "ToDoCell"
     
     // MARK: - UI Components
@@ -62,7 +63,8 @@ class ToDoCell: UICollectionViewCell {
     
     // MARK: - Functions
     func bind(_ todo: ToDo) {
-        self.todoLabel.text = todo.title
+        self.todo = todo
+        self.todoLabel.text = self.todo?.title
     }
 }
 
