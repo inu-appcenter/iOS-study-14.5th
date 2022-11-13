@@ -12,6 +12,8 @@ import SnapKit
 
 class EditViewController: UIViewController {
     
+    private var viewModel = EditViewModel()
+    
     // MARK: - UI Components
     lazy var textField = UITextField().then {
         $0.returnKeyType = .done
@@ -24,7 +26,7 @@ class EditViewController: UIViewController {
         $0.backgroundColor = BrandColor.brandBlue.value
         $0.setTitle("추가하기", for: .normal)
         $0.setTitleColor(Color.subGray, for: .highlighted)
-        $0.addTarget(self, action: #selector(exit), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
     }
 
     // MARK: - Life Cycle
@@ -35,7 +37,8 @@ class EditViewController: UIViewController {
         self.hideKeyboardWhenTapped()
     }
 
-    @objc func exit() {
+    @objc func doneButtonPressed() {
+        self.viewModel.handleData(self.textField.text)
         self.dismiss(animated: true)
     }
 }

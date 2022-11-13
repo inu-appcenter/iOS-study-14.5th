@@ -24,6 +24,7 @@
 		2ED2F0A82920E53A00A0F940 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A72920E53A00A0F940 /* EditViewController.swift */; };
 		2ED2F0AA2920F16B00A0F940 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0A92920F16B00A0F940 /* HomeViewModel.swift */; };
 		2ED2F0AC2921356300A0F940 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0AB2921356300A0F940 /* UIViewController+Extension.swift */; };
+		2ED2F0AF2921518000A0F940 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2F0AE2921518000A0F940 /* EditViewModel.swift */; };
 		2EF9AEB9291B99BB004DF14F /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEB8291B99BB004DF14F /* SummaryView.swift */; };
 		2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */; };
 		2EF9AEC1291E2D7A004DF14F /* DateSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */; };
@@ -50,6 +51,7 @@
 		2ED2F0A72920E53A00A0F940 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2ED2F0A92920F16B00A0F940 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2ED2F0AB2921356300A0F940 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		2ED2F0AE2921518000A0F940 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		2EF9AEB8291B99BB004DF14F /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		2EF9AEBE291E2CE0004DF14F /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
 		2EF9AEC0291E2D7A004DF14F /* DateSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorCell.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED2F0A62920E52700A0F940 /* ViewController */,
+				2ED2F0AD2921517300A0F940 /* ViewModel */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -242,6 +245,14 @@
 				2ED2F0A72920E53A00A0F940 /* EditViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2ED2F0AD2921517300A0F940 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2F0AE2921518000A0F940 /* EditViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F74A391301E0EA2A5C90E1D /* Pods */ = {
@@ -391,6 +402,7 @@
 				2EF9AEC1291E2D7A004DF14F /* DateSelectorCell.swift in Sources */,
 				2ED2F0AA2920F16B00A0F940 /* HomeViewModel.swift in Sources */,
 				2E6332FD291A5F68009498B7 /* Namings.swift in Sources */,
+				2ED2F0AF2921518000A0F940 /* EditViewModel.swift in Sources */,
 				2EF9AEBF291E2CE0004DF14F /* DateSelectorView.swift in Sources */,
 				2ED2F0A82920E53A00A0F940 /* EditViewController.swift in Sources */,
 			);
