@@ -62,7 +62,7 @@ private extension EditViewController {
         }
         self.testButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).offset(-24)
             make.width.equalToSuperview().inset(24)
             make.height.equalTo(48)
         }
