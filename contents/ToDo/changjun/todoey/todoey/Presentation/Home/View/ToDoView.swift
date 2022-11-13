@@ -44,7 +44,7 @@ class ToDoView: UIView {
     }
     
     @objc func handleTap() {
-        viewModel.handleTap()
+        viewModel.handleAddButtonTap()
     }
     
     lazy var headerStackView = UIStackView().then {
