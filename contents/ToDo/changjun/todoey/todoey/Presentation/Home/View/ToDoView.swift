@@ -86,6 +86,12 @@ class ToDoView: UIView {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 4
         $0.collectionViewLayout = layout
+        
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        $0.addGestureRecognizer(lpgr)
     }
     
     // MARK: - Initializers
@@ -211,6 +217,21 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
         options.expansionStyle = .destructiveAfterFill
         options.transitionStyle = .border
         return options
+    }
+}
+
+// MARK: - Long Press
+extension ToDoView: UIGestureRecognizerDelegate {
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        guard gestureReconizer.state != .ended else { return }
+        let point = gestureReconizer.location(in: self.todoCollectionView)
+        let indexPath = self.todoCollectionView.indexPathForItem(at: point)
+        if let index = indexPath {
+            print(index.row)
+        }
+        else {
+            print("Could not find index path")
+        }
     }
 }
 
