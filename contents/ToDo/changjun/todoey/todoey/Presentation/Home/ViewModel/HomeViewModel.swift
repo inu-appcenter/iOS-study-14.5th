@@ -47,7 +47,7 @@ final class HomeViewModel {
     
     // MARK: - Initializer
     init() {
-        self.todoData = ToDoManager.shared.read()
+        self.updateToDo()
     }
     
     // MARK: - Functions
@@ -56,14 +56,39 @@ final class HomeViewModel {
         print("Tapped")
     }
     
+    func syncToDoData() {
+        print("Syncing ToDo UserDefaults to temporary data.")
+        self.updateToDo()
+    }
+    
+    func editToDo(_ toggledToDo: ToDo) {
+        self.todoData?.enumerated().forEach { (index, todo) in
+            if todo == toggledToDo {
+                var newToDo = toggledToDo
+                if newToDo.state == .notStarted {
+                    newToDo.state = .completed
+                } else {
+                    newToDo.state = .notStarted
+                }
+                self.todoData?.remove(at: index)
+                self.todoData?.insert(newToDo, at: index)
+                ToDoManager.shared.update(newToDo)
+            }
+        }
+    }
+    
     func removeToDo(_ removingToDo: ToDo) {
         self.todoData?.enumerated().forEach { (index, todo) in
             if todo == removingToDo {
                 self.todoData?.remove(at: index)
-                ToDoManager.shared.delete(removingToDo)
-            } else {
-                fatalError("\(ToDoManagerError.notFound): Tried to remove non-exist data.")
+                ToDoManager.shared.delete(removingToDo)   
             }
         }
+    }
+}
+
+private extension HomeViewModel {
+    func updateToDo() {
+        self.todoData = ToDoManager.shared.read()
     }
 }

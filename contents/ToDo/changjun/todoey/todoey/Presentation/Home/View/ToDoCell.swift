@@ -67,6 +67,11 @@ class ToDoCell: SwipeCollectionViewCell {
     func bind(_ todo: ToDo) {
         self.todo = todo
         self.todoLabel.text = self.todo?.title
+        if self.todo?.state == .completed {
+            self.checkButton.tintColor = .green
+        } else {
+            self.checkButton.tintColor = Color.lightGray
+        }
     }
 }
 

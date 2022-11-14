@@ -11,7 +11,7 @@ import SnapKit
 import Then
 import SwipeCellKit
 
-protocol EditDelegate: AnyObject {
+protocol ToDoViewDelegate: AnyObject {
     func showEditView(from view: ToDoView)
 }
 
@@ -19,7 +19,7 @@ class ToDoView: UIView {
     
     private let todo = ToDoManager.shared
     private var viewModel = HomeViewModel()
-    weak var delegate: EditDelegate?
+    weak var delegate: ToDoViewDelegate?
     
     // MARK: - UI Components
     lazy var contentView = UIView().then {
@@ -38,6 +38,18 @@ class ToDoView: UIView {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.textColor = Color.subGray
         $0.text = "0 / 0"
+    }
+    
+    lazy var refreshButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "arrow.clockwise.circle.fill"), for: .normal)
+        $0.tintColor = BrandColor.brandBlue.value
+        $0.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+    }
+    
+    @objc func refresh() {
+        // update viewmodel
+        self.viewModel.syncToDoData()
+        self.todoCollectionView.reloadData()
     }
     
     lazy var addButton = UIButton().then {
@@ -99,7 +111,7 @@ private extension ToDoView {
         [headerView, contentView].forEach {
             self.addSubview($0)
         }
-        [headerStackView, addButton].forEach {
+        [headerStackView, addButton, refreshButton].forEach {
             self.headerView.addSubview($0)
         }
         self.contentView.addSubview(self.todoCollectionView)
@@ -117,6 +129,11 @@ private extension ToDoView {
         self.headerStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(32)
+        }
+        self.refreshButton.snp.makeConstraints { make in
+            make.leading.equalTo(self.toDoLabel.snp.trailing).offset(12)
+            make.centerY.equalTo(self.toDoLabel)
+            make.width.height.equalTo(32)
         }
         self.addButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -160,7 +177,7 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         if let todo = cell.todo {
             print("Removing data named \(todo.title)")
-            self.viewModel.removeToDo(todo)
+            self.viewModel.editToDo(todo)
         }
         self.todoCollectionView.reloadData()
     }
@@ -174,7 +191,14 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
     ) -> [SwipeCellKit.SwipeAction]? {
         guard orientation == .right else { return nil }
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ToDoCell else {
+                return
+            }
+            if let todo = cell.todo {
+                print("Removing data named \(todo.title)")
+                self.viewModel.removeToDo(todo)
+            }
+            self.todoCollectionView.reloadData()
         }
 
         // customize the action appearance

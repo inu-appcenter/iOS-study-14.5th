@@ -11,6 +11,9 @@ import SnapKit
 import Then
 
 class HomeViewController: UIViewController {
+    
+    // MARK: - Properties
+    private var viewModel = HomeViewModel()
 
     // MARK: - UI Components
     lazy var profileView = ProfileView().then {
@@ -97,10 +100,13 @@ private extension HomeViewController {
     }
 }
 
-// MARK: - Description
-extension HomeViewController: EditDelegate {
+// MARK: - ToDoViewDelegate
+extension HomeViewController: ToDoViewDelegate {
     func showEditView(from view: ToDoView) {
         let vc = EditViewController()
+        vc.dismissClosure = {
+            self.viewModel.syncToDoData()
+        }
         self.navigationController?.present(vc, animated: true)
     }
 }

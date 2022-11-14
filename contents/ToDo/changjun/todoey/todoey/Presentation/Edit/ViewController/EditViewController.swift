@@ -12,6 +12,8 @@ import SnapKit
 
 class EditViewController: UIViewController {
     
+    // MARK: - Properties
+    var dismissClosure: (() -> Void)?
     private var viewModel = EditViewModel()
     
     // MARK: - UI Components
@@ -40,7 +42,9 @@ class EditViewController: UIViewController {
     @objc func doneButtonPressed() {
         self.viewModel.createToDo(self.textField.text)
         // TODO ToDoView의 컬렉션뷰 리로드
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) {
+            self.dismissClosure?()
+        }
     }
 }
 
