@@ -176,7 +176,7 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
             return
         }
         if let todo = cell.todo {
-            print("Removing data named \(todo.title)")
+            print("Toggle state of data named \(todo.title)")
             self.viewModel.editToDo(todo)
         }
         self.todoCollectionView.reloadData()
