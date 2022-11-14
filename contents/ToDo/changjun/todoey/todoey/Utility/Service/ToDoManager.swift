@@ -70,10 +70,10 @@ final class ToDoManager {
     }
     
     // Function to replace old todo data with new one
-    func update(_ oldToDo: ToDo) {
+    func update(_ newToDo: ToDo) {
         self.todos.enumerated().forEach { (idx, todo) in
-            if todo.id == oldToDo.id {
-                self.todos[idx] = oldToDo
+            if todo.id == newToDo.id {
+                self.todos[idx] = newToDo
             }
         }
     }
