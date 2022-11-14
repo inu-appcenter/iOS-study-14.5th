@@ -223,11 +223,13 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
 // MARK: - Long Press
 extension ToDoView: UIGestureRecognizerDelegate {
     @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
-        guard gestureReconizer.state != .ended else { return }
+        guard gestureReconizer.state == .began else { return }
         let point = gestureReconizer.location(in: self.todoCollectionView)
         let indexPath = self.todoCollectionView.indexPathForItem(at: point)
-        if let index = indexPath {
-            print(index.row)
+        if indexPath != nil {
+            print("Long Pressed")
+            viewModel.handleAddButtonTapEvent()
+            self.delegate?.showEditView(from: self)
         }
         else {
             print("Could not find index path")

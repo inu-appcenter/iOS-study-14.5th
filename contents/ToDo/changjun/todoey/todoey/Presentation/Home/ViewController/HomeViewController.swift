@@ -106,6 +106,7 @@ extension HomeViewController: ToDoViewDelegate {
         let vc = EditViewController()
         vc.dismissClosure = {
             self.viewModel.syncToDoData()
+            self.toDoView.todoCollectionView.reloadData()
         }
         self.navigationController?.present(vc, animated: true)
     }
