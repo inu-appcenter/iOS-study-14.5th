@@ -68,8 +68,10 @@ class ToDoCell: SwipeCollectionViewCell {
         self.todo = todo
         self.todoLabel.text = self.todo?.title
         if self.todo?.state == .completed {
-            self.checkButton.tintColor = .green
+            self.checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+            self.checkButton.tintColor = BrandColor.brandBlue.value
         } else {
+            self.checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
             self.checkButton.tintColor = Color.lightGray
         }
     }
