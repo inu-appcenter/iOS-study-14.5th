@@ -52,8 +52,7 @@ final class HomeViewModel {
     
     // MARK: - Functions
     func handleAddButtonTapEvent() {
-        let haptic = UIImpactFeedbackGenerator(style: .light)
-        haptic.impactOccurred()
+        HapticManager.shared.impactFeedback(.light)
         print("Tapped")
     }
     
