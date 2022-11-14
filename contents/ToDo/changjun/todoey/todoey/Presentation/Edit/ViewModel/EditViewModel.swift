@@ -13,8 +13,8 @@ final class EditViewModel {
             let todo = ToDo(
                 title: text,
                 state: .notStarted,
-                startDate: nil,
-                dueDate: nil,
+                startDate: Date.now,
+                dueDate: Date.now,
                 created: Date.now
             )
             ToDoManager.shared.create(todo)

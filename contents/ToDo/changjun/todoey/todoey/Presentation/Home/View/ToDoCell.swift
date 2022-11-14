@@ -67,6 +67,7 @@ class ToDoCell: SwipeCollectionViewCell {
     func bind(_ todo: ToDo) {
         self.todo = todo
         self.todoLabel.text = self.todo?.title
+        self.dueDateLabel.text = self.todo?.dueDate?.toString()
         if self.todo?.state == .completed {
             self.checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             self.checkButton.tintColor = BrandColor.brandBlue.value
