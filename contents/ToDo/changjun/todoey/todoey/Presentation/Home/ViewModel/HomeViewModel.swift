@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewModel {
     
     // MARK: - Properties
-    var todoData: [ToDo]? = ToDoManager.shared.read()
+    var todoData: [ToDo]?
     
     // MARK: - Computed Properties
     
@@ -45,6 +45,11 @@ final class HomeViewModel {
         return "Wed"
     }
     
+    // MARK: - Initializer
+    init() {
+        self.todoData = ToDoManager.shared.read()
+    }
+    
     // MARK: - Functions
     func handleAddButtonTap() {
         let haptic = UIImpactFeedbackGenerator(style: .light)
@@ -56,8 +61,10 @@ final class HomeViewModel {
         self.todoData?.enumerated().forEach { (index, todo) in
             if todo == removingToDo {
                 self.todoData?.remove(at: index)
+                ToDoManager.shared.delete(removingToDo)
+            } else {
+                fatalError("\(ToDoManagerError.notFound): Tried to remove non-exist data.")
             }
         }
-        ToDoManager.shared.delete(removingToDo)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum ToDoManagerError: Error {
-    case emptyList, decodeError
+    case emptyList, decodeError, notFound
 }
 
 final class ToDoManager {
