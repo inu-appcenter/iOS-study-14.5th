@@ -459,7 +459,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="2IS-Fu-B0O"/>
                             </scrollView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSa-sT-2Ow">
-                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <rect key="frame" x="0.0" y="735" width="393" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="House" image="house.fill" catalog="system" selectedImage="house" id="1k1-zG-Uh4"/>

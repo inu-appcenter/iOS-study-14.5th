@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import UIKit
-struct MyWorkModel {
+import UIKit.UIColor
+struct MyWorkModel : Codable {
     let imageName: String
     let name: String
     let colorName: UIColor

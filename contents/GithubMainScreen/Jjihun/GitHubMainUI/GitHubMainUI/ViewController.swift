@@ -34,9 +34,7 @@ class ViewController: UIViewController {
         tableViewMyWork.delegate = self
         tableViewMyWork.dataSource = self
         
-        scrollView.delegate = self
         
-       
         
     }
     
@@ -95,23 +93,4 @@ extension UITextField {
     }
 }
 
-extension ViewController : UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffset = scrollView.contentOffset.y
-        
-        if contentOffset >= 55 {
-            nvItem.largeTitleDisplayMode = .never
-            //let bound = navigationBar.bounds
-            //navigationBar.frame = CGRect(x: 0, y: 0, width: bound.width, height: 50)
-            //navigationBar.sizeThatFits(CGSize(width: bound.width, height: 50))
-        }
-        
-        else if contentOffset < 55 {
-            nvItem.largeTitleDisplayMode = .always
-            //let bound = navigationBar.bounds
-            //navigationBar.frame = CGRect(x: 0, y: 0, width: bound.width, height: 90)
-            //navigationBar.sizeThatFits(CGSize(width: bound.width, height: 90))
-        }
-    }
-}
 
