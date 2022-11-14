@@ -9,10 +9,10 @@ import Foundation
 
 struct ToDo: Codable, Identifiable, Equatable {
     var id: String = UUID().uuidString
-    let title: String
-    let state: State
-    let startDate: Date?
-    let dueDate: Date?
+    var title: String
+    var state: State
+    var startDate: Date?
+    var dueDate: Date?
     let created: Date
 }
 
