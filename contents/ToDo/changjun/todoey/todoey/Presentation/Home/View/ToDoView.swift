@@ -198,13 +198,19 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
                 print("Removing data named \(todo.title)")
                 self.viewModel.removeToDo(todo)
             }
-            self.todoCollectionView.reloadData()
         }
 
         // customize the action appearance
         deleteAction.image = UIImage(systemName: "trash.fill")
 
         return [deleteAction]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructiveAfterFill
+        options.transitionStyle = .border
+        return options
     }
 }
 
