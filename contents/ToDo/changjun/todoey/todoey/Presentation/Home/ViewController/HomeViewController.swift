@@ -102,7 +102,7 @@ private extension HomeViewController {
 
 // MARK: - ToDoViewDelegate
 extension HomeViewController: ToDoViewDelegate {
-    func showEditView(from view: ToDoView) {
+    func showEditView() {
         let vc = EditViewController()
         vc.dismissClosure = {
             self.viewModel.syncToDoData()

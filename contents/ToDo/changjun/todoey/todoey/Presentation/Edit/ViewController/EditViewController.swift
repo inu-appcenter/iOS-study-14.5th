@@ -42,6 +42,7 @@ class EditViewController: UIViewController {
     @objc func doneButtonPressed() {
         self.viewModel.createToDo(self.textField.text)
         // TODO ToDoView의 컬렉션뷰 리로드
+        NotificationCenter.default.post(name: Notification.Name.refresh, object: nil)
         self.dismiss(animated: true) {
             self.dismissClosure?()
         }

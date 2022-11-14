@@ -12,7 +12,7 @@ import Then
 import SwipeCellKit
 
 protocol ToDoViewDelegate: AnyObject {
-    func showEditView(from view: ToDoView)
+    func showEditView()
 }
 
 class ToDoView: UIView {
@@ -63,7 +63,7 @@ class ToDoView: UIView {
     
     @objc func handleTap() {
         viewModel.handleAddButtonTapEvent()
-        self.delegate?.showEditView(from: self)
+        self.delegate?.showEditView()
     }
     
     lazy var headerStackView = UIStackView().then {
@@ -98,6 +98,7 @@ class ToDoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name.refresh, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -229,7 +230,7 @@ extension ToDoView: UIGestureRecognizerDelegate {
         if indexPath != nil {
             print("Long Pressed")
             viewModel.handleAddButtonTapEvent()
-            self.delegate?.showEditView(from: self)
+            self.delegate?.showEditView()
         }
         else {
             print("Could not find index path")
