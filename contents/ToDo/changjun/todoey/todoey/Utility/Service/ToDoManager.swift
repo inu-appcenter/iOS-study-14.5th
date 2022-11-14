@@ -36,13 +36,13 @@ final class ToDoManager {
     // MARK: - Data
     var todos: [ToDo] = [] {
         didSet {
-            self.save()
+            self.syncToUserDefaults()
         }
     }
     
     // MARK: - CRUD
     // Function to save temporary todo data to UserDefaults
-    func save() {
+    func syncToUserDefaults() {
         if let encodedToDo = try? JSONEncoder().encode(self.todos) {
             userDefaults.set(encodedToDo, forKey: self.key)
         }
