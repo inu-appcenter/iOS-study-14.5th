@@ -50,7 +50,7 @@ class ToDoView: UIView {
     }
     
     @objc func handleTap() {
-        viewModel.handleAddButtonTap()
+        viewModel.handleAddButtonTapEvent()
         self.delegate?.showEditView(from: self)
     }
     
