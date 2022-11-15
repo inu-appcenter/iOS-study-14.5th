@@ -16,7 +16,12 @@ final class HomeViewModel {
     
     // Summary View
     var progressPercentage: String {
-        return "70%"
+        let completedToDos = self.todoData?.filter {
+            $0.state == .completed
+        }.count
+        let allToDos = self.todoData?.count
+        let result = (Double(completedToDos!) / Double(allToDos!)) * 100
+        return "\(Int(round(result)))%"
     }
     
     var staticText: (String, String) {

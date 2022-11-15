@@ -1,0 +1,16 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+target 'todoey' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  inhibit_all_warnings!
+
+  # Pods for todoey
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'Then', '~> 3.0.0'
+  pod 'Hero', '~> 1.6.2'
+  pod 'KDCircularProgress'
+  pod 'Hue'
+  pod 'SwipeCellKit'
+end

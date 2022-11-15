@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-todoey/Pods-todoey-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
+${BUILT_PRODUCTS_DIR}/Hue/Hue.framework
+${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
+${BUILT_PRODUCTS_DIR}/Then/Then.framework
