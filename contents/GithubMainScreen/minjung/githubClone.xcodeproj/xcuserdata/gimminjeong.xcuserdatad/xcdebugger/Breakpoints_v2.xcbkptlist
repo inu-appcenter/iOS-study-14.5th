@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3C5EC5CA-AFB3-40DD-B4AD-236428FFE9E7"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "githubClone/custumCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "CustomCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - 1c922a81ffc8eb09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.name.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - 262cf8eb2e152321"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.name.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - b3fd6754874d190f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.name.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - 9845b6919b9d9b89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.name.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - fd5996454a58cf09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; githubClone.CustomCell"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "F64F162F-A46C-450F-A6BE-953DCEFB9DE4 - ff041b794f9a4797"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.CustomCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;githubClone.CustomCell&gt;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/custumCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15799351-43B6-4117-A02A-BC9F1B7AFACC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "githubClone/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "15799351-43B6-4117-A02A-BC9F1B7AFACC - ad8322277677cc02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; githubClone.ViewController"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "15799351-43B6-4117-A02A-BC9F1B7AFACC - 7fbb57d746c35f9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "githubClone.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;githubClone.ViewController&gt;"
+                  moduleName = "githubClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gimminjeong/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%A6%E1%86%AB%E1%84%90%E1%85%A5/githubClone/githubClone/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
