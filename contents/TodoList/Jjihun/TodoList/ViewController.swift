@@ -38,7 +38,6 @@ class ViewController: UIViewController {
             let selectedIndex = tableView.indexPathForSelectedRow
             let vc = segue.destination as? CreateViewController
             vc?.getIndex = selectedIndex
-            
         }
     }
 }
