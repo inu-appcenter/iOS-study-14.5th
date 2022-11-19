@@ -117,8 +117,12 @@ extension HomeViewController {
 
 // MARK: - ToDoViewDelegate
 extension HomeViewController: ToDoViewDelegate {
-    func showEditView() {
+    func showEditView(isEdit: Bool, idx: Int?) {
         let vc = EditViewController()
+        vc.viewModel.setIsEdit(isEdit)
+        if let idx {
+            vc.viewModel.todoData.value = ToDoManager.shared.todos[idx]
+        }
         vc.dismissClosure = {
             self.toDoView.todoCollectionView.reloadData()
         }

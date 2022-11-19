@@ -12,7 +12,7 @@ import Then
 import SwipeCellKit
 
 protocol ToDoViewDelegate: AnyObject {
-    func showEditView()
+    func showEditView(isEdit: Bool, idx: Int?)
 }
 
 class ToDoView: UIView {
@@ -51,7 +51,7 @@ class ToDoView: UIView {
     
     @objc func handleTap() {
         viewModel.handleAddButtonTapEvent()
-        self.delegate?.showEditView()
+        self.delegate?.showEditView(isEdit: false, idx: nil)
     }
     
     lazy var headerStackView = UIStackView().then {
@@ -213,8 +213,8 @@ extension ToDoView: UIGestureRecognizerDelegate {
         let indexPath = self.todoCollectionView.indexPathForItem(at: point)
         if indexPath != nil {
             print("Long Pressed")
-            viewModel.handleAddButtonTapEvent()
-            self.delegate?.showEditView()
+            HapticManager.shared.impactFeedback(.light)
+            self.delegate?.showEditView(isEdit: true, idx: indexPath?.row)
         }
         else {
             print("Could not find index path")

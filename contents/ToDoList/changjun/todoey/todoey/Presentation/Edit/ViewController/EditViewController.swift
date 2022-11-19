@@ -14,7 +14,7 @@ class EditViewController: UIViewController {
     
     // MARK: - Properties
     var dismissClosure: (() -> Void)?
-    private var viewModel = EditViewModel()
+    var viewModel = EditViewModel()
     
     // MARK: - UI Components
     lazy var titleTextField = UITextField().then {
@@ -41,7 +41,6 @@ class EditViewController: UIViewController {
     
     lazy var confirmButton = UIButton().then {
         $0.backgroundColor = BrandColor.brandBlue.value
-        $0.setTitle("추가하기", for: .normal)
         $0.setTitleColor(Color.subGray, for: .highlighted)
         $0.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
     }
@@ -52,6 +51,27 @@ class EditViewController: UIViewController {
 
         self.configureUI()
         self.hideKeyboardWhenTapped()
+        self.bindViewModel()
+    }
+}
+
+// MARK: - Binding
+private extension EditViewController {
+    func bindViewModel() {
+        self.viewModel.isEdit.subscribe { isEdit in
+            if isEdit {
+                self.confirmButton.setTitle("수정하기", for: .normal)
+                self.viewModel.todoData.subscribe { todo in
+                    if let todo {
+                        self.titleTextField.text = todo.title
+                        self.datePicker.date = todo.dueDate!
+                        self.descriptionTextField.text = todo.description
+                    }
+                }
+            } else {
+                self.confirmButton.setTitle("추가하기", for: .normal)
+            }
+        }
     }
 }
 
@@ -106,12 +126,20 @@ private extension EditViewController {
     }
     
     @objc func doneButtonPressed() {
-        if let text = self.titleTextField.text {
-            self.viewModel.createToDo(
-                text,
+        if self.viewModel.isEdit.value {
+            self.viewModel.editToDo(
+                self.titleTextField.text!,
                 self.descriptionTextField.text,
                 self.datePicker.date
             )
+        } else {
+            if let text = self.titleTextField.text {
+                self.viewModel.createToDo(
+                    text,
+                    self.descriptionTextField.text,
+                    self.datePicker.date
+                )
+            }
         }
         // TODO ToDoView의 컬렉션뷰 리로드
         NotificationCenter.default.post(name: Notification.Name.refresh, object: nil)

@@ -37,7 +37,7 @@ final class HomeViewModel {
         return "Wed"
     }
 
-    // MARK: - Summary View
+    // MARK: - Observables
     let currentTime: Observable<Date> = Observable(.now)
     let todoProgress: Observable<Int> = Observable(0)
     
