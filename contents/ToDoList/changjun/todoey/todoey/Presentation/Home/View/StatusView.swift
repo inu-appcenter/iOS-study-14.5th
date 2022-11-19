@@ -26,7 +26,7 @@ class StatusView: UIView {
     
     lazy var stackView = UIStackView().then {
         $0.spacing = 4
-        $0.distribution = .equalSpacing
+        $0.distribution = .fill
         $0.alignment = .center
         $0.axis = .horizontal
         $0.addArrangedSubview(self.statusDotImage)
