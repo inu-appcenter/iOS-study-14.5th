@@ -11,7 +11,7 @@ import KDCircularProgress
 
 class SummaryView: UIView {
     
-    private var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel.shared
     
     // MARK: - UI Components
     lazy var progressCircle = KDCircularProgress().then {
@@ -23,11 +23,11 @@ class SummaryView: UIView {
         $0.gradientRotateSpeed = 1
         $0.roundedCorners = true
         $0.set(colors: .systemBlue, .systemIndigo, UIColor.systemTeal, .magenta, UIColor.systemOrange)
-        $0.angle = 90
+        $0.angle = 0
     }
     
     lazy var progressLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 22, weight: .semibold)
+        $0.font = .systemFont(ofSize: 18, weight: .semibold)
         $0.text = self.viewModel.progressPercentage
     }
     
@@ -55,10 +55,6 @@ class SummaryView: UIView {
         super.init(frame: frame)
         self.configureUI()
         self.bindViewModel()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.viewModel.todoValueChanged()
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -69,8 +65,9 @@ class SummaryView: UIView {
 // MARK: - Binding
 private extension SummaryView {
     func bindViewModel() {
-        self.viewModel.progressLabel.subscribe { [weak self] in
-            self?.progressLabel.text = $0
+        self.viewModel.todoProgress.subscribe { [weak self] in
+            self?.progressLabel.text = "\($0)%"
+            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.5, completion: nil)
         }
     }
 }

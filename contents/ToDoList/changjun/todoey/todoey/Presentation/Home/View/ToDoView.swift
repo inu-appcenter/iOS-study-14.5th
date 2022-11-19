@@ -18,7 +18,7 @@ protocol ToDoViewDelegate: AnyObject {
 class ToDoView: UIView {
     
     private let todo = ToDoManager.shared
-    private var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel.shared
     weak var delegate: ToDoViewDelegate?
     
     // MARK: - UI Components
@@ -97,6 +97,7 @@ class ToDoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
+        self.viewModel.todoUpdated()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name.refresh, object: nil)
     }
     

@@ -8,6 +8,8 @@
 import UIKit
 
 final class HomeViewModel {
+    // MARK: - Singleton
+    static let shared = HomeViewModel()
     
     // MARK: - Computed Properties
     
@@ -48,7 +50,7 @@ final class HomeViewModel {
     }
 
     // MARK: - Summary View
-    let progressLabel: Observable<String> = Observable("30%")
+    let todoProgress: Observable<Int> = Observable(0)
     
     
     // MARK: - Initializer
@@ -57,8 +59,9 @@ final class HomeViewModel {
     }
     
     // MARK: - Functions
-    func todoValueChanged() {
-        self.progressLabel.value = "변경"
+    func todoUpdated() {
+        self.todoProgress.value = self.calculateProgressPercentage()
+        print(self.todoProgress.value)
     }
     
     func handleAddButtonTapEvent() {
@@ -78,6 +81,7 @@ final class HomeViewModel {
                 ToDoManager.shared.todos.remove(at: index)
                 ToDoManager.shared.todos.insert(newToDo, at: index)
                 ToDoManager.shared.update(newToDo)
+                self.todoUpdated()
             }
         }
     }
@@ -89,5 +93,15 @@ final class HomeViewModel {
                 ToDoManager.shared.delete(removingToDo)   
             }
         }
+    }
+}
+
+private extension HomeViewModel {
+    func calculateProgressPercentage() -> Int {
+        let totalCount: Double = Double(ToDoManager.shared.todos.count)
+        let finishedCount: Double = Double(ToDoManager.shared.todos.filter {
+            $0.state == .completed
+        }.count)
+        return Int(round(finishedCount / totalCount * 100))
     }
 }
