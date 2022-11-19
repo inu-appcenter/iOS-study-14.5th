@@ -167,6 +167,7 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         if let todo = cell.todo {
             print("Toggle state of data named \(todo.title)")
+            HapticManager.shared.impactFeedback(.soft)
             self.viewModel.editToDo(todo)
         }
         self.todoCollectionView.reloadData()
