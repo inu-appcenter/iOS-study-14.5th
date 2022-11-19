@@ -12,7 +12,7 @@ import Then
 
 final class ProfileView: UIView {
     
-    private var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel.shared
     
     // MARK: - UI Components
     lazy var profileImageView = UIImageView().then {
@@ -41,7 +41,7 @@ final class ProfileView: UIView {
     }
     
     lazy var commentLabel = UILabel().then {
-        $0.text = viewModel.motivateString
+        $0.text = ""
         $0.font = .systemFont(ofSize: 13, weight: .semibold)
     }
     
