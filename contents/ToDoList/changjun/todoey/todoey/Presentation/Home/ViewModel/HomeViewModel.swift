@@ -91,6 +91,10 @@ private extension HomeViewModel {
         let finishedCount: Double = Double(ToDoManager.shared.todos.filter {
             $0.state == .completed
         }.count)
-        return Int(round(finishedCount / totalCount * 100))
+        if totalCount > 0 {
+            return Int(round(finishedCount / totalCount * 100))
+        } else {
+            return 0
+        }
     }
 }
