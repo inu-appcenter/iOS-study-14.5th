@@ -14,14 +14,6 @@ final class HomeViewModel {
     // MARK: - Computed Properties
     
     // Summary View
-    var progressPercentage: String {
-        let completedToDos = ToDoManager.shared.todos.filter {
-            $0.state == .completed
-        }.count
-        let allToDos = ToDoManager.shared.todos.count
-        let result = (Double(completedToDos) / Double(allToDos)) * 100
-        return "\(Int(round(result)))%"
-    }
     
     var staticText: (String, String) {
         return ("할 일", "완료")
