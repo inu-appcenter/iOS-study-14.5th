@@ -40,17 +40,6 @@ class ToDoView: UIView {
         $0.text = "0 / 0"
     }
     
-    lazy var refreshButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "arrow.clockwise.circle.fill"), for: .normal)
-        $0.tintColor = BrandColor.brandBlue.value
-        $0.addTarget(self, action: #selector(refresh), for: .touchUpInside)
-    }
-    
-    @objc func refresh() {
-        // update viewmodel
-        self.todoCollectionView.reloadData()
-    }
-    
     lazy var addButton = UIButton().then {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
         $0.tintColor = .white
@@ -98,7 +87,6 @@ class ToDoView: UIView {
         super.init(frame: frame)
         self.configureUI()
         self.viewModel.todoUpdated()
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name.refresh, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -118,7 +106,7 @@ private extension ToDoView {
         [headerView, contentView].forEach {
             self.addSubview($0)
         }
-        [headerStackView, addButton, refreshButton].forEach {
+        [headerStackView, addButton].forEach {
             self.headerView.addSubview($0)
         }
         self.contentView.addSubview(self.todoCollectionView)
@@ -136,11 +124,6 @@ private extension ToDoView {
         self.headerStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(32)
-        }
-        self.refreshButton.snp.makeConstraints { make in
-            make.leading.equalTo(self.toDoLabel.snp.trailing).offset(12)
-            make.centerY.equalTo(self.toDoLabel)
-            make.width.height.equalTo(32)
         }
         self.addButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
