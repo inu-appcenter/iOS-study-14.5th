@@ -44,6 +44,13 @@ class StatusView: UIView {
     }
     
     // MARK: - Functions
+    func setStatus(_ state: State?) {
+        if let state {
+            self.statusLabel.text = state.value
+            self.setColor(to: state.color)
+        }
+    }
+    
     func setColor(to color: UIColor) {
         self.statusDotImage.tintColor = color
         self.statusLabel.textColor = color

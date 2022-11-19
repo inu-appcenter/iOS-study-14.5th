@@ -59,17 +59,25 @@ final class HomeViewModel {
         print("Tapped")
     }
     
-    func editToDo(_ toggledToDo: ToDo) {
-        ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
-            if todo.id == toggledToDo.id {
-                var newToDo = toggledToDo
-                if newToDo.state == .notStarted {
-                    newToDo.state = .completed
-                } else {
-                    newToDo.state = .notStarted
-                }
-                ToDoManager.shared.todos.remove(at: index)
-                ToDoManager.shared.todos.insert(newToDo, at: index)
+    func toggleToDo(of todo: ToDo) {
+        var newToDo: ToDo = todo
+        switch newToDo.state {
+        case .expired:
+            fallthrough
+        case .inProgress:
+            fallthrough
+        case .notStarted:
+            newToDo.state = .completed
+        case .completed:
+            newToDo.state = self.handleStateWithDate(of: newToDo)
+        }
+        self.editToDo(newToDo)
+    }
+    
+    func editToDo(_ newToDo: ToDo) {
+        ToDoManager.shared.todos.enumerated().forEach { (idx, searchedToDo) in
+            if searchedToDo.id == newToDo.id { // found todo data to edit
+                ToDoManager.shared.todos[idx] = newToDo
                 ToDoManager.shared.update(newToDo)
             }
         }
@@ -96,5 +104,16 @@ private extension HomeViewModel {
         } else {
             return 0
         }
+    }
+    
+    func handleStateWithDate(of todo: ToDo) -> State {
+        if let due = todo.dueDate {
+            if due < Date.now {
+                return .expired
+            } else {
+                return .inProgress
+            }
+        }
+        return .completed
     }
 }

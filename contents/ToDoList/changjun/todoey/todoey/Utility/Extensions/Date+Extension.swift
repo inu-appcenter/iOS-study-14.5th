@@ -16,8 +16,10 @@ extension Date {
     }
     
     func toString() -> String {
-        koreanTimeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return koreanTimeFormatter.string(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: self)
     }
     
     func toMotivateString() -> String {

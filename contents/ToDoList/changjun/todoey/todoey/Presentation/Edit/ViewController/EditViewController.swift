@@ -106,7 +106,13 @@ private extension EditViewController {
     }
     
     @objc func doneButtonPressed() {
-        self.viewModel.createToDo(self.titleTextField.text)
+        if let text = self.titleTextField.text {
+            self.viewModel.createToDo(
+                text,
+                self.descriptionTextField.text,
+                self.datePicker.date
+            )
+        }
         // TODO ToDoView의 컬렉션뷰 리로드
         NotificationCenter.default.post(name: Notification.Name.refresh, object: nil)
         self.dismiss(animated: true) {

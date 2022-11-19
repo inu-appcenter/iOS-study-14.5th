@@ -8,13 +8,18 @@
 import Foundation
 
 final class EditViewModel {
-    func createToDo(_ inputText: String?) {
-        if let text = inputText {
+    func createToDo(
+        _ inputTitleText: String,
+        _ inputDescriptionText: String?,
+        _ inputDueDate: Date
+    ) {
+        if let inputDescriptionText {
             let todo = ToDo(
-                title: text,
+                title: inputTitleText,
+                description: inputDescriptionText,
                 state: .notStarted,
                 startDate: Date.now,
-                dueDate: Date.now,
+                dueDate: inputDueDate,
                 created: Date.now
             )
             ToDoManager.shared.create(todo)

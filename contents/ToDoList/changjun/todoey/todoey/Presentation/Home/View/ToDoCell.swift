@@ -16,6 +16,7 @@ class ToDoCell: SwipeCollectionViewCell {
     
     // MARK: - UI Components
     lazy var checkButton = UIButton().then {
+        $0.isUserInteractionEnabled = false
         $0.tintColor = Color.lightGray
         $0.setImage(SF.CheckBox.unchecked.iconImage, for: .normal)
     }
@@ -68,11 +69,12 @@ class ToDoCell: SwipeCollectionViewCell {
         self.todo = todo
         self.todoLabel.text = self.todo?.title
         self.dueDateLabel.text = self.todo?.dueDate?.toString()
-        if self.todo?.state == .completed {
-            self.checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        self.statusView.setStatus(self.todo?.state)
+        if self.todo?.state == .completed {  // Completed
+            self.checkButton.setImage(SF.CheckBox.checked.iconImage, for: .normal)
             self.checkButton.tintColor = BrandColor.brandBlue.value
-        } else {
-            self.checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        } else { // Not Completed
+            self.checkButton.setImage(SF.CheckBox.unchecked.iconImage, for: .normal)
             self.checkButton.tintColor = Color.lightGray
         }
     }
