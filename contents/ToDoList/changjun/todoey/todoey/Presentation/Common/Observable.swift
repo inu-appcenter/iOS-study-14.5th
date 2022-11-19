@@ -23,3 +23,4 @@ class Observable<T> {
         self.listener = listener
     }
 }
+
