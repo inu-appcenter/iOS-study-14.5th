@@ -22,13 +22,13 @@ class SummaryView: UIView {
         $0.clockwise = true
         $0.gradientRotateSpeed = 1
         $0.roundedCorners = true
-        $0.set(colors: .systemBlue, .systemIndigo, UIColor.systemTeal, .magenta, UIColor.systemOrange)
+        $0.set(colors: .systemBlue, .systemIndigo, UIColor.systemTeal)
         $0.angle = 0
     }
     
     lazy var progressLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 18, weight: .semibold)
-        $0.text = self.viewModel.progressPercentage
+        $0.text = ""
     }
     
     lazy var staticLabelsStackView = UIStackView().then { stackView in
@@ -66,7 +66,7 @@ class SummaryView: UIView {
 private extension SummaryView {
     func bindViewModel() {
         self.viewModel.todoProgress.subscribe { [weak self] in
-            self?.progressLabel.text = "\($0)%"
+            self?.progressLabel.attributedText = self?.configureAttributedPercentage($0)
             self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.5, completion: nil)
         }
     }
@@ -108,6 +108,17 @@ private extension SummaryView {
     
     func configureStyles() {
         
+    }
+    
+    func configureAttributedPercentage(_ value: Int) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString()
+        let regularAttrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 21)]
+        let smallAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)]
+        attributedString.append(
+            NSMutableAttributedString(string: "\(value)", attributes: regularAttrs))
+        attributedString.append(
+            NSMutableAttributedString(string: "%", attributes: smallAttrs))
+        return attributedString
     }
 }
 
