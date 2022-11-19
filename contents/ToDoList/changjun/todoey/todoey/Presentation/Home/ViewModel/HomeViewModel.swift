@@ -47,15 +47,8 @@ final class HomeViewModel {
         return "Wed"
     }
 
-    // MARK: - Input
-    struct Input {
-        
-    }
-    
-    // MARK: - Output
-    struct Output {
-        
-    }
+    // MARK: - Summary View
+    let progressLabel: Observable<String> = Observable("30%")
     
     
     // MARK: - Initializer
@@ -64,6 +57,10 @@ final class HomeViewModel {
     }
     
     // MARK: - Functions
+    func todoValueChanged() {
+        self.progressLabel.value = "변경"
+    }
+    
     func handleAddButtonTapEvent() {
         HapticManager.shared.impactFeedback(.light)
         print("Tapped")
@@ -71,7 +68,7 @@ final class HomeViewModel {
     
     func editToDo(_ toggledToDo: ToDo) {
         ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
-            if todo == toggledToDo {
+            if todo.id == toggledToDo.id {
                 var newToDo = toggledToDo
                 if newToDo.state == .notStarted {
                     newToDo.state = .completed
@@ -87,7 +84,7 @@ final class HomeViewModel {
     
     func removeToDo(_ removingToDo: ToDo) {
         ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
-            if todo == removingToDo {
+            if todo.id == removingToDo.id {
                 ToDoManager.shared.todos.remove(at: index)
                 ToDoManager.shared.delete(removingToDo)   
             }

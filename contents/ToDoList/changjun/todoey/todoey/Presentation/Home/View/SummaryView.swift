@@ -55,17 +55,23 @@ class SummaryView: UIView {
         super.init(frame: frame)
         self.configureUI()
         self.bindViewModel()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.todoValueChanged()
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+ 
 // MARK: - Binding
 private extension SummaryView {
     func bindViewModel() {
-//        let input = viewModel.
+        self.viewModel.progressLabel.subscribe { [weak self] in
+            self?.progressLabel.text = $0
+        }
     }
 }
 
