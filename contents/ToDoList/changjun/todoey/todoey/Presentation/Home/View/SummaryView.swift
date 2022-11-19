@@ -46,10 +46,6 @@ class SummaryView: UIView {
         stackView.alignment = .leading
     }
     
-    lazy var toggleSwitch = UISwitch().then {
-        $0.onTintColor = .systemIndigo
-    }
-    
     // MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,25 +80,20 @@ private extension SummaryView {
         self.addSubview(self.progressCircle)
         self.progressCircle.addSubview(self.progressLabel)
         self.addSubview(self.staticLabelsStackView)
-        self.addSubview(self.toggleSwitch)
     }
     
     func configureConstraints() {
         self.progressCircle.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(24)
             make.width.height.equalTo(80)
         }
         self.progressLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         self.staticLabelsStackView.snp.makeConstraints { make in
-            make.leading.equalTo(self.progressCircle.snp.trailing).offset(12)
+            make.leading.equalTo(self.progressCircle.snp.trailing).offset(24)
             make.centerY.equalTo(self.progressCircle)
-        }
-        self.toggleSwitch.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview()
         }
     }
     
