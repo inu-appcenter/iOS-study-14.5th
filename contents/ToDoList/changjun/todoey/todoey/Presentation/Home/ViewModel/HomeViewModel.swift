@@ -24,7 +24,7 @@ final class HomeViewModel {
     }
     
     var staticText: (String, String) {
-        return ("오늘 할 일", "완료")
+        return ("할 일", "완료")
     }
     
     // Profile View
@@ -34,10 +34,6 @@ final class HomeViewModel {
     
     var nameString: String {
         return "이창준"
-    }
-    
-    var motivateString: String {
-        return "오늘도 힘차게 출발해볼까요? 🔥"
     }
     
     // Calendar View
@@ -50,8 +46,8 @@ final class HomeViewModel {
     }
 
     // MARK: - Summary View
+    let currentTime: Observable<Date> = Observable(.now)
     let todoProgress: Observable<Int> = Observable(0)
-    
     
     // MARK: - Initializer
     init() {
@@ -63,6 +59,8 @@ final class HomeViewModel {
         self.todoProgress.value = self.calculateProgressPercentage()
         print(self.todoProgress.value)
     }
+    
+    // MARK: - Old Functions
     
     func handleAddButtonTapEvent() {
         HapticManager.shared.impactFeedback(.light)

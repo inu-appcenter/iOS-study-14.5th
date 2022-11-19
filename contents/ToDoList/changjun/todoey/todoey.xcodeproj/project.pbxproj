@@ -17,6 +17,7 @@
 		2E6332F6291A562E009498B7 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332F5291A562E009498B7 /* Preview.swift */; };
 		2E6332FD291A5F68009498B7 /* Namings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332FC291A5F68009498B7 /* Namings.swift */; };
 		2E6332FF291AA9F3009498B7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332FE291AA9F3009498B7 /* ProfileView.swift */; };
+		2E69845A2928DA7B00F0094F /* Motivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6984592928DA7B00F0094F /* Motivate.swift */; };
 		2E6EE2B3292216D800271CC2 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EE2B2292216D800271CC2 /* Notification+Name.swift */; };
 		2E6EE2B529221B6000271CC2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EE2B429221B6000271CC2 /* Date+Extension.swift */; };
 		2EB04F9F29289048008522A5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB04F9E29289048008522A5 /* Observable.swift */; };
@@ -48,6 +49,7 @@
 		2E6332F5291A562E009498B7 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		2E6332FC291A5F68009498B7 /* Namings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namings.swift; sourceTree = "<group>"; };
 		2E6332FE291AA9F3009498B7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2E6984592928DA7B00F0094F /* Motivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motivate.swift; sourceTree = "<group>"; };
 		2E6EE2B2292216D800271CC2 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		2E6EE2B429221B6000271CC2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		2EB04F9E29289048008522A5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED2F099291F559400A0F940 /* Colors.swift */,
+				2E6984592928DA7B00F0094F /* Motivate.swift */,
 				2E6332FC291A5F68009498B7 /* Namings.swift */,
 			);
 			path = Constant;
@@ -400,6 +403,7 @@
 			files = (
 				2E0BAF58291E453400896103 /* ToDoView.swift in Sources */,
 				2E6EE2B529221B6000271CC2 /* Date+Extension.swift in Sources */,
+				2E69845A2928DA7B00F0094F /* Motivate.swift in Sources */,
 				2ED2F09A291F559400A0F940 /* Colors.swift in Sources */,
 				2ED2F0AC2921356300A0F940 /* UIViewController+Extension.swift in Sources */,
 				2E6332D729195611009498B7 /* HomeViewController.swift in Sources */,

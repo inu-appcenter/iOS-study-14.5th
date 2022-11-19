@@ -57,10 +57,20 @@ final class ProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
+        self.bindViewModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Binding
+private extension ProfileView {
+    func bindViewModel() {
+        self.viewModel.currentTime.subscribe { [weak self] in
+            self?.commentLabel.text = $0.toMotivateString()
+        }
     }
 }
 
