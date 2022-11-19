@@ -13,6 +13,7 @@ import Then
 class HomeViewController: UIViewController {
     
     // MARK: - Properties
+    private let didLaunchedBefore = "didLaunchedBefore"
     private var viewModel = HomeViewModel()
 
     // MARK: - UI Components
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.showOnBoardView()
         self.configureUI()
     }
 }
@@ -97,6 +99,19 @@ private extension HomeViewController {
             $0.tintColor = .black
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+    }
+}
+
+// MARK: - OnBoardViewDelegate
+extension HomeViewController {
+    func showOnBoardView() {
+        if UserDefaults.standard.bool(forKey: self.didLaunchedBefore) {
+            // TODO: set user defaults to true later.
+            print("Not a first launch.")
+        } else {
+            let vc = OnBoardViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
