@@ -76,12 +76,12 @@ private extension EditViewController {
             make.width.equalToSuperview().inset(24)
         }
         self.datePicker.snp.makeConstraints { make in
-            make.top.equalTo(self.titleTextField.snp.bottom).offset(12)
+            make.top.equalTo(self.titleTextField.snp.bottom).offset(18)
             make.leading.equalToSuperview().offset(24)
         }
         self.descriptionTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.datePicker.snp.bottom).offset(12)
+            make.top.equalTo(self.datePicker.snp.bottom).offset(18)
             make.height.equalTo(150)
             make.width.equalToSuperview().inset(24)
         }
