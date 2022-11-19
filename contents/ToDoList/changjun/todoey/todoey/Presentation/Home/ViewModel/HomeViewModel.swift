@@ -16,7 +16,7 @@ final class HomeViewModel {
     // Summary View
     
     var staticText: (String, String) {
-        return ("할 일", "완료")
+        return ("이만큼이나", "완료했어요!")
     }
     
     // Profile View
@@ -71,7 +71,6 @@ final class HomeViewModel {
                 ToDoManager.shared.todos.remove(at: index)
                 ToDoManager.shared.todos.insert(newToDo, at: index)
                 ToDoManager.shared.update(newToDo)
-                self.todoUpdated()
             }
         }
     }

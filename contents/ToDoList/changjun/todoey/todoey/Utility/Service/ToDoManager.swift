@@ -18,6 +18,7 @@ final class ToDoManager {
     // MARK: - Properties
     private let userDefaults = UserDefaults.standard
     private let key = "todo"
+    private let homeViewModel = HomeViewModel.shared
     
     // MARK: - Initializer
     private init() {
@@ -37,6 +38,7 @@ final class ToDoManager {
     var todos: [ToDo] = [] {
         didSet {
             self.syncToUserDefaults()
+            self.homeViewModel.todoUpdated()
         }
     }
     
