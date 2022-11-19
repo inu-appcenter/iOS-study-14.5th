@@ -9,18 +9,15 @@ import UIKit
 
 final class HomeViewModel {
     
-    // MARK: - Properties
-    var todoData: [ToDo]?
-    
     // MARK: - Computed Properties
     
     // Summary View
     var progressPercentage: String {
-        let completedToDos = self.todoData?.filter {
+        let completedToDos = ToDoManager.shared.todos.filter {
             $0.state == .completed
         }.count
-        let allToDos = self.todoData?.count
-        let result = (Double(completedToDos!) / Double(allToDos!)) * 100
+        let allToDos = ToDoManager.shared.todos.count
+        let result = (Double(completedToDos) / Double(allToDos)) * 100
         return "\(Int(round(result)))%"
     }
     
@@ -49,10 +46,21 @@ final class HomeViewModel {
     var dayOfWeekString: String {
         return "Wed"
     }
+
+    // MARK: - Input
+    struct Input {
+        
+    }
+    
+    // MARK: - Output
+    struct Output {
+        
+    }
+    
     
     // MARK: - Initializer
     init() {
-        self.updateToDo()
+        
     }
     
     // MARK: - Functions
@@ -61,13 +69,8 @@ final class HomeViewModel {
         print("Tapped")
     }
     
-    func syncToDoData() {
-        print("Syncing ToDo UserDefaults to temporary data.")
-        self.updateToDo()
-    }
-    
     func editToDo(_ toggledToDo: ToDo) {
-        self.todoData?.enumerated().forEach { (index, todo) in
+        ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
             if todo == toggledToDo {
                 var newToDo = toggledToDo
                 if newToDo.state == .notStarted {
@@ -75,25 +78,19 @@ final class HomeViewModel {
                 } else {
                     newToDo.state = .notStarted
                 }
-                self.todoData?.remove(at: index)
-                self.todoData?.insert(newToDo, at: index)
+                ToDoManager.shared.todos.remove(at: index)
+                ToDoManager.shared.todos.insert(newToDo, at: index)
                 ToDoManager.shared.update(newToDo)
             }
         }
     }
     
     func removeToDo(_ removingToDo: ToDo) {
-        self.todoData?.enumerated().forEach { (index, todo) in
+        ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
             if todo == removingToDo {
-                self.todoData?.remove(at: index)
+                ToDoManager.shared.todos.remove(at: index)
                 ToDoManager.shared.delete(removingToDo)   
             }
         }
-    }
-}
-
-private extension HomeViewModel {
-    func updateToDo() {
-        self.todoData = ToDoManager.shared.read()
     }
 }

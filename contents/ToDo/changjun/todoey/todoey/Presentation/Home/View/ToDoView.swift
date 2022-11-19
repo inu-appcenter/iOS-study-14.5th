@@ -48,7 +48,6 @@ class ToDoView: UIView {
     
     @objc func refresh() {
         // update viewmodel
-        self.viewModel.syncToDoData()
         self.todoCollectionView.reloadData()
     }
     
@@ -164,7 +163,7 @@ private extension ToDoView {
 // MARK: - Collection View
 extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.todoData?.count ?? 0
+        return ToDoManager.shared.todos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

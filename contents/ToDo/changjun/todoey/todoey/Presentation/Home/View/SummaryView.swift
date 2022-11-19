@@ -54,10 +54,18 @@ class SummaryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
+        self.bindViewModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Binding
+private extension SummaryView {
+    func bindViewModel() {
+//        let input = viewModel.
     }
 }
 
