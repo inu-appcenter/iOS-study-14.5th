@@ -17,14 +17,29 @@ class EditViewController: UIViewController {
     private var viewModel = EditViewModel()
     
     // MARK: - UI Components
-    lazy var textField = UITextField().then {
+    lazy var titleTextField = UITextField().then {
+        $0.font = .systemFont(ofSize: 21, weight: .semibold)
         $0.returnKeyType = .done
         $0.delegate = self
         $0.placeholder = "추가할 할 일을 입력해주세요."
         $0.becomeFirstResponder()
     }
     
-    lazy var testButton = UIButton().then {
+    lazy var datePicker = UIDatePicker().then {
+        $0.preferredDatePickerStyle = .compact
+        $0.locale = Locale(identifier: "ko-KR")
+        $0.datePickerMode = .date
+        $0.timeZone = .autoupdatingCurrent
+        $0.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+    }
+    
+    lazy var descriptionTextField = UITextView().then {
+        $0.font = .systemFont(ofSize: 18)
+        $0.textAlignment = .natural
+        $0.returnKeyType = .done
+    }
+    
+    lazy var confirmButton = UIButton().then {
         $0.backgroundColor = BrandColor.brandBlue.value
         $0.setTitle("추가하기", for: .normal)
         $0.setTitleColor(Color.subGray, for: .highlighted)
@@ -38,15 +53,6 @@ class EditViewController: UIViewController {
         self.configureUI()
         self.hideKeyboardWhenTapped()
     }
-
-    @objc func doneButtonPressed() {
-        self.viewModel.createToDo(self.textField.text)
-        // TODO ToDoView의 컬렉션뷰 리로드
-        NotificationCenter.default.post(name: Notification.Name.refresh, object: nil)
-        self.dismiss(animated: true) {
-            self.dismissClosure?()
-        }
-    }
 }
 
 // MARK: - UI Configuration
@@ -58,18 +64,28 @@ private extension EditViewController {
     }
     
     func configureLayout() {
-        [textField, testButton].forEach {
+        [titleTextField, datePicker, descriptionTextField, confirmButton].forEach {
             self.view.addSubview($0)
         }
     }
     
     func configureConstraints() {
-        self.textField.snp.makeConstraints { make in
+        self.titleTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(24)
             make.width.equalToSuperview().inset(24)
         }
-        self.testButton.snp.makeConstraints { make in
+        self.datePicker.snp.makeConstraints { make in
+            make.top.equalTo(self.titleTextField.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(24)
+        }
+        self.descriptionTextField.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.datePicker.snp.bottom).offset(12)
+            make.height.equalTo(150)
+            make.width.equalToSuperview().inset(24)
+        }
+        self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).offset(-24)
             make.width.equalToSuperview().inset(24)
@@ -79,9 +95,27 @@ private extension EditViewController {
     
     func configureStyles() {
         self.view.backgroundColor = .systemBackground
-        self.testButton.layer.cornerRadius = 24
+        self.confirmButton.layer.cornerRadius = 24
     }
 }
+
+// MARK: - Private
+private extension EditViewController {
+    @objc func handleDatePicker(_ sender: UIDatePicker) {
+        print(sender.date)
+    }
+    
+    @objc func doneButtonPressed() {
+        self.viewModel.createToDo(self.titleTextField.text)
+        // TODO ToDoView의 컬렉션뷰 리로드
+        NotificationCenter.default.post(name: Notification.Name.refresh, object: nil)
+        self.dismiss(animated: true) {
+            self.dismissClosure?()
+        }
+    }
+}
+
+// MARK: - Text Field
 
 extension EditViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -89,3 +123,14 @@ extension EditViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// MARK: - Preview
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct EditViewControllerPreView: PreviewProvider {
+  static var previews: some View {
+    EditViewController().toPreview()
+  }
+}
+#endif
