@@ -63,7 +63,7 @@ private extension SummaryView {
     func bindViewModel() {
         self.viewModel.todoProgress.subscribe { [weak self] in
             self?.progressLabel.attributedText = self?.configureAttributedPercentage($0)
-            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.5, completion: nil)
+            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.7, completion: nil)
         }
     }
 }
