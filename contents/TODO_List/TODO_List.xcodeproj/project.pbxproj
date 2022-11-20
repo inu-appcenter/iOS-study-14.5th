@@ -72,13 +72,11 @@
 		E58D8B32291BE6A600240263 /* TODO_List */ = {
 			isa = PBXGroup;
 			children = (
+				E5D0F303291E790F00CF737B /* Base */,
+				E5B0CF07291F4A9C0034DDA1 /* ViewControllers */,
 				E5B0CF04291F372E0034DDA1 /* Extensions */,
 				E5D0F30A291E7BA700CF737B /* Models */,
-				E5D0F303291E790F00CF737B /* Base */,
-				E5D0F311291E7D1000CF737B /* UIFactory.swift */,
 				E5D0F301291E78F400CF737B /* Storage.swift */,
-				E58D8B37291BE6A600240263 /* MainVC.swift */,
-				E5D0F315291E85B800CF737B /* CreateTodoVC.swift */,
 				E5D0F313291E82B600CF737B /* TodoCell.swift */,
 				E58D8B41291BE6A700240263 /* Info.plist */,
 			);
@@ -93,9 +91,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E5B0CF07291F4A9C0034DDA1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E58D8B37291BE6A600240263 /* MainVC.swift */,
+				E5D0F315291E85B800CF737B /* CreateTodoVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E5D0F303291E790F00CF737B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E5D0F311291E7D1000CF737B /* UIFactory.swift */,
 				E58D8B33291BE6A600240263 /* AppDelegate.swift */,
 				E58D8B35291BE6A600240263 /* SceneDelegate.swift */,
 				E58D8B3C291BE6A700240263 /* Assets.xcassets */,

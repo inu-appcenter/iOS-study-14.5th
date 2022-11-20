@@ -39,7 +39,6 @@ final class Storage {
   
   func update(_ todo: Todo) {
     var newTodos = read()
-    // 반복문에서는 Todo 객체가 let으로 나옴...
     for (n, x) in newTodos.enumerated() {
       if x.id == todo.id {
         var newTodo = newTodos[n]
