@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-todoey/Pods-todoey-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
 ${BUILT_PRODUCTS_DIR}/Hue/Hue.framework
 ${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework

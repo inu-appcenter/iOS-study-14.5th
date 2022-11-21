@@ -13,4 +13,6 @@ target 'todoey' do
   pod 'KDCircularProgress'
   pod 'Hue'
   pod 'SwipeCellKit'
+
+  pod 'Alamofire'
 end

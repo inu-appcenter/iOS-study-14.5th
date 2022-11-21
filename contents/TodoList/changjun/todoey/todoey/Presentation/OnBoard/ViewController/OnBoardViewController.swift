@@ -16,7 +16,7 @@ class OnBoardViewController: UIViewController {
     
     // MARK: - UI Components
     lazy var tempLabel = UILabel().then {
-        $0.text = "Temporary First Launch View"
+        $0.text = "Test page for HTTP networking."
     }
     
     // MARK: - Life Cycle
