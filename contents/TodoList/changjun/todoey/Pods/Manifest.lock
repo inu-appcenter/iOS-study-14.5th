@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (5.6.2)
+  - Hero (1.6.2)
+  - Hue (5.0.0)
+  - KDCircularProgress (1.5.4)
+  - SnapKit (5.6.0)
+  - SwipeCellKit (2.7.1)
+  - Then (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Hero (~> 1.6.2)
+  - Hue
+  - KDCircularProgress
+  - SnapKit (~> 5.6.0)
+  - SwipeCellKit
+  - Then (~> 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Hero
+    - Hue
+    - KDCircularProgress
+    - SnapKit
+    - SwipeCellKit
+    - Then
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Hero: c69009dbc9e2f0472e081adc644dba05fcedae72
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  KDCircularProgress: 98200c6b8e85d22bc04eb644721d3b1e12b0686b
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+
+PODFILE CHECKSUM: 2869e381f1c6cb1c7198b21ddb155c45d87cf75d
+
+COCOAPODS: 1.11.3
