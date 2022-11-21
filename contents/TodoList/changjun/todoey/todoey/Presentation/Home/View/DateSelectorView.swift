@@ -23,7 +23,6 @@ class DateSelectorView: UIView {
         $0.register(DateSelectorCell.self, forCellWithReuseIdentifier: DateSelectorCell.identifier)
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 60, height: 90)
         layout.scrollDirection = .horizontal
         $0.collectionViewLayout = layout
         
@@ -35,6 +34,7 @@ class DateSelectorView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
+        self.collectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -69,7 +69,7 @@ private extension DateSelectorView {
 // MARK: - Collection View
 extension DateSelectorView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 7 // dayOfWeek
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,9 +79,28 @@ extension DateSelectorView: UICollectionViewDelegate, UICollectionViewDataSource
             return UICollectionViewCell()
         }
         self.viewModel.currentTime.subscribe { date in
-            cell.bind(date)
+            if let dateOfCell = Calendar.current.date(
+                byAdding: .day,
+                value: indexPath.item - 3,
+                to: date) {
+                cell.bind(dateOfCell)
+            }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+}
+
+// MARK: - Collection View Flow Layout
+extension DateSelectorView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: 90)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
     }
 }
 

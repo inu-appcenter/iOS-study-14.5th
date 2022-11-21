@@ -39,8 +39,8 @@ class DateSelectorCell: UICollectionViewCell {
     
     // MARK: - Public Functions
     func bind(_ date: Date) {
-        self.dayLabel.text = self.viewModel.convertDate(date, to: "dd")
-        self.dayOfWeekLabel.text = self.viewModel.convertDate(date, to: "E")
+        self.dayLabel.text = self.viewModel.convertDate(date, to: "dd") // 일
+        self.dayOfWeekLabel.text = self.viewModel.convertDate(date, to: "E") // 요일
     }
 }
 
@@ -61,7 +61,7 @@ private extension DateSelectorCell {
     func configureConstraints() {
         self.dayLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().inset(24)
+            make.centerY.equalToSuperview().offset(-8)
         }
         self.dayOfWeekLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
