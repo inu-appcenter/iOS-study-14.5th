@@ -12,7 +12,9 @@ import Then
 
 class DateSelectorCell: UICollectionViewCell {
     
+    // MARK: - Properties
     static let identifier = "DateSelectorCell"
+    private var viewModel = HomeViewModel.shared
     
     // MARK: - UI Configuration
     lazy var dayLabel = UILabel().then {
@@ -33,6 +35,12 @@ class DateSelectorCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Public Functions
+    func bind(_ date: Date) {
+        self.dayLabel.text = self.viewModel.convertDate(date, to: "dd")
+        self.dayOfWeekLabel.text = self.viewModel.convertDate(date, to: "E")
     }
 }
 

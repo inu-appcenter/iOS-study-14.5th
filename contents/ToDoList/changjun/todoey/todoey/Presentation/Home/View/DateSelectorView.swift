@@ -12,7 +12,7 @@ import Then
 
 class DateSelectorView: UIView {
     
-    private var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel.shared
     
     // MARK: - UI Components
     lazy var collectionView = UICollectionView(
@@ -78,8 +78,9 @@ extension DateSelectorView: UICollectionViewDelegate, UICollectionViewDataSource
         ) as? DateSelectorCell else {
             return UICollectionViewCell()
         }
-        cell.dayLabel.text = self.viewModel.dayString
-        cell.dayOfWeekLabel.text = self.viewModel.dayOfWeekString
+        self.viewModel.currentTime.subscribe { date in
+            cell.bind(date)
+        }
         return cell
     }
 }

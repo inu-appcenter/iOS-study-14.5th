@@ -27,15 +27,6 @@ final class HomeViewModel {
     var nameString: String {
         return "이창준"
     }
-    
-    // Calendar View
-    var dayString: String {
-        return "12"
-    }
-    
-    var dayOfWeekString: String {
-        return "Wed"
-    }
 
     // MARK: - Observables
     let currentTime: Observable<Date> = Observable(.now)
@@ -50,6 +41,14 @@ final class HomeViewModel {
     func todoUpdated() {
         self.todoProgress.value = self.calculateProgressPercentage()
         print(self.todoProgress.value)
+    }
+    
+    func convertDate(_ date: Date, to format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let convertedDateString = dateFormatter.string(from: date)
+        
+        return convertedDateString
     }
     
     // MARK: - Old Functions
