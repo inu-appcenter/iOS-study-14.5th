@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E0BAF58291E453400896103 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BAF57291E453400896103 /* ToDoView.swift */; };
 		2E0BAF5D291E4FF400896103 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BAF5C291E4FF400896103 /* ToDoCell.swift */; };
+		2E503CB1292B45A900DD7B7A /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E503CB0292B45A900DD7B7A /* Member.swift */; };
 		2E6332D329195611009498B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332D229195611009498B7 /* AppDelegate.swift */; };
 		2E6332D529195611009498B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332D429195611009498B7 /* SceneDelegate.swift */; };
 		2E6332D729195611009498B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6332D629195611009498B7 /* HomeViewController.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		2E0BAF57291E453400896103 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		2E0BAF5C291E4FF400896103 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		2E503CB0292B45A900DD7B7A /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		2E6332CF29195611009498B7 /* todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6332D229195611009498B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E6332D429195611009498B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		2E6332EA2919D1EA009498B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E503CB0292B45A900DD7B7A /* Member.swift */,
 				2ED2F09D291FCD1600A0F940 /* ToDo.swift */,
 			);
 			path = Model;
@@ -429,6 +432,7 @@
 				2E6332D329195611009498B7 /* AppDelegate.swift in Sources */,
 				2E6332F6291A562E009498B7 /* Preview.swift in Sources */,
 				2ED2F0B12921CD3100A0F940 /* HapticManager.swift in Sources */,
+				2E503CB1292B45A900DD7B7A /* Member.swift in Sources */,
 				2E69845E2929050C00F0094F /* OnBoardViewController.swift in Sources */,
 				2E6332D529195611009498B7 /* SceneDelegate.swift in Sources */,
 				2ED2F0A0291FCFCA00A0F940 /* ToDoManager.swift in Sources */,

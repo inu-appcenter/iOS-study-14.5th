@@ -8,13 +8,23 @@
 import UIKit
 
 struct ToDo: Codable, Identifiable {
-    var id: String = UUID().uuidString
+    let id: String = UUID().uuidString
     var title: String
     var description: String
     var state: State
     var startDate: Date?
     var dueDate: Date?
     let created: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "todoId"
+        case title
+        case description = "content"
+        case state = "completed"
+        case startDate
+        case dueDate
+        case created
+    }
 }
 
 enum State: Codable {
