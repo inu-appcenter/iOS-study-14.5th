@@ -1,0 +1,12 @@
+//
+//  UserDefaultsKey.swift
+//  ToDo
+//
+//  Created by 이창준 on 2022/11/22.
+//
+
+import Foundation
+
+enum UserDefaultsKey {
+    static let todo = "todo"
+}
