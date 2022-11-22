@@ -11,6 +11,9 @@ import SnapKit
 
 class DateSelectorView: UIView {
     
+    // MARK: - Properties
+    var viewModel: DateSelectorViewModel?
+    
     // MARK: - UI Components
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -19,7 +22,10 @@ class DateSelectorView: UIView {
         )
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(DateSelectorCell.self, forCellWithReuseIdentifier: DateSelectorCell.identifier)
+        collectionView.register(
+            DateSelectorCell.self,
+            forCellWithReuseIdentifier: DateSelectorCell.identifier
+        )
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -31,10 +37,14 @@ class DateSelectorView: UIView {
     }()
     
     // MARK: - Initializers
+    convenience init(dateSelectorViewModel: DateSelectorViewModel) {
+        self.init(frame: .zero)
+        self.viewModel = dateSelectorViewModel
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
-        self.collectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -78,14 +88,14 @@ extension DateSelectorView: UICollectionViewDelegate, UICollectionViewDataSource
         ) as? DateSelectorCell else {
             return UICollectionViewCell()
         }
-//        self.viewModel.currentTime.subscribe { date in
-//            if let dateOfCell = Calendar.current.date(
-//                byAdding: .day,
-//                value: indexPath.item - 3,
-//                to: date) {
-//                cell.bind(dateOfCell)
-//            }
-//        }
+        self.viewModel?.currentTime.subscribe { date in
+            if let dateOfCell = Calendar.current.date(
+                byAdding: .day,
+                value: indexPath.item - 3,
+                to: date) {
+                cell.updateDayLabel(with: dateOfCell)
+            }
+        }
         return cell
     }
     

@@ -38,6 +38,9 @@ final class HomeViewController: UIViewController {
     
     private lazy var dateSelectorView: DateSelectorView = {
         let dateSelectorView = DateSelectorView()
+        dateSelectorView.viewModel = DateSelectorViewModel(
+            dateSelectorUseCase: DateSelectorUseCase()
+        )
         dateSelectorView.snp.makeConstraints { make in
             make.height.equalTo(120)
         }

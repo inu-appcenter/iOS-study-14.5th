@@ -11,15 +11,19 @@ final class HomeViewModel {
     
     // MARK: - Properties
     weak var coordinator: HomeCoordinator?
+    let homeUseCase: HomeUseCase
     
     // MARK: - Observables
-    let currentTime: Observable<Date> = Observable(.now)
     let todoProgress: Observable<Int> = Observable(0)
     
     // MARK: - Initializer
-    init(coordinator: HomeCoordinator) {
+    init(coordinator: HomeCoordinator, homeUseCase: HomeUseCase) {
         self.coordinator = coordinator
+        self.homeUseCase = homeUseCase
     }
+    
+    // MARK: - Input
+    
     
     // MARK: - Functions
     func todoUpdated() {
@@ -27,12 +31,37 @@ final class HomeViewModel {
         print(self.todoProgress.value)
     }
     
-    func convertDate(_ date: Date, to format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        let convertedDateString = dateFormatter.string(from: date)
-        
-        return convertedDateString
+    func toggleToDo(of todo: ToDo) {
+        var newToDo: ToDo = todo
+        switch newToDo.state {
+        case .expired:
+            fallthrough
+        case .inProgress:
+            fallthrough
+        case .notStarted:
+            newToDo.state = .completed
+        case .completed:
+            newToDo.state = self.handleStateWithDate(of: newToDo)
+        }
+        self.editToDo(newToDo)
+    }
+    
+    func editToDo(_ newToDo: ToDo) {
+        ToDoManager.shared.todos.enumerated().forEach { (idx, searchedToDo) in
+            if searchedToDo.id == newToDo.id { // found todo data to edit
+                ToDoManager.shared.todos[idx] = newToDo
+                ToDoManager.shared.update(newToDo)
+            }
+        }
+    }
+    
+    func removeToDo(_ removingToDo: ToDo) {
+        ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
+            if todo.id == removingToDo.id {
+                ToDoManager.shared.todos.remove(at: index)
+                ToDoManager.shared.delete(removingToDo)
+            }
+        }
     }
 }
 

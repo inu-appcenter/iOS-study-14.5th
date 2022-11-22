@@ -36,7 +36,6 @@ final class ToDoManager {
     var todos: [ToDo] = [] {
         didSet {
             self.syncToUserDefaults()
-//            self.homeViewModel.todoUpdated()
         }
     }
     

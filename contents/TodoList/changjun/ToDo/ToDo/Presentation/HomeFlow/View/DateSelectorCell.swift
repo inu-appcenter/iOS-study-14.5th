@@ -40,9 +40,9 @@ class DateSelectorCell: UICollectionViewCell {
     }
     
     // MARK: - Public Functions
-    func bind(_ date: Date) {
-//        self.dayLabel.text = self.viewModel.convertDate(date, to: "dd") // 일
-//        self.dayOfWeekLabel.text = self.viewModel.convertDate(date, to: "E") // 요일
+    func updateDayLabel(with date: Date) {
+        self.dayLabel.text = date.convertTo(format: "dd")
+        self.dayOfWeekLabel.text = date.convertTo(format: "E")
     }
 }
 

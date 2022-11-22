@@ -24,12 +24,20 @@ final class HomeCoordinator: Coordinator {
     // MARK: - Functions
     func start() {
         self.homeViewController.viewModel = HomeViewModel(
-            coordinator: self
+            coordinator: self,
+            homeUseCase: self.createHomeUseCase()
         )
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
     
     
+}
+
+// MARK: - Private Functions
+private extension HomeCoordinator {
+    func createHomeUseCase() -> HomeUseCase {
+        return HomeUseCase()
+    }
 }
 
 // MARK: - Finish Delegate
