@@ -1,6 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,carthage,cocoapods,firebase,git,xcode,macos,ruby
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,swiftpackagemanager,carthage,cocoapods,firebase,git,xcode,macos,ruby
 
+### AppCenter ###
+# BaseURL.swift
+#
+# 서버 주소, 토큰 등의 값은 .gitignore에 추가해서 노출되지 않도록 해주세요
+BaseURL.*
+
 ### Carthage ###
 # Carthage
 #
