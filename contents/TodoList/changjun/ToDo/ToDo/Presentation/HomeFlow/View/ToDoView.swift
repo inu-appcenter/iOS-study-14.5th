@@ -12,7 +12,9 @@ import SwipeCellKit
 
 class ToDoView: UIView {
     
+    // MARK: - Properties
     private let todo = ToDoManager.shared
+    var viewModel: ToDoViewModel?
     
     // MARK: - UI Components
     lazy var contentView: UIView = {
@@ -92,6 +94,11 @@ class ToDoView: UIView {
     }()
     
     // MARK: - Initializers
+    convenience init(todoViewModel: ToDoViewModel) {
+        self.init(frame: .zero)
+        self.viewModel = todoViewModel
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
