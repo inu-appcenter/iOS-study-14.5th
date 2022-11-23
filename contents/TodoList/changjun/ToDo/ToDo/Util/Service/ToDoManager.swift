@@ -13,6 +13,7 @@ enum ToDoManagerError: Error {
 
 final class ToDoManager {
     // MARK: - Singleton
+    /// 로컬 ToDo 데이터를 처리할 Singleton 객체
     static let shared = ToDoManager()
     
     // MARK: - Properties
@@ -24,6 +25,11 @@ final class ToDoManager {
             self.todos = try self.getToDos()
         } catch {
             switch error {
+            case ToDoManagerError.emptyList:
+                print("""
+                Failed fetching ToDo from UserDefaults.
+                Possibly it's empty.
+                """)
             case ToDoManagerError.decodeError:
                 print("Decoding error: \(error)")
             default:
@@ -33,6 +39,8 @@ final class ToDoManager {
     }
     
     // MARK: - Data
+    /// Singleton 객체에 저장되는 ToDo 데이터입니다.
+    /// `didSet`을 사용해 값이 변할 때마다 UserDefaults와 sync됩니다.
     var todos: [ToDo] = [] {
         didSet {
             self.syncToUserDefaults()
@@ -41,6 +49,7 @@ final class ToDoManager {
     
     // MARK: - CRUD
     // Function to save temporary todo data to UserDefaults
+    /// Singleton 객체에 저장된 ToDo 데이터들을 UserDefaults에 저장합니다.
     func syncToUserDefaults() {
         if let encodedToDo = try? JSONEncoder().encode(self.todos) {
             userDefaults.set(encodedToDo, forKey: UserDefaultsKey.todo)
@@ -48,11 +57,14 @@ final class ToDoManager {
     }
     
     // Function to create new todo data
+    /// Singleton 객체에 새로운 ToDo 데이터를 create 합니다.
     func create(_ todo: ToDo) {
         self.todos.append(todo)
     }
     
     // Function to get all datas from todo data
+    /// UserDefaults에 저장되어 있는 모든 ToDo 데이터들을 불러옵니다.
+    /// 불러온 데이터는 Singleton 객체에 저장됩니다.
     func read() -> [ToDo]? {
         do {
             let data = try self.getToDos()
@@ -69,19 +81,21 @@ final class ToDoManager {
     }
     
     // Function to replace old todo data with new one
+    /// Singleton 객체에 저장된 ToDo 데이터를 다른 데이터로 Update 합니다.
     func update(_ newToDo: ToDo) {
         self.todos.enumerated().forEach { (idx, todo) in
             if todo.id == newToDo.id {
-                self.todos[idx] = newToDo
+                self.todos.replace(at: idx, with: newToDo)
             }
         }
     }
     
     // Function to remove todo data from temporary todo data
+    /// Singleton 객체에 저장된 ToDo 데이터를 Delete 합니다.
     func delete(_ todo: ToDo) {
-        self.todos.enumerated().forEach {
-            if $1.id == todo.id {
-                todos.remove(at: $0)
+        self.todos.enumerated().forEach { (idx, todo) in
+            if todo.id == todo.id {
+                todos.remove(at: idx)
             }
         }
     }
@@ -89,6 +103,8 @@ final class ToDoManager {
 
 extension ToDoManager {
     // Function to get todo data from UserDefaults
+    /// UserDefaults에 저장되어 있는 모든 ToDo 데이터를 불러옵니다.
+    /// 불러온 데이터는 Singleton 객체에 저장됩니다.
     func getToDos() throws -> [ToDo] {
         guard let data = userDefaults.data(forKey: UserDefaultsKey.todo) else {
             throw ToDoManagerError.emptyList
