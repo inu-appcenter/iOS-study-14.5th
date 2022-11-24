@@ -106,11 +106,11 @@ final class ToDoManager {
     
     /// Singleton에 저장된 ToDo 데이터 중 선택한 날짜에 해당되는 데이터만 받아옵니다.
     func fetchToDo(within date: Date) {
-        let filteredDate = self.todos.lazy.filter { todo -> Bool in
-            guard let dueDate = todo.dueDate else { return false }
-            let isDueDate = dueDate <= date
-            return isDueDate
-        }
+//        let filteredDate = self.todos.lazy.filter { todo -> Bool in
+//            guard let dueDate = todo.dueDate else { return false }
+//            let isDueDate = dueDate <= date
+//            return isDueDate
+//        }
     }
 }
 
