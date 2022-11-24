@@ -11,7 +11,6 @@ struct ToDo: Codable, Identifiable {
     var title: String
     var description: String
     var state: State
-    var startDate: Date?
     var dueDate: Date?
     let created: Date
     
@@ -20,7 +19,6 @@ struct ToDo: Codable, Identifiable {
         case title
         case description = "content"
         case state = "completed"
-        case startDate
         case dueDate
         case created
     }

@@ -11,12 +11,12 @@ final class HomeCoordinator: Coordinator {
     
     // MARK: - Properties
     var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
+    var navigationController: CustomNavigationController
     var childCoordinators: [Coordinator] = []
     var homeViewController: HomeViewController
     
     // MARK: - Initializer
-    init(_ navigationController: UINavigationController) {
+    init(_ navigationController: CustomNavigationController) {
         self.navigationController = navigationController
         self.homeViewController = HomeViewController()
     }
@@ -30,7 +30,19 @@ final class HomeCoordinator: Coordinator {
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
     
+    func showCreateFlow() {
+        let createCoordinator = EditCoordinator.init(self.navigationController)
+        createCoordinator.finishDelegate = self
+        self.childCoordinators.append(createCoordinator)
+        createCoordinator.pushCreateViewController(with: .create)
+    }
     
+    func showEditFlow(data: ToDo) {
+        let editCoordinator = EditCoordinator.init(self.navigationController)
+        editCoordinator.finishDelegate = self
+        self.childCoordinators.append(editCoordinator)
+        editCoordinator.pushEditViewController(with: .update, data: data)
+    }
 }
 
 // MARK: - Private Functions
@@ -43,6 +55,7 @@ private extension HomeCoordinator {
 // MARK: - Finish Delegate
 extension HomeCoordinator: CoordinatorFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
-        print("Home Did Finish")
+        childCoordinator.navigationController.popViewController(animated: true)
+        self.homeViewController.requestRefresh()
     }
 }

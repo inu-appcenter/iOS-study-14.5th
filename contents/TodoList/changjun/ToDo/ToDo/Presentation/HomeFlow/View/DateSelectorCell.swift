@@ -13,6 +13,11 @@ class DateSelectorCell: UICollectionViewCell {
     
     // MARK: - Properties
     static let identifier = "DateSelectorCell"
+    var dateOfCell: Date = .now {
+        didSet {
+            self.updateDayLabel(with: dateOfCell)
+        }
+    }
     
     // MARK: - UI Configuration
     lazy var dayLabel: UILabel = {
@@ -40,10 +45,7 @@ class DateSelectorCell: UICollectionViewCell {
     }
     
     // MARK: - Public Functions
-    func updateDayLabel(with date: Date) {
-        self.dayLabel.text = date.convertTo(format: "dd")
-        self.dayOfWeekLabel.text = date.convertTo(format: "E")
-    }
+    
 }
 
 // MARK: - UI Configuration
@@ -73,6 +75,14 @@ private extension DateSelectorCell {
     
     func configureStyles() {
         self.layer.cornerRadius = 30
-        self.backgroundColor = .tdLightGray
+        self.backgroundColor = .tdBackgroundGray
+    }
+}
+
+// MARK: - Private Functions
+private extension DateSelectorCell {
+    func updateDayLabel(with date: Date) {
+        self.dayLabel.text = date.convert(to: "dd")
+        self.dayOfWeekLabel.text = date.convert(to: "E")
     }
 }

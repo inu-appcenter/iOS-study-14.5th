@@ -11,11 +11,11 @@ protocol Coordinator: AnyObject {
     
     // MARK: - Properties
     var finishDelegate: CoordinatorFinishDelegate? { get set }
-    var navigationController: UINavigationController { get set }
+    var navigationController: CustomNavigationController { get set }
     var childCoordinators: [Coordinator] { get set }
     
     // MARK: - Initializer
-    init(_ navigationController: UINavigationController)
+    init(_ navigationController: CustomNavigationController)
     
     // MARK: - Functions
     func start()

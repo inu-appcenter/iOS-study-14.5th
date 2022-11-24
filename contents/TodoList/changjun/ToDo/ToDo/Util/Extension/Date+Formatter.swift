@@ -8,9 +8,16 @@
 import Foundation
 
 extension Date {
-    func convertTo(format: String) -> String {
+    var onlyDate: Date {
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        return Calendar.current.date(from: dateComponents)!
+    }
+    
+    func convert(to format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        dateFormatter.timeZone = .autoupdatingCurrent
+        dateFormatter.locale = .autoupdatingCurrent
         return dateFormatter.string(from: self)
     }
 }

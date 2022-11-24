@@ -11,6 +11,10 @@ enum ToDoManagerError: Error {
     case emptyList, decodeError, notFound
 }
 
+enum ToDoMethod {
+    case create, read, get, update, toggle, delete
+}
+
 final class ToDoManager {
     // MARK: - Singleton
     /// 로컬 ToDo 데이터를 처리할 Singleton 객체
@@ -92,11 +96,20 @@ final class ToDoManager {
     
     // Function to remove todo data from temporary todo data
     /// Singleton 객체에 저장된 ToDo 데이터를 Delete 합니다.
-    func delete(_ todo: ToDo) {
+    func delete(_ deletingTodo: ToDo) {
         self.todos.enumerated().forEach { (idx, todo) in
-            if todo.id == todo.id {
+            if deletingTodo.id == todo.id {
                 todos.remove(at: idx)
             }
+        }
+    }
+    
+    /// Singleton에 저장된 ToDo 데이터 중 선택한 날짜에 해당되는 데이터만 받아옵니다.
+    func fetchToDo(within date: Date) {
+        let filteredDate = self.todos.lazy.filter { todo -> Bool in
+            guard let dueDate = todo.dueDate else { return false }
+            let isDueDate = dueDate <= date
+            return isDueDate
         }
     }
 }

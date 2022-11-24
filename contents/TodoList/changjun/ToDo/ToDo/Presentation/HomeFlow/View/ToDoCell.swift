@@ -80,7 +80,7 @@ class ToDoCell: SwipeCollectionViewCell {
     func bind(_ todo: ToDo) {
         self.todo = todo
         self.todoLabel.text = self.todo?.title
-//        self.dueDateLabel.text = self.todo?.dueDate?.toString()
+        self.dueDateLabel.text = self.todo?.dueDate?.convert(to: "yy.MM.dd")
         self.statusView.setStatus(self.todo?.state)
         if self.todo?.state == .completed {  // Completed
             self.checkButton.setImage(SFSymbol.checked, for: .normal)

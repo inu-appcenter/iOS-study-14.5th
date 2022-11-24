@@ -7,14 +7,15 @@
 
 import UIKit
 
+import Hero
 import SnapKit
 import SwipeCellKit
 
 class ToDoView: UIView {
     
     // MARK: - Properties
-    private let todo = ToDoManager.shared
     var viewModel: ToDoViewModel?
+    weak var delegate: ToDoDelegate?
     
     // MARK: - UI Components
     lazy var contentView: UIView = {
@@ -23,7 +24,13 @@ class ToDoView: UIView {
         return view
     }()
     
-    private let headerView = UIView()
+    lazy var headerView: UIView = {
+        let view = UIView()
+        view.snp.makeConstraints { make in
+            make.height.equalTo(100)
+        }
+        return view
+    }()
     
     lazy var toDoLabel: UILabel = {
         let label = UILabel()
@@ -46,18 +53,16 @@ class ToDoView: UIView {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemIndigo
-        let tapGesture = UITapGestureRecognizer(
-            target: self, action: #selector(handleTap))
-        button.addGestureRecognizer(tapGesture)
+        button.addTarget(self, action: #selector(addButtonDidTap), for: .touchUpInside)
         button.snp.makeConstraints { make in
             make.width.height.equalTo(48)
         }
+        button.hero.id = HeroID.Home2Edit.buttonTransition
         return button
     }()
     
-    @objc func handleTap() {
-//        viewModel.handleAddButtonTapEvent()
-//        self.delegate?.showEditView(isEdit: false, idx: nil)
+    @objc func addButtonDidTap() {
+        self.delegate?.addButtonDidTap()
     }
     
     lazy var headerStackView: UIStackView = {
@@ -102,11 +107,15 @@ class ToDoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
-//        self.viewModel.todoUpdated()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Functions
+    func refresh() {
+        self.todoCollectionView.reloadData()
     }
 }
 
@@ -131,7 +140,6 @@ private extension ToDoView {
     func configureConstraints() {
         self.headerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
         }
         self.contentView.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
@@ -161,29 +169,37 @@ private extension ToDoView {
 
 // MARK: - Collection View
 extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return ToDoManager.shared.todos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ToDoCell.identifier, for: indexPath) as? ToDoCell else {
             return UICollectionViewCell()
         }
+        let todoData = ToDoManager.shared.todos[indexPath.item]
         cell.delegate = self
-        let todoData = todo.todos[indexPath.item]
         cell.bind(todoData)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ToDoCell else {
             return
         }
         if let todo = cell.todo {
-            print("Toggle state of data named \(todo.title)")
             HapticManager.shared.impactFeedback(.soft)
-//            self.viewModel.toggleToDo(of: todo)
+            self.viewModel?.todoRequest(method: .toggle, with: todo)
         }
         self.todoCollectionView.reloadData()
     }
@@ -201,8 +217,8 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
                 return
             }
             if let todo = cell.todo {
-                print("Removing data named \(todo.title)")
-//                self.viewModel.removeToDo(todo)
+                print(todo)
+                self.viewModel?.todoRequest(method: .delete, with: todo)
             }
         }
 
@@ -212,7 +228,11 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
         return [deleteAction]
     }
     
-    func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        editActionsOptionsForItemAt indexPath: IndexPath,
+        for orientation: SwipeActionsOrientation
+    ) -> SwipeOptions {
         var options = SwipeOptions()
         options.expansionStyle = .destructiveAfterFill
         options.transitionStyle = .border
@@ -226,10 +246,14 @@ extension ToDoView: UIGestureRecognizerDelegate {
         guard gestureReconizer.state == .began else { return }
         let point = gestureReconizer.location(in: self.todoCollectionView)
         let indexPath = self.todoCollectionView.indexPathForItem(at: point)
-        if indexPath != nil {
-            print("Long Pressed")
+        if let indexPath {
             HapticManager.shared.impactFeedback(.light)
-//            self.delegate?.showEditView(isEdit: true, idx: indexPath?.row)
+            guard let pressedCell = self.todoCollectionView.cellForItem(at: indexPath) as? ToDoCell else {
+                return
+            }
+            if let todo = pressedCell.todo {
+                self.delegate?.cellDidLongPressed(with: todo)
+            }
         }
         else {
             print("Could not find index path")

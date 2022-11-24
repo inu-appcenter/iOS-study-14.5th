@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Hero
 import SnapKit
 import SwipeCellKit
 
@@ -29,6 +30,7 @@ final class HomeViewController: UIViewController {
     
     private lazy var summaryView: SummaryView = {
         let summaryView = SummaryView()
+        summaryView.viewModel = SummaryViewModel()
         summaryView.backgroundColor = .clear
         summaryView.snp.makeConstraints { make in
             make.height.equalTo(100)
@@ -49,9 +51,14 @@ final class HomeViewController: UIViewController {
     
     private lazy var todoView: ToDoView = {
         let view = ToDoView()
+        view.viewModel = ToDoViewModel(
+            todoUseCase: ToDoUseCase()
+        )
         view.backgroundColor = .tdGray
         view.clipsToBounds = true
         view.layer.cornerRadius = 32
+        view.delegate = self
+        view.hero.id = HeroID.Home2Edit.todoViewTransition
         return view
     }()
     
@@ -59,6 +66,11 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+    }
+    
+    // MARK: - Functions
+    func requestRefresh() {
+        self.todoView.refresh()
     }
 }
 
@@ -115,5 +127,15 @@ private extension HomeViewController {
     
     func configureStyles() {
         self.view.backgroundColor = .systemBackground
+    }
+}
+
+extension HomeViewController: ToDoDelegate {
+    func addButtonDidTap() {
+        self.viewModel?.addButtonDidTap()
+    }
+    
+    func cellDidLongPressed(with todo: ToDo) {
+        self.viewModel?.coordinator?.showEditFlow(data: todo)
     }
 }

@@ -22,46 +22,14 @@ final class HomeViewModel {
         self.homeUseCase = homeUseCase
     }
     
-    // MARK: - Input
-    
-    
     // MARK: - Functions
+    func addButtonDidTap() {
+        self.coordinator?.showCreateFlow()
+    }
+    
     func todoUpdated() {
         self.todoProgress.value = self.calculateProgressPercentage()
         print(self.todoProgress.value)
-    }
-    
-    func toggleToDo(of todo: ToDo) {
-        var newToDo: ToDo = todo
-        switch newToDo.state {
-        case .expired:
-            fallthrough
-        case .inProgress:
-            fallthrough
-        case .notStarted:
-            newToDo.state = .completed
-        case .completed:
-            newToDo.state = self.handleStateWithDate(of: newToDo)
-        }
-        self.editToDo(newToDo)
-    }
-    
-    func editToDo(_ newToDo: ToDo) {
-        ToDoManager.shared.todos.enumerated().forEach { (idx, searchedToDo) in
-            if searchedToDo.id == newToDo.id { // found todo data to edit
-                ToDoManager.shared.todos[idx] = newToDo
-                ToDoManager.shared.update(newToDo)
-            }
-        }
-    }
-    
-    func removeToDo(_ removingToDo: ToDo) {
-        ToDoManager.shared.todos.enumerated().forEach { (index, todo) in
-            if todo.id == removingToDo.id {
-                ToDoManager.shared.todos.remove(at: index)
-                ToDoManager.shared.delete(removingToDo)
-            }
-        }
     }
 }
 

@@ -20,7 +20,7 @@ class Observable<T> {
         self.value = value
     }
     
-    func subscribe(listener: @escaping (T) -> Void) {
+    func subscribe(listener: @escaping ((T) -> Void)) {
         listener(value)
         self.listener = listener
     }

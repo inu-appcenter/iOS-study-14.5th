@@ -11,11 +11,11 @@ final class ApplicationCoordinator: Coordinator {
     
     // MARK: - Properties
     weak var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
+    var navigationController: CustomNavigationController
     var childCoordinators: [Coordinator] = []
     
     // MARK: - Initializer
-    init(_ navigationController: UINavigationController) {
+    init(_ navigationController: CustomNavigationController) {
         self.navigationController = navigationController
     }
     

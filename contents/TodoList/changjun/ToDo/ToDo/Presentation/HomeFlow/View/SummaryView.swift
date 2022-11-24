@@ -8,8 +8,12 @@
 import UIKit
 
 import KDCircularProgress
+import SnapKit
 
 class SummaryView: UIView {
+    
+    // MARK: - Properties
+    var viewModel: SummaryViewModel?
     
     // MARK: - UI Components
     lazy var progressCircle: KDCircularProgress = {
@@ -22,7 +26,6 @@ class SummaryView: UIView {
         progress.gradientRotateSpeed = 1
         progress.roundedCorners = true
         progress.set(colors: .tdBlue, .tdPink, .tdPurple)
-        progress.progress = 90
         progress.snp.makeConstraints { make in
             make.width.height.equalTo(80)
         }
@@ -31,7 +34,6 @@ class SummaryView: UIView {
     
     lazy var progressLabel: UILabel = {
         let label = UILabel()
-        label.text = "90%"
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
@@ -72,10 +74,10 @@ class SummaryView: UIView {
 // MARK: - Binding
 private extension SummaryView {
     func bindViewModel() {
-//        self.viewModel.todoProgress.subscribe { [weak self] in
-//            self?.progressLabel.attributedText = self?.configureAttributedPercentage($0)
-//            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.7, completion: nil)
-//        }
+        self.viewModel?.todoProgress.subscribe { [weak self] in
+            self?.progressLabel.attributedText = self?.configureAttributedPercentage($0)
+            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.7, completion: nil)
+        }
     }
 }
 
