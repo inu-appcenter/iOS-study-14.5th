@@ -63,6 +63,7 @@ final class EditViewModel {
                 self.coordinator?.finish()
             }
         }
+        completion()
     }
     
     func updateToDoTitle(to title: String?) {

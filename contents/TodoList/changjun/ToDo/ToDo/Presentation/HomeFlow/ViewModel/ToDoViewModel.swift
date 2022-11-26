@@ -7,14 +7,16 @@
 
 import Foundation
 
-final class ToDoViewModel {
+final class ToDoViewModel: ChildViewModel {
     
     // MARK: - Properties
     let todoUseCase: ToDoUseCase
+    var parentViewModel: ViewModel?
     
     // MARK: - Initializer
-    init(todoUseCase: ToDoUseCase) {
+    init(todoUseCase: ToDoUseCase, parentViewModel: ViewModel?) {
         self.todoUseCase = todoUseCase
+        self.parentViewModel = parentViewModel
     }
     
     // MARK: - Observables

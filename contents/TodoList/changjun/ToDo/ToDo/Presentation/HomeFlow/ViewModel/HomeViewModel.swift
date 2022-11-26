@@ -20,6 +20,7 @@ final class HomeViewModel: ViewModel {
     init(coordinator: HomeCoordinator, homeUseCase: HomeUseCase) {
         self.coordinator = coordinator
         self.homeUseCase = homeUseCase
+        self.syncViewModel()
     }
     
     // MARK: - Functions
@@ -27,25 +28,13 @@ final class HomeViewModel: ViewModel {
         self.coordinator?.showCreateFlow()
     }
     
-    func todoUpdated() {
-        self.todoProgress.value = self.calculateProgressPercentage()
-        print(self.todoProgress.value)
+    func syncViewModel() {
+        self.todoProgress.value = ToDoManager.shared.calculateProgressPercentage()
     }
 }
 
 // MARK: - Privates
 private extension HomeViewModel {
-    func calculateProgressPercentage() -> Int {
-        let totalCount: Double = Double(ToDoManager.shared.todos.count)
-        let finishedCount: Double = Double(ToDoManager.shared.todos.filter {
-            $0.state == .completed
-        }.count)
-        if totalCount > 0 {
-            return Int(round(finishedCount / totalCount * 100))
-        } else {
-            return 0
-        }
-    }
     
     func handleStateWithDate(of todo: ToDo) -> State {
         if let due = todo.dueDate {

@@ -33,6 +33,7 @@ final class HomeViewController: UIViewController {
         summaryView.viewModel = SummaryViewModel(
             parentViewModel: self.viewModel
         )
+        summaryView.bindViewModel()
         summaryView.backgroundColor = .clear
         summaryView.snp.makeConstraints { make in
             make.height.equalTo(100)
@@ -54,13 +55,13 @@ final class HomeViewController: UIViewController {
     private lazy var todoView: ToDoView = {
         let view = ToDoView()
         view.viewModel = ToDoViewModel(
-            todoUseCase: ToDoUseCase()
+            todoUseCase: ToDoUseCase(),
+            parentViewModel: self.viewModel
         )
         view.backgroundColor = .tdGray
         view.clipsToBounds = true
         view.layer.cornerRadius = 32
         view.delegate = self
-        view.stateDelegate = self
         view.hero.id = HeroID.Home2Edit.todoViewTransition
         return view
     }()
@@ -140,11 +141,5 @@ extension HomeViewController: ToDoDelegate {
     
     func cellDidLongPressed(with todo: ToDo) {
         self.viewModel?.coordinator?.showEditFlow(data: todo)
-    }
-}
-
-extension HomeViewController: StateDelegate {
-    func cellDidTap() {
-        self.summaryView.updateView()
     }
 }

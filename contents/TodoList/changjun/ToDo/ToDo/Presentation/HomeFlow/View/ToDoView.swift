@@ -201,6 +201,8 @@ extension ToDoView: UICollectionViewDelegate, UICollectionViewDataSource {
             HapticManager.shared.impactFeedback(.soft)
             self.viewModel?.todoRequest(method: .toggle, with: todo)
         }
+        guard let homeViewModel = self.viewModel?.parentViewModel as? HomeViewModel else { return }
+        homeViewModel.syncViewModel()
         self.todoCollectionView.reloadData()
     }
 }
@@ -219,6 +221,8 @@ extension ToDoView: SwipeCollectionViewCellDelegate {
             if let todo = cell.todo {
                 print(todo)
                 self.viewModel?.todoRequest(method: .delete, with: todo)
+                guard let homeViewModel = self.viewModel?.parentViewModel as? HomeViewModel else { return }
+                homeViewModel.syncViewModel()
             }
         }
 

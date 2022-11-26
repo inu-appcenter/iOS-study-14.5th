@@ -58,7 +58,7 @@ final class EditViewController: ViewController {
         let button = UIButton()
         button.backgroundColor = .tdBlue
         button.setTitleColor(.tdLightGray, for: .highlighted)
-        button.addTarget(self, action: #selector(confirmButtonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(confirmButtonDidTap(_:)), for: .touchUpInside)
         button.hero.id = HeroID.Home2Edit.buttonTransition
         button.layer.cornerRadius = 24
         button.snp.makeConstraints { make in

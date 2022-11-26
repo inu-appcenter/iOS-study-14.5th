@@ -56,6 +56,7 @@ private extension HomeCoordinator {
 extension HomeCoordinator: CoordinatorFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         childCoordinator.navigationController.popViewController(animated: true)
+        self.homeViewController.viewModel?.syncViewModel()
         self.homeViewController.requestRefresh()
     }
 }

@@ -51,6 +51,12 @@ final class ToDoManager {
         }
     }
     
+    var totalCount: Int {
+        get {
+            self.todos.count
+        }
+    }
+    
     // MARK: - CRUD
     /// Singleton 객체에 저장된 ToDo 데이터들을 UserDefaults에 저장합니다.
     func syncToUserDefaults() {
@@ -106,6 +112,18 @@ final class ToDoManager {
 //            let isDueDate = dueDate <= date
 //            return isDueDate
 //        }
+    }
+    
+    /// Singleton에 저장된 ToDo 데이터를 사용하여 몇 개의 할 일이 완료되었는지 계산합니다.
+    func calculateProgressPercentage() -> Int {
+        let finishedCount: Double = Double(ToDoManager.shared.todos.filter {
+            $0.state == .completed
+        }.count)
+        if totalCount > 0 {
+            return Int(round(finishedCount / Double(self.totalCount) * 100))
+        } else {
+            return 0
+        }
     }
 }
 

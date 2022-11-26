@@ -13,7 +13,6 @@ final class SummaryViewModel: ChildViewModel {
     var parentViewModel: ViewModel?
     
     // MARK: - Observables
-    let todoProgress: Observable<Int> = Observable(0)
     
     // MARK: - Initializer
     init(parentViewModel: ViewModel?) {
@@ -21,9 +20,7 @@ final class SummaryViewModel: ChildViewModel {
     }
     
     // MARK: - Functions
-    func updateProgress() {
-        let todos = ToDoManager.shared.todos
-        let doneToDos = todos.filter { $0.state == .completed }
-        self.todoProgress.value = Int(round(Double(doneToDos.count) / Double(todos.count) * 100))
+    func convertToPercentage(_ num: Int) -> Double {
+        return (Double(num) / 100.0) * 360.0
     }
 }

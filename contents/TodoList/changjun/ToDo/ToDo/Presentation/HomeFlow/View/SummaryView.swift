@@ -63,20 +63,19 @@ class SummaryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
-        self.bindViewModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
- 
-// MARK: - Binding
-private extension SummaryView {
+    
+    // MARK: - Functions
     func bindViewModel() {
-        self.viewModel?.todoProgress.subscribe { [weak self] in
-            self?.progressLabel.attributedText = self?.configureAttributedPercentage($0)
-            self?.progressCircle.animate(toAngle: Double($0) / 100 * 360, duration: 0.7, completion: nil)
+        lazy var homeViewModel = self.viewModel?.parentViewModel as? HomeViewModel
+        homeViewModel?.todoProgress.subscribe {
+            guard let percentage = self.viewModel?.convertToPercentage($0) else { return }
+            self.progressCircle.animate(toAngle: percentage, duration: 0.7, completion: nil)
+            self.progressLabel.attributedText = self.configureAttributedPercentage($0)
         }
     }
 }
