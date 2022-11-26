@@ -49,7 +49,7 @@ private extension HomeViewModel {
     
     func handleStateWithDate(of todo: ToDo) -> State {
         if let due = todo.dueDate {
-            if due < Date.now {
+            if due.onlyDate < Date.now.onlyDate {
                 return .expired
             } else {
                 return .inProgress
