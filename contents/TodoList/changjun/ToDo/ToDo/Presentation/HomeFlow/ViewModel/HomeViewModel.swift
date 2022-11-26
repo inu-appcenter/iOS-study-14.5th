@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeViewModel {
+final class HomeViewModel: ViewModel {
     
     // MARK: - Properties
     weak var coordinator: HomeCoordinator?
