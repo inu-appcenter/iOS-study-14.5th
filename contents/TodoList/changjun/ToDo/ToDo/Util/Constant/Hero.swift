@@ -12,4 +12,11 @@ enum HeroID {
         static let todoViewTransition = "ToDoViewHero"
         static let buttonTransition = "ButtonHero"
     }
+    
+    struct Onboard {
+        static let idTextFieldTransition = "IDTextFieldHero"
+        static let passwordTextFieldTransition = "PWTextFieldHero"
+        static let nameTextFieldTransition = "NameTextFieldHero"
+        static let ageTextFieldTransition = "AgeTextFieldHero"
+    }
 }

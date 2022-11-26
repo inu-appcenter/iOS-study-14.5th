@@ -31,6 +31,15 @@ final class HomeViewModel: ViewModel {
     func syncViewModel() {
         self.todoProgress.value = ToDoManager.shared.calculateProgressPercentage()
     }
+    
+    func validateAuth() {
+        switch AuthManager.shared.validateAuth() {
+        case true:
+            print("True")
+        case false:
+            self.coordinator?.showOnboardFlow()
+        }
+    }
 }
 
 // MARK: - Privates

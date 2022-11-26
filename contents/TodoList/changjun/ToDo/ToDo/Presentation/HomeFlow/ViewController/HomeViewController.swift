@@ -72,6 +72,11 @@ final class HomeViewController: UIViewController {
         self.configureUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.viewModel?.validateAuth()
+    }
+    
     // MARK: - Functions
     func requestRefresh() {
         self.todoView.refresh()

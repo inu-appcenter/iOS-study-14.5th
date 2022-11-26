@@ -9,4 +9,6 @@ import Foundation
 
 enum UserDefaultsKey {
     static let todo = "todo"
+    static let login = "login"
+    static let authToken = "authToken"
 }

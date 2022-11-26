@@ -43,6 +43,13 @@ final class HomeCoordinator: Coordinator {
         self.childCoordinators.append(editCoordinator)
         editCoordinator.pushEditViewController(with: .update, data: data)
     }
+    
+    func showOnboardFlow() {
+        let onboardCoordinator = OnboardCoordinator.init(self.navigationController)
+        onboardCoordinator.finishDelegate = self
+        self.childCoordinators.append(onboardCoordinator)
+        onboardCoordinator.start()
+    }
 }
 
 // MARK: - Private Functions
