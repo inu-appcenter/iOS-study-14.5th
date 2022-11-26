@@ -37,7 +37,7 @@ final class PWOnboardViewController: OnboardViewController {
     override func configureLayout() {
         super.configureLayout()
         [
-            idLabel, idTextField,
+            idTextField,
             pwTextField
         ].forEach {
             self.view.addSubview($0)
@@ -49,14 +49,10 @@ final class PWOnboardViewController: OnboardViewController {
         self.confirmButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).inset(-24)
         }
-        self.idLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(24)
-        }
         self.idTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.idLabel.snp.bottom)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(18)
         }
         self.pwTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

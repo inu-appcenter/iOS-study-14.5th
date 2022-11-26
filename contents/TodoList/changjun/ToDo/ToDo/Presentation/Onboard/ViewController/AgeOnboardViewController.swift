@@ -37,9 +37,9 @@ final class AgeOnboardViewController: OnboardViewController {
     override func configureLayout() {
         super.configureLayout()
         [
-            idLabel, idTextField,
-            pwLabel, pwTextField,
-            nameLabel, nameTextField,
+            idTextField,
+            pwTextField,
+            nameTextField,
             ageTextField
         ].forEach {
             self.view.addSubview($0)
@@ -51,32 +51,20 @@ final class AgeOnboardViewController: OnboardViewController {
         self.confirmButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).inset(-24)
         }
-        self.idLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(24)
-        }
         self.idTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.idLabel.snp.bottom)
-        }
-        self.pwLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.idTextField.snp.bottom).inset(-24)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(18)
         }
         self.pwTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.pwLabel.snp.bottom)
-        }
-        self.nameLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.pwTextField.snp.bottom).inset(-24)
+            make.top.equalTo(self.idTextField.snp.bottom).inset(-12)
         }
         self.nameTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(32)
-            make.top.equalTo(self.nameLabel.snp.bottom)
+            make.top.equalTo(self.pwTextField.snp.bottom).inset(-12)
         }
         self.ageTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

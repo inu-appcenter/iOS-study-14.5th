@@ -10,6 +10,7 @@ import Foundation
 import Hero
 import KDCircularProgress
 import SnapKit
+import SkyFloatingLabelTextField
 
 class OnboardViewController: UIViewController {
     
@@ -40,74 +41,39 @@ class OnboardViewController: UIViewController {
         return label
     }()
     
-    lazy var idLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.text = "아이디"
-        return label
-    }()
-    
-    lazy var idTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = .systemFont(ofSize: 24, weight: .semibold)
-        textField.placeholder = "ID를 입력해주세요."
+    lazy var idTextField: InfoTextField = {
+        let textField = InfoTextField()
+        textField.title = "아이디"
+        textField.placeholder = "아이디를 입력해주세요."
         textField.keyboardType = .emailAddress
-        textField.enablesReturnKeyAutomatically = true
         textField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
-        textField.isHeroEnabled = true
         return textField
     }()
     
-    lazy var pwLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.text = "패스워드"
-        return label
-    }()
-    
-    
-    lazy var pwTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = .systemFont(ofSize: 24, weight: .semibold)
+    lazy var pwTextField: InfoTextField = {
+        let textField = InfoTextField()
+        textField.title = "비밀번호"
         textField.placeholder = "비밀번호를 입력해주세요."
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
-        textField.enablesReturnKeyAutomatically = true
         textField.addTarget(self, action: #selector(passwordTextFieldDidChange(_:)), for: .editingChanged)
-        textField.isHeroEnabled = true
         return textField
     }()
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.text = "이름"
-        return label
-    }()
-    
-    lazy var nameTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = .systemFont(ofSize: 24, weight: .semibold)
+    lazy var nameTextField: InfoTextField = {
+        let textField = InfoTextField()
+        textField.title = "이름"
         textField.placeholder = "이름을 입력해주세요."
         textField.addTarget(self, action: #selector(nameTextFieldDidChange(_:)), for: .editingChanged)
-        textField.isHeroEnabled = true
         return textField
     }()
     
-    lazy var ageLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.text = "나이"
-        return label
-    }()
-    
-    lazy var ageTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = .systemFont(ofSize: 24, weight: .semibold)
+    lazy var ageTextField: InfoTextField = {
+        let textField = InfoTextField()
+        textField.title = "나이"
         textField.placeholder = "나이를 입력해주세요."
         textField.keyboardType = .numberPad
         textField.addTarget(self, action: #selector(ageTextFieldDidChange(_:)), for: .editingChanged)
-        textField.isHeroEnabled = true
         return textField
     }()
     
