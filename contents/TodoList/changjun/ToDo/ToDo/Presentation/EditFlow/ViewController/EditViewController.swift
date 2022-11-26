@@ -10,7 +10,7 @@ import UIKit
 import Hero
 import SnapKit
 
-final class EditViewController: ViewController {
+final class EditViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: EditViewModel?
