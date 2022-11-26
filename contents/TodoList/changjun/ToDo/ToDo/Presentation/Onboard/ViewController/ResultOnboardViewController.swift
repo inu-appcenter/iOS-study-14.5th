@@ -8,6 +8,7 @@
 import UIKit
 
 import Hero
+import Lottie
 import SnapKit
 
 final class ResultOnboardViewController: UIViewController {
@@ -16,6 +17,18 @@ final class ResultOnboardViewController: UIViewController {
     var viewModel: OnboardViewModel?
     
     // MARK: - UI Components
+    let loadingIndicator: AnimationView = {
+        let loading = AnimationView.init(name: LottieFile.loading)
+        loading.loopMode = .loop
+        return loading
+    }()
+    
+    let doneIndicator: AnimationView = {
+        let loading = AnimationView.init(name: LottieFile.okay)
+        loading.loopMode = .loop
+        return loading
+    }()
+    
     lazy var confirmButton: ConfirmButton = {
         let button = ConfirmButton()
         button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
@@ -27,6 +40,7 @@ final class ResultOnboardViewController: UIViewController {
         super.viewDidLoad()
         self.configureUI()
         self.bindViewModel()
+        self.loadingIndicator.play()
     }
 }
 
@@ -39,12 +53,20 @@ private extension ResultOnboardViewController {
     }
     
     func configureLayout() {
-        [confirmButton].forEach {
+        [confirmButton, loadingIndicator, doneIndicator].forEach {
             self.view.addSubview($0)
         }
     }
     
     func configureConstraints() {
+        self.loadingIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.width.equalTo(64)
+        }
+        self.doneIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.width.equalTo(80)
+        }
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(52)
