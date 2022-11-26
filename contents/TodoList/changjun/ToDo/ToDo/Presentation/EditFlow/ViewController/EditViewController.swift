@@ -54,16 +54,10 @@ final class EditViewController: UIViewController {
         return textView
     }()
     
-    lazy var confirmButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .tdBlue
-        button.setTitleColor(.tdLightGray, for: .highlighted)
+    lazy var confirmButton: ConfirmButton = {
+        let button = ConfirmButton()
         button.addTarget(self, action: #selector(confirmButtonDidTap(_:)), for: .touchUpInside)
         button.hero.id = HeroID.Home2Edit.buttonTransition
-        button.layer.cornerRadius = 24
-        button.snp.makeConstraints { make in
-            make.height.equalTo(48)
-        }
         return button
     }()
 
