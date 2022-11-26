@@ -26,6 +26,7 @@ final class ResultOnboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.bindViewModel()
     }
 }
 
@@ -46,7 +47,7 @@ private extension ResultOnboardViewController {
     func configureConstraints() {
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(48)
+            make.bottom.equalToSuperview().inset(52)
             make.leading.trailing.equalToSuperview().inset(24)
         }
     }
@@ -61,5 +62,11 @@ private extension ResultOnboardViewController {
     @objc
     func buttonDidTap(_ sender: UIButton) {
         self.viewModel?.confirmButtonDidTap()
+    }
+    
+    func bindViewModel() {
+        self.viewModel?.type.subscribe {
+            self.confirmButton.setTitle($0.confirmButtonTitle, for: .normal)
+        }
     }
 }
