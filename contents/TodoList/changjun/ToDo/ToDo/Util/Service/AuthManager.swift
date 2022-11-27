@@ -30,13 +30,6 @@ final class AuthManager {
         }
     }
     
-    var isLoginned: Bool {
-        get {
-            // try token
-            false
-        }
-    }
-    
     // MARK: - Functions
     func validateAuth() -> Bool {
         if self.isTokenSaved { // 토큰이 저장되어 있어 자동 로그인 시도 가능
