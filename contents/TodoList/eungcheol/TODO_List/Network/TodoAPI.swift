@@ -12,7 +12,7 @@ import Moya
 enum TodoAPI {
   case retrieve
   case retrieveId(todoID: Int)
-  case update(memberID: Int, body: TodoRequestDTO)
+  case update(todoID: Int, body: TodoRequestDTO)
   case delete(todoID: Int)
   case create(memberID: Int, body: TodoRequestDTO)
 }
