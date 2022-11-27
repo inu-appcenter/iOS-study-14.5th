@@ -28,7 +28,7 @@ final class MainViewController: UIViewController {
     
     service.getTodos { [weak self] in
       guard let self = self else { return }
-      self.todos = $0
+      self.todos = $0.reversed()
       self.tableView.reloadData()
     }
   }

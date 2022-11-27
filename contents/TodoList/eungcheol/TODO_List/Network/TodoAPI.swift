@@ -24,8 +24,12 @@ extension TodoAPI: TargetType {
   
   var path: String {
     switch self {
-    case .create: return "/todos/memberId"
-    default: return "/todos"
+    case .create(let memberId, _ ):
+      return "/todos/memberId/\(memberId)"
+    case let .delete(todoID), let .update(todoID, _), let .retrieveId(todoID):
+      return "/todos/\(todoID)"
+    default:
+      return "/todos"
     }
   }
   
@@ -44,14 +48,10 @@ extension TodoAPI: TargetType {
   
   var task: Moya.Task {
     switch self {
-    case .retrieve: return .requestPlain
+    case let .create(_, body), let .update(_, body):
+      return .requestJSONEncodable(body)
       
-    case let .retrieveId(id), let .delete(id):
-      return .requestParameters(parameters: ["memberID": id], encoding: URLEncoding.queryString)
-      
-    case let .create(id, body), let .update(id, body):
-      guard let data = try? JSONEncoder().encode(body) else { fatalError() }
-      return .requestCompositeData(bodyData: data, urlParameters: ["memberID": id])
+    default: return .requestPlain
     }
   }
   

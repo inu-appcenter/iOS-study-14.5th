@@ -134,7 +134,7 @@ final class CreateTodoViewController: UIViewController {
     
     switch vcType {
     case .new:
-      service.createTodo(0, body: todo) { [weak self] in
+      service.createTodo(1, body: todo) { [weak self] in
         self?.navigationController?.popViewController(animated: true)
       }
     case .existed:
