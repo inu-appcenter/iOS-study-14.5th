@@ -40,12 +40,15 @@ extension TodoService {
     }
   }
   
-  func updateTodo(_ todoID: Int, body: TodoRequestDTO) {
+  func updateTodo(_ todoID: Int, body: TodoRequestDTO, completion: @escaping () -> Void) {
     provider.request(.update(todoID: todoID, body: body)) { result in
       switch result {
       case .success(let response):
         do {
           _ = try response.filterSuccessfulStatusCodes()
+          DispatchQueue.main.async {
+            completion()
+          }
         } catch {
           print(error.localizedDescription)
           fatalError()
@@ -57,12 +60,15 @@ extension TodoService {
     }
   }
   
-  func deleteTodo(_ todoID: Int) {
+  func deleteTodo(_ todoID: Int, completion: @escaping () -> Void) {
     provider.request(.delete(todoID: todoID)) { result in
       switch result {
       case .success(let response):
         do {
           _ = try response.filterSuccessfulStatusCodes()
+          DispatchQueue.main.async {
+            completion()
+          }
         } catch {
           print(error.localizedDescription)
           fatalError()
@@ -74,12 +80,15 @@ extension TodoService {
     }
   }
   
-  func createTodo(_ memberID: Int, body: TodoRequestDTO) {
+  func createTodo(_ memberID: Int, body: TodoRequestDTO, completion: @escaping () -> Void) {
     provider.request(.create(memberID: memberID, body: body)) { result in
       switch result {
       case .success(let response):
         do {
           _ = try response.filterSuccessfulStatusCodes()
+          DispatchQueue.main.async {
+            completion()
+          }
         } catch {
           print(error.localizedDescription)
           fatalError()
