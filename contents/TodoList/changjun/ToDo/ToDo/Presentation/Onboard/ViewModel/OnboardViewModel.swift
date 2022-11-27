@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Alamofire
+
 final class OnboardViewModel: ViewModel {
     
     // MARK: - Properties
@@ -23,6 +25,7 @@ final class OnboardViewModel: ViewModel {
     let pwString: Observable<String?> = Observable("")
     let nameString: Observable<String?> = Observable("")
     let ageString: Observable<Int?> = Observable(0)
+    let isAuthSuccess: Observable<AuthResult> = Observable(.notyet)
     
     // MARK: - Functions
     func confirmButtonDidTap() {
@@ -49,4 +52,44 @@ final class OnboardViewModel: ViewModel {
             self.coordinator?.popToRoot()
         }
     }
+    
+    func createSignUpData() {
+        if let id = self.idString.value,
+           let password = self.pwString.value,
+           let name = self.nameString.value,
+           let age = self.ageString.value {
+            let signUpData = SignUp(
+                id: id,
+                password: password,
+                name: name,
+                age: age
+            )
+            AuthManager.shared.requestSignUp(with: signUpData) { result in
+                self.validateSignIn()
+            }
+        }
+    }
+    
+    func validateSignIn() {
+        if let id = self.idString.value,
+           let password = self.pwString.value {
+            let signInData = Auth(
+                id: id,
+                password: password
+            )
+            AuthManager.shared.requestSignIn(with: signInData) { result, value in
+                switch result {
+                case .success(_):
+                    self.isAuthSuccess.value = .success
+                    UserDefaults.standard.set(value?.token, forKey: UserDefaultsKey.authToken)
+                case .failure(_):
+                    self.isAuthSuccess.value = .failure
+                }
+            }
+        }
+    }
+}
+
+private extension OnboardViewModel {
+    
 }

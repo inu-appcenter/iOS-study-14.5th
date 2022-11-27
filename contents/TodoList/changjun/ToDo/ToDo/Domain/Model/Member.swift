@@ -10,10 +10,9 @@ struct Member: Codable {
     let id: String = UUID().uuidString
     let name: String
     let age: Int
-    let email: String
+    let email: String = "nodata@blank.com"
     
     enum CodingKeys: String, CodingKey {
-        case id = "memberId"
-        case name, age, email
+        case id, name, age, email
     }
 }

@@ -29,6 +29,12 @@ final class ResultOnboardViewController: UIViewController {
         return loading
     }()
     
+    let errorIndicator: AnimationView = {
+        let loading = AnimationView.init(name: LottieFile.error)
+        loading.loopMode = .loop
+        return loading
+    }()
+    
     lazy var confirmButton: ConfirmButton = {
         let button = ConfirmButton()
         button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
@@ -40,7 +46,7 @@ final class ResultOnboardViewController: UIViewController {
         super.viewDidLoad()
         self.configureUI()
         self.bindViewModel()
-        self.loadingIndicator.play()
+        self.viewModel?.createSignUpData()
     }
 }
 
@@ -53,7 +59,7 @@ private extension ResultOnboardViewController {
     }
     
     func configureLayout() {
-        [confirmButton, loadingIndicator, doneIndicator].forEach {
+        [confirmButton, loadingIndicator, doneIndicator, errorIndicator].forEach {
             self.view.addSubview($0)
         }
     }
@@ -65,7 +71,11 @@ private extension ResultOnboardViewController {
         }
         self.doneIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.width.equalTo(80)
+            make.height.width.equalTo(88)
+        }
+        self.errorIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.width.equalTo(88)
         }
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -76,6 +86,9 @@ private extension ResultOnboardViewController {
     
     func configureStyles() {
         self.view.backgroundColor = .systemBackground
+        [loadingIndicator, doneIndicator, errorIndicator].forEach {
+            $0.isHidden = true
+        }
     }
 }
 
@@ -89,6 +102,24 @@ private extension ResultOnboardViewController {
     func bindViewModel() {
         self.viewModel?.type.subscribe {
             self.confirmButton.setTitle($0.confirmButtonTitle, for: .normal)
+        }
+        self.viewModel?.isAuthSuccess.subscribe { isAuthSuccess in
+            switch isAuthSuccess {
+            case .success:
+                self.loadingIndicator.isHidden = true
+                self.doneIndicator.isHidden = false
+                self.doneIndicator.loopMode = .playOnce
+                self.doneIndicator.play()
+            case .failure:
+                self.loadingIndicator.isHidden = true
+                self.errorIndicator.isHidden = false
+                self.errorIndicator.loopMode = .playOnce
+                self.errorIndicator.play()
+            case .notyet:
+                self.loadingIndicator.isHidden = false
+                self.loadingIndicator.loopMode = .loop
+                self.loadingIndicator.play()
+            }
         }
     }
 }

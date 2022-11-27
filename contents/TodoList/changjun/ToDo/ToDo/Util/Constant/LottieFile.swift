@@ -10,4 +10,5 @@ import Foundation
 enum LottieFile {
     static let loading = "loading"
     static let okay = "okay"
+    static let error = "error"
 }

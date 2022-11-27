@@ -35,7 +35,7 @@ final class HomeViewModel: ViewModel {
     func validateAuth() {
         switch AuthManager.shared.validateAuth() {
         case true:
-            print("True")
+            print(UserDefaults.standard.string(forKey: UserDefaultsKey.authToken)!)
         case false:
             self.coordinator?.showOnboardFlow()
         }
