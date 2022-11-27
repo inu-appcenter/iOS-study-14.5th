@@ -19,7 +19,8 @@ class SummaryView: UIView {
     lazy var progressCircle: KDCircularProgress = {
         let progress = KDCircularProgress()
         progress.startAngle = -90
-        progress.trackThickness = 0
+        progress.trackThickness = 0.25
+        progress.trackColor = .tdBackgroundGray
         progress.progressThickness = 0.3
         progress.glowMode = .forward
         progress.clockwise = true
