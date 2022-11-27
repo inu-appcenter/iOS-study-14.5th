@@ -1,14 +1,17 @@
 import UIKit
 
+import Moya
 import SnapKit
 
 final class MainViewController: UIViewController {
   
   // MARK: - Properties
   
-  private let storage = Storage.shared
   private let createTodoButton = UIFactory.createTodoButton()
   private var tableView: UITableView!
+  private let service = TodoService.instance
+  
+  private var todos = [Todo]()
   
   // MARK: - LifeCycle
 
@@ -22,7 +25,12 @@ final class MainViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    tableView.reloadData()
+    
+    service.getTodos { [weak self] in
+      guard let self = self else { return }
+      self.todos = $0
+      self.tableView.reloadData()
+    }
   }
   
   // MARK: - Setup
@@ -77,7 +85,7 @@ extension MainViewController: UITableViewDataSource {
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
   ) -> Int {
-    return storage.todos.count
+    return todos.count
   }
   
   func tableView(
@@ -90,7 +98,7 @@ extension MainViewController: UITableViewDataSource {
     ) as? TodoCell else {
       return UITableViewCell()
     }
-    let todo = storage.todos[indexPath.row]
+    let todo = todos[indexPath.row]
     cell.setupComponents(todo)
     cell.selectionStyle = .none
     
@@ -119,7 +127,7 @@ extension MainViewController: UITableViewDelegate {
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
   ) {
-    let todo = storage.todos[indexPath.row]
+    let todo = todos[indexPath.row]
     let createTodoVC = CreateTodoViewController(.existed(todo))
     navigationController?.pushViewController(createTodoVC, animated: true)
   }

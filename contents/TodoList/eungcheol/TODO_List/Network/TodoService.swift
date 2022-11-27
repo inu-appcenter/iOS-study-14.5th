@@ -26,7 +26,9 @@ extension TodoService {
           _ = try response.filterSuccessfulStatusCodes()
           
           guard let todos = try? JSONDecoder().decode([Todo].self, from: response.data) else { fatalError() }
-          completion(todos)
+          DispatchQueue.main.async {
+            completion(todos)
+          }
         } catch {
           print(error.localizedDescription)
           fatalError()
