@@ -18,15 +18,13 @@ final class TodoCell: UITableViewCell {
   func setupComponents(_ todo: Todo) {
     setupLayout()
     setupConstraints()
-    titleLabel.text = todo.title
-    switch todo.state {
-    case .progress:
+    
+    titleLabel.text = todo.contents
+    
+    if todo.isCompleted {
+      titleLabel.textColor = .lightGray
+    } else {
       titleLabel.textColor = .black
-    case .cancel:
-      titleLabel.textColor = .lightGray
-      titleLabel.attributedText = titleLabel.text?.strikeThrough()
-    case .completed:
-      titleLabel.textColor = .lightGray
     }
   }
   
