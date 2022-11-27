@@ -59,4 +59,3 @@ extension TodoAPI: TargetType {
     return ["Content-Type": "application/json"]
   }
 }
-
