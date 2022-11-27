@@ -19,6 +19,8 @@ final class HomeViewController: UIViewController {
     // MARK: - UI Components
     private lazy var profileView: ProfileView = {
         let profileView = ProfileView()
+        profileView.viewModel = ProfileViewModel()
+        profileView.bindViewModel()
         profileView.layer.cornerRadius = 22
         profileView.clipsToBounds = true
         profileView.snp.makeConstraints { make in
@@ -75,6 +77,7 @@ final class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.viewModel?.validateAuth()
+        self.profileView.refresh()
     }
     
     // MARK: - Functions

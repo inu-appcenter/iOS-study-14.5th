@@ -11,6 +11,9 @@ import SnapKit
 
 final class ProfileView: UIView {
     
+    // MARK: - Properties
+    var viewModel: ProfileViewModel?
+    
     // MARK: - UI Components
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -19,27 +22,31 @@ final class ProfileView: UIView {
         return imageView
     }()
     
+    lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "안녕하세요"
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        return label
+    }()
+    
+    lazy var profileNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
+        return label
+    }()
+    
+    lazy var tailLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.text = "님!"
+        return label
+    }()
+    
     lazy var welcomeLabelStackView: UIStackView = {
         let stackView = UIStackView()
-        let welcomeLabel: UILabel = {
-            let label = UILabel()
-            label.font = .systemFont(ofSize: 12, weight: .regular)
-            return label
-        }()
-        let profileNameLabel: UILabel = {
-            let label = UILabel()
-            label.font = .systemFont(ofSize: 12, weight: .semibold)
-            return label
-        }()
-        let tailLabel: UILabel = {
-            let label = UILabel()
-            label.font = .systemFont(ofSize: 12, weight: .regular)
-            label.text = "님!"
-            return label
-        }()
-        stackView.addArrangedSubview(welcomeLabel)
-        stackView.addArrangedSubview(profileNameLabel)
-        stackView.addArrangedSubview(tailLabel)
+        stackView.addArrangedSubview(self.welcomeLabel)
+        stackView.addArrangedSubview(self.profileNameLabel)
+        stackView.addArrangedSubview(self.tailLabel)
         stackView.spacing = 4
         stackView.axis = .horizontal
         return stackView
@@ -47,7 +54,6 @@ final class ProfileView: UIView {
     
     lazy var commentLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.font = .systemFont(ofSize: 13, weight: .semibold)
         return label
     }()
@@ -66,7 +72,6 @@ final class ProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
-        self.bindViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -74,9 +79,18 @@ final class ProfileView: UIView {
     }
     
     func bindViewModel() {
-//        self.viewModel.currentTime.subscribe { [weak self] in
-//            self?.commentLabel.text = $0.toMotivateString()
-//        }
+        self.viewModel?.currentTime.subscribe {
+            print($0.toMotivateString())
+            self.commentLabel.text = $0.toMotivateString()
+        }
+        self.viewModel?.profileName.subscribe {
+            print($0)
+            self.profileNameLabel.text = $0
+        }
+    }
+    
+    func refresh() {
+        self.viewModel?.reloadData()
     }
 }
 

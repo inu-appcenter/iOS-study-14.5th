@@ -82,6 +82,7 @@ final class OnboardViewModel: ViewModel {
                 case .success(_):
                     self.isAuthSuccess.value = .success
                     UserDefaults.standard.set(value?.token, forKey: UserDefaultsKey.authToken)
+                    UserDefaults.standard.set(self.nameString.value, forKey: UserDefaultsKey.userName)
                 case .failure(_):
                     self.isAuthSuccess.value = .failure
                 }

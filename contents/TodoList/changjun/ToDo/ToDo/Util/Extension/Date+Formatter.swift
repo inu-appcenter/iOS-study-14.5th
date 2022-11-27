@@ -20,4 +20,22 @@ extension Date {
         dateFormatter.locale = .autoupdatingCurrent
         return dateFormatter.string(from: self)
     }
+    
+    func toMotivateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        switch dateFormatter.string(from: self) {
+        case TimeSlice.startOfDay.time..<TimeSlice.startOfMorning.time:
+            return MotivateString.dawn.text
+        case TimeSlice.startOfMorning.time..<TimeSlice.startOfNoon.time:
+            return MotivateString.morning.text
+        case TimeSlice.startOfNoon.time..<TimeSlice.startOfEvening.time:
+            return MotivateString.noon.text
+        case TimeSlice.startOfEvening.time..<TimeSlice.endOfDay.time:
+            return MotivateString.evening.text
+        default:
+            return "Error"
+        }
+    }
 }
