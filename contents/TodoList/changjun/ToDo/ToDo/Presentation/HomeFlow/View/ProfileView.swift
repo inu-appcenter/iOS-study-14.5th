@@ -80,11 +80,9 @@ final class ProfileView: UIView {
     
     func bindViewModel() {
         self.viewModel?.currentTime.subscribe {
-            print($0.toMotivateString())
             self.commentLabel.text = $0.toMotivateString()
         }
         self.viewModel?.profileName.subscribe {
-            print($0)
             self.profileNameLabel.text = $0
         }
     }
