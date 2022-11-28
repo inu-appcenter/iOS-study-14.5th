@@ -24,6 +24,12 @@ final class AuthManager {
     }
     
     // MARK: - Properties
+    var isMemberLoggedIn: Bool {
+        get {
+            UserDefaults.standard.data(forKey: UserDefaultsKey.authResponse) != nil
+        }
+    }
+    
     var isTokenSaved: Bool {
         get {
             UserDefaults.standard.string(forKey: UserDefaultsKey.authToken) != nil
@@ -31,14 +37,43 @@ final class AuthManager {
     }
     
     // MARK: - Functions
+    /// UserDefaults에 Member 정보가 있는지 확인합니다.
     func validateAuth() -> Bool {
-        if self.isTokenSaved { // 토큰이 저장되어 있어 자동 로그인 시도 가능
-            print("Trying auto-login.")
+        if self.isMemberLoggedIn { // 저장된 유저 데이터가 존재하여 토큰 시도
+            print("Found user data. Trying token to request.")
             return true
         } else { // 저장되어 있지 않아 자동 로그인 불가능
-            print("Cannot find token. User should log-in themselves.")
+            print("Cannot find user data. User should log-in themselves.")
             return false
         }
+    }
+    
+    /// 저장된 토큰이 valid한지 체크합니다. Invalid하다면 새로운 토큰을 발급 받습니다.
+    func validateToken() -> String? {
+        var validToken: String?
+        guard let data = UserDefaults.standard.data(forKey: UserDefaultsKey.authResponse) else {
+            return nil
+        }
+        guard let decodedToDo = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+            return nil
+        }
+        let urlString = BaseURL.baseURL + PathURL.checkToken
+        let headers = HTTPHeaders([HTTPHeader(name: Header.authToken, value: decodedToDo.token)])
+        AF.request(
+            urlString,
+            method: .get,
+            headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .response { response in
+                switch response.result {
+                case .success(_): // Token Valid
+                    validToken = decodedToDo.token
+                case .failure(_): // Token Invalid
+                    validToken = self.refreshToken()
+                }
+            }
+        return validToken
     }
     
     /// Alamofire를 이용하여 요청
@@ -111,5 +146,21 @@ private extension AuthManager {
             "memberId": auth.id,
             "password": auth.password
         ]
+    }
+    
+    /// 토큰 갱신 (UserDefaults의 user에)
+    func refreshToken() -> String? {
+        var token: String?
+        guard let lastValidAuth = UserDefaults.standard.data(forKey: UserDefaultsKey.lastValidAuth) else {
+            return nil
+        }
+        guard let decodedLastValidAuth = try? JSONDecoder().decode(Auth.self, from: lastValidAuth) else {
+            return nil
+        }
+        self.requestSignIn(with: decodedLastValidAuth) { _, value in
+            token = value?.token
+        }
+        UserDefaults.standard.set(decodedLastValidAuth, forKey: UserDefaultsKey.lastValidAuth)
+        return token
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Alamofire
+
 enum ToDoManagerError: Error {
     case emptyList, decodeError, notFound
 }
@@ -125,6 +127,32 @@ final class ToDoManager {
             return 0
         }
     }
+    
+    // MARK: - Sync with server
+    func syncWithServer() {
+        print("Syncing with server.")
+        let mID = "23"
+        let urlString = BaseURL.baseURL + PathURL.members + mID
+        let header: HTTPHeader = HTTPHeader(name: Header.authToken, value: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE2Njk2MzYyMTcsImV4cCI6MTY2OTYzOTgxN30.NMJS9t2udVZZTsqX3_LoBidC6PIeko0vrM4xxjWSqRE")
+        let headers: HTTPHeaders = HTTPHeaders([header])
+        AF.request(
+            urlString,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.prettyPrinted,
+            headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseDecodable(of: Member.self) { response in
+                switch response.result {
+                case .success(let value):
+                    print("Success")
+                    self.compareToLocal(value.todo)
+                case .failure(let error):
+                    print("Failure: \(error)")
+                }
+            }
+    }
 }
 
 private extension ToDoManager {
@@ -139,5 +167,14 @@ private extension ToDoManager {
             throw ToDoManagerError.decodeError
         }
         return decodedToDo
+    }
+    
+    func compareToLocal(_ serverToDo: [ToDoDTO]) {
+        guard let data = userDefaults.data(forKey: UserDefaultsKey.todo) else {
+            return
+        }
+        guard let decodedToDo = try? JSONDecoder().decode([ToDo].self, from: data) else {
+            return
+        }
     }
 }

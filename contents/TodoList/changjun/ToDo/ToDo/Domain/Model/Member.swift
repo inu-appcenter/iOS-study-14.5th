@@ -7,10 +7,14 @@
 import Foundation
 
 struct Member: Codable {
-    let name: String
     let age: Int
+    let email: String
+    let id: Int
+    let name: String
+    let todo: [ToDoDTO]
     
     enum CodingKeys: String, CodingKey {
-        case name, age
+        case age, email, id, name
+        case todo = "todoList"
     }
 }

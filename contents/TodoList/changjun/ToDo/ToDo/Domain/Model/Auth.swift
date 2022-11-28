@@ -17,7 +17,7 @@ struct Auth: Codable {
     }
 }
 
-struct AuthResponse: Decodable {
+struct AuthResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let msg: String
@@ -26,13 +26,5 @@ struct AuthResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case isSuccess = "success"
         case code, msg, token
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        isSuccess = try container.decode(Bool.self, forKey: .isSuccess)
-        code = try container.decode(Int.self, forKey: .code)
-        msg = try container.decode(String.self, forKey: .msg)
-        token = try container.decode(String.self, forKey: .token)
     }
 }

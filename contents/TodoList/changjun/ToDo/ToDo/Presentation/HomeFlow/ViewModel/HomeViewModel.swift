@@ -34,11 +34,17 @@ final class HomeViewModel: ViewModel {
     
     func validateAuth() {
         switch AuthManager.shared.validateAuth() {
-        case true:
-            print(UserDefaults.standard.string(forKey: UserDefaultsKey.authToken)!)
-        case false:
+        case true: // 유저 데이터 발견
+            let validToken =  AuthManager.shared.validateToken() // 토큰 체크
+            UserDefaults.standard.set(validToken, forKey: UserDefaultsKey.authToken) // 갱신되거나 기존 토큰 설정
+            print(UserDefaults.standard.string(forKey: UserDefaultsKey.authToken) ?? "No token found")
+        case false: // 유저 데이터 발견 실패
             self.coordinator?.showOnboardFlow()
         }
+    }
+    
+    func syncWithServer() {
+        ToDoManager.shared.syncWithServer()
     }
 }
 

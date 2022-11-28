@@ -25,6 +25,9 @@ final class EditViewController: UIViewController {
         textField.placeholder = "추가할 할 일을 입력해주세요."
         textField.setPlaceholderColor(.tdLightGray)
         textField.addTarget(self, action: #selector(titleTextFieldDidChange(_:)), for: .editingChanged)
+        textField.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(18)
+        }
         return textField
     }()
     
@@ -37,6 +40,9 @@ final class EditViewController: UIViewController {
         datePicker.tintColor = .tdBlue
         datePicker.overrideUserInterfaceStyle = .dark
         datePicker.addTarget(self, action: #selector(dueDatePickerDidChange(_:)), for: .valueChanged)
+        datePicker.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(24)
+        }
         return datePicker
     }()
     

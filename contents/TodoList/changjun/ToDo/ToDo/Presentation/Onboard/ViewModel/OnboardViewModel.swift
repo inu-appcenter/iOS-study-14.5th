@@ -65,7 +65,12 @@ final class OnboardViewModel: ViewModel {
                 age: age
             )
             AuthManager.shared.requestSignUp(with: signUpData) { result in
-                self.validateSignIn()
+                switch result {
+                case .success(_):
+                    self.validateSignIn()
+                case .failure(_):
+                    break
+                }
             }
         }
     }
@@ -81,8 +86,12 @@ final class OnboardViewModel: ViewModel {
                 switch result {
                 case .success(_):
                     self.isAuthSuccess.value = .success
-                    UserDefaults.standard.set(value?.token, forKey: UserDefaultsKey.authToken)
+                    // 가입 성공 ➡️ 자동 로그인 세팅
+                    UserDefaults.standard.set(value?.token, forKey: UserDefaultsKey.authToken) // 토큰
                     UserDefaults.standard.set(self.nameString.value, forKey: UserDefaultsKey.userName)
+                    if let encodedSignInData = try? JSONEncoder().encode(signInData) {
+                        UserDefaults.standard.set(encodedSignInData, forKey: UserDefaultsKey.lastValidAuth)
+                    }
                 case .failure(_):
                     self.isAuthSuccess.value = .failure
                 }

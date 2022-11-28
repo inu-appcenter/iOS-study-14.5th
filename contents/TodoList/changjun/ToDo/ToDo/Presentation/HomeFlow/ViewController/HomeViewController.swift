@@ -72,11 +72,12 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.viewModel?.validateAuth()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.viewModel?.validateAuth()
+        self.viewModel?.syncWithServer()
         self.profileView.refresh()
     }
     
@@ -96,6 +97,7 @@ private extension HomeViewController {
     }
     
     func configureNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.backgroundColor = .clear
         if let safeAreaTopInset = self.navigationController?.navigationBar.frame.size.height {
             self.additionalSafeAreaInsets = UIEdgeInsets(

@@ -89,6 +89,8 @@ final class EditViewModel {
 private extension EditViewModel {
     func createNewToDo() -> ToDo {
         return ToDo(
+            id: 0,
+            memberID: 0,
             title: "",
             description: "",
             state: .notStarted,

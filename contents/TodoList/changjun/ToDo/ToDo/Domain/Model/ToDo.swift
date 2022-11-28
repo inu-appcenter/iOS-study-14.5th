@@ -1,13 +1,15 @@
 //
 //  ToDo.swift
-//  ToDO
+//  ToDo
 //
-//  Created by 이창준 on 2022/11/12.
+//  Created by 이창준 on 2022/11/28.
 //
-import UIKit
+
+import Foundation
 
 struct ToDo: Codable, Identifiable {
-    let id: String = UUID().uuidString
+    let id: Int
+    let memberID: Int
     var title: String
     var description: String
     var state: State
@@ -16,43 +18,11 @@ struct ToDo: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id = "todoId"
+        case memberID = "idOfMember"
         case title
         case description = "content"
         case state = "completed"
         case dueDate
         case created
-    }
-}
-
-enum State: Codable {
-    case notStarted
-    case inProgress
-    case completed
-    case expired
-    
-    var color: UIColor {
-        switch self {
-        case .notStarted:
-            return .tdLightGray
-        case .inProgress:
-            return .systemGreen
-        case .completed:
-            return .tdBlue
-        case .expired:
-            return .systemRed
-        }
-    }
-    
-    var value: String {
-        switch self {
-        case .notStarted:
-            return "시작 전"
-        case .inProgress:
-            return "진행 중"
-        case .completed:
-            return "완료"
-        case .expired:
-            return "기한 지남"
-        }
     }
 }
