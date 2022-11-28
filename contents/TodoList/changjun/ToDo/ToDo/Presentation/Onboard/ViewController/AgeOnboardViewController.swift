@@ -28,6 +28,11 @@ final class AgeOnboardViewController: OnboardViewController {
         self.showKeyboard()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.hideKeyboard()
+    }
+    
     // MARK: - UI Configuration
     override func configureUI() {
         super.configureUI()
@@ -114,6 +119,14 @@ private extension AgeOnboardViewController {
     }
     
     func showKeyboard() {
-        self.ageTextField.becomeFirstResponder()
+        DispatchQueue.main.async {
+            self.ageTextField.becomeFirstResponder()
+        }
+    }
+    
+    func hideKeyboard() {
+        DispatchQueue.main.async {
+            self.ageTextField.resignFirstResponder()
+        }
     }
 }

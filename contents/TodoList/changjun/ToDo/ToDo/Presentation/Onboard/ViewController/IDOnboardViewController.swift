@@ -28,6 +28,11 @@ final class IDOnboardViewController: OnboardViewController {
         self.showKeyboard()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.hideKeyboard()
+    }
+    
     // MARK: - UI Configuration
     override func configureUI() {
         super.configureUI()
@@ -85,6 +90,12 @@ private extension IDOnboardViewController {
     func showKeyboard() {
         DispatchQueue.main.async {
             self.idTextField.becomeFirstResponder()
+        }
+    }
+    
+    func hideKeyboard() {
+        DispatchQueue.main.async {
+            self.idTextField.resignFirstResponder()
         }
     }
 }

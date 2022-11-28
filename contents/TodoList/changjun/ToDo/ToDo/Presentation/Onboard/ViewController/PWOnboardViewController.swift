@@ -28,6 +28,11 @@ final class PWOnboardViewController: OnboardViewController {
         self.showKeyboard()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.hideKeyboard()
+    }
+    
     // MARK: - UI Configuration
     override func configureUI() {
         super.configureUI()
@@ -94,6 +99,14 @@ private extension PWOnboardViewController {
     }
     
     func showKeyboard() {
-        self.pwTextField.becomeFirstResponder()
+        DispatchQueue.main.async {
+            self.pwTextField.becomeFirstResponder()
+        }
+    }
+    
+    func hideKeyboard() {
+        DispatchQueue.main.async {
+            self.pwTextField.resignFirstResponder()
+        }
     }
 }
