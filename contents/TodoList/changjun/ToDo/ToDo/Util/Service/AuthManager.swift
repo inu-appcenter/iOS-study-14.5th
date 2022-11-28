@@ -26,7 +26,7 @@ final class AuthManager {
     // MARK: - Properties
     var isMemberLoggedIn: Bool {
         get {
-            UserDefaults.standard.data(forKey: UserDefaultsKey.authResponse) != nil
+            UserDefaults.standard.data(forKey: UserDefaultsKey.lastValidAuth) != nil
         }
     }
     
