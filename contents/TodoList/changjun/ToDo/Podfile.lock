@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Hero (1.6.2)
+  - Hue (5.0.0)
+  - KDCircularProgress (1.5.4)
+  - lottie-ios (3.4.4)
+  - SkyFloatingLabelTextField (4.0.0)
+  - SnapKit (5.6.0)
+  - SwipeCellKit (2.7.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Hero (~> 1.6.2)
+  - Hue
+  - KDCircularProgress
+  - lottie-ios (~> 3.4.4)
+  - SkyFloatingLabelTextField
+  - SnapKit (~> 5.6.0)
+  - SwipeCellKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Hero
+    - Hue
+    - KDCircularProgress
+    - lottie-ios
+    - SkyFloatingLabelTextField
+    - SnapKit
+    - SwipeCellKit
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Hero: c69009dbc9e2f0472e081adc644dba05fcedae72
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  KDCircularProgress: 98200c6b8e85d22bc04eb644721d3b1e12b0686b
+  lottie-ios: 8f97d3271e155c2d688875c29cd3c74908aef5f8
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
+
+PODFILE CHECKSUM: 83c28fed9678d4cad5b7fb62aada4ae49d11f79f
+
+COCOAPODS: 1.11.3

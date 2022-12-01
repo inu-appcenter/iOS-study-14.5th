@@ -50,15 +50,18 @@ final class AuthManager {
     
     /// 저장된 토큰이 valid한지 체크합니다. Invalid하다면 새로운 토큰을 발급 받습니다.
     func validateToken() -> String? {
+        print("Validating token.")
         var validToken: String?
         guard let data = UserDefaults.standard.data(forKey: UserDefaultsKey.authResponse) else {
+            print("No AuthResponse in UserDefaults")
             return nil
         }
-        guard let decodedToDo = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+        guard let decodedAuthResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+            print("Failed decoding AuthResponse")
             return nil
         }
         let urlString = BaseURL.baseURL + PathURL.checkToken
-        let headers = HTTPHeaders([HTTPHeader(name: Header.authToken, value: decodedToDo.token)])
+        let headers = HTTPHeaders([HTTPHeader(name: Header.authToken, value: decodedAuthResponse.token)])
         AF.request(
             urlString,
             method: .get,
@@ -68,8 +71,10 @@ final class AuthManager {
             .response { response in
                 switch response.result {
                 case .success(_): // Token Valid
-                    validToken = decodedToDo.token
+                    print("Success")
+                    validToken = decodedAuthResponse.token
                 case .failure(_): // Token Invalid
+                    print("Failure")
                     validToken = self.refreshToken()
                 }
             }
@@ -107,6 +112,7 @@ final class AuthManager {
         with auth: Auth,
         completion: @escaping ((Result<AuthResponse, AFError>, AuthResponse?) -> Void)
     ) {
+        print("Requesting Sign-In.")
         let urlString = BaseURL.baseURL + PathURL.login
         let param = self.createSignInParam(with: auth)
         AF.request(
@@ -120,6 +126,10 @@ final class AuthManager {
             .responseDecodable(of: AuthResponse.self) { response in
                 switch response.result {
                 case .success(let successResponse):
+                    if let encodedAuthResponse = try? JSONEncoder().encode(successResponse) {
+                        print("Saving authResponse")
+                        UserDefaults.standard.set(encodedAuthResponse, forKey: UserDefaultsKey.authResponse)
+                    }
                     print("Success Sign-In: \(successResponse)")
                 case .failure(let error):
                     print("Failed Sign-In: \(error)")
@@ -150,6 +160,7 @@ private extension AuthManager {
     
     /// 토큰 갱신 (UserDefaults의 user에)
     func refreshToken() -> String? {
+        print("Refreshing token.")
         var token: String?
         guard let lastValidAuth = UserDefaults.standard.data(forKey: UserDefaultsKey.lastValidAuth) else {
             return nil
